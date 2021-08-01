@@ -14,12 +14,16 @@ app.use(bodyParser.urlencoded({
 
 
 app.get("/", function(req, res){
-    res.render("dashboard");
+    res.render("landing");
   });
 
 
 app.get("/user", function(req, res){
-    res.render("user.ejs");
+    res.render("user");
+  });
+
+app.get("/dashboard", function(req, res){
+    res.render("dashboard");
   });
 
 
