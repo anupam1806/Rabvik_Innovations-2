@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal/IP Question</title>
+    <link rel="stylesheet" href="/assets/css/questionnaire.css">
+
+</head>
+<body>
+    <div class="question-nav">
+        <a href="/questionnaire/generic" class="question-link">Generic</a>
+        <a href="/questionnaire/business" class="question-link">Business</a>
+        <a href="/questionnaire/team" class="question-link">Team</a>
+        <a href="/questionnaire/legal" class="question-link">Legal</a>
+        <a href="/questionnaire/market" class="question-link">Market</a>
+    </div>
+    <form action="" class="form">
+        <div class="question-box">
+            <p>
+                <span class="question-num">1</span>
+                Company Started in               
+            </p>
+            <div class="input-container" >
+                <input type="date" name="company-start-date">
+            </div>
+        </div>
+        <div class="question box">
+            <p>
+                <span class="question-num">2</span>
+                Has a legal entity been incorporated? 
+            </p>
+            <div class="input-container">
+                <input type="radio" id="" name="legal-entity" value="100"/>
+                <span for="">Yes</span><br/>
+                <input type="radio" id="" name="legal-entity" value="0"/>
+                <span for="">No</span><br/>
+            </div>
+            <!-- year of incorporation left -->
+        </div>
+        <!-- if above yes then show below-->
+        <div class="question-box">
+            <p>
+                <span class="question-num">3</span>
+                Company Identification Number (CIN)           
+            </p>
+            <div class="input-container" >
+                <input type="number" name="cin" placeholder="21 digit CIN number">
+            </div>
+        </div>
+        <div class="question box">
+            <p>
+                <span class="question-num">4</span>
+                Does the company have external legal advisors?	
+            </p>
+            <div class="input-container">
+                <input type="radio" id="" name="ext-advisor" value="100"/>
+                <span for="">Yes</span><br/>
+                <input type="radio" id="" name="ext-advisor" value="0"/>
+                <span for="">No</span><br/>
+            </div>
+        </div>
+        <div class="question box">
+            <p>
+                <span class="question-num">5</span>
+                Which kind of Intellectual Property (IP) applies to the product/service?            
+            </p>
+            <div class="input-container">
+                <input type="radio" id="" name="kink-of-ip" value=""/>
+                <span for="">Trade Secrets</span><br/>
+                <input type="radio" id="" name="kink-of-ip" value=""/>
+                <span for="">Trademark and/or domain names</span><br/>
+                <input type="radio" id="" name="kink-of-ip" value=""/>
+                <span for="">Copyright</span><br/>
+                <input type="radio" id="" name="kink-of-ip" value=""/>
+                <span for="">Patent</span><br/>
+                <input type="radio" id="" name="kink-of-ip" value=""/>
+                <span for="">Other</span><br/>
+            </div>
+        </div>
+        <div class="question box">
+            <p>
+                <span class="question-num">6</span>
+                What is your current IP status?            
+            </p>
+            <div class="input-container">
+                <input type="radio" id="" name="ip-status" value="0"/>
+                <span for="">Not applicable</span><br/>
+                <input type="radio" id="" name="ip-status" value="75"/>
+                <span for="">IP approval is awaited</span><br/>
+                <input type="radio" id="" name="ip-status" value="125"/>
+                <span for="">IP protection secured at the regional level</span><br/>
+                <input type="radio" id="" name="ip-status" value="150"/>
+                <span for="">IP protection secured at the global level</span><br/>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

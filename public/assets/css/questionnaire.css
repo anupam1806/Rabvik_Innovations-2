@@ -1,0 +1,111 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+h2{
+    margin-bottom: 1em;
+    color: #505050;
+}
+.question-nav{
+    width: 90%;
+    margin: 10px auto;
+    background: #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 3px;
+}
+.question-link{
+    flex: 150px;
+    text-decoration: none;
+    color: #fff;
+    padding: 5px 10px;
+    background: hsla(0, 0%, 100%, 0.1);
+    margin: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    border-radius: 3px;
+}
+.question-link:hover{
+    text-decoration: none;
+    color: #000;
+    background: #f0f0f0;
+}
+.form{
+    width: 90%;
+    padding: 1em;
+    margin: 1em auto;
+    background: #fff;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+.question-box{
+    margin-bottom: 1em;
+}
+.question-box > *{
+    margin-bottom: 1em;
+}
+p{
+    font-weight: 500;
+}
+p > .question-num{
+    font-weight: 600;
+    margin-right: .5em;
+}
+p > .question-num::after{
+    content: '.';
+}
+textarea{
+    width: 100%;
+    max-width: 25em;
+}
+
+input,
+select{
+    margin: 2px 5px;
+    padding: 3px;
+}
+.add-btn{
+    margin-left: 5px;
+    background: none;
+    border: none;
+    background: #01afba;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+}
+@media (max-width:600px) {
+    .input-container input{
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    .add-btn{
+        width: 100%;
+    }
+}
+.btn-container{
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+.submit-btn{
+    width: min(100%,20em);
+    background: none;
+    border: none;
+    background: #0081a8;
+    border-radius: 3px;
+    padding: 5px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
