@@ -18,6 +18,8 @@
   <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
 
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/questionnaire.css">
+
 </head>
 
 <body class="">
@@ -132,188 +134,106 @@
         </div>
       </nav>
       <!-- End Navbar -->
+
       <div class="content">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-globe text-warning"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Capacity</p>
-                      <p class="card-title">150GB<p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  Update Now
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-money-coins text-success"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Revenue</p>
-                      <p class="card-title">$ 1,345<p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar-o"></i>
-                  Last day
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-vector text-danger"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Errors</p>
-                      <p class="card-title">23<p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-clock-o"></i>
-                  In the last hour
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-favourite-28 text-primary"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Followers</p>
-                      <p class="card-title">+45K<p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  Update now
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="question-nav">
+            <a href="/questionnaire/generic" class="question-link">Generic</a>
+            <a href="/questionnaire/business" class="question-link">Business</a>
+            <a href="/questionnaire/team" class="question-link">Team</a>
+            <a href="/questionnaire/legal" class="question-link">Legal</a>
+            <a href="/questionnaire/market" class="question-link">Market</a>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card ">
-              <div class="card-header ">
-                <h5 class="card-title">Users Behavior</h5>
-                <p class="card-category">24 Hours performance</p>
-              </div>
-              <div class="card-body ">
-                <canvas id=chartHours width="400" height="100"></canvas>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-history"></i> Updated 3 minutes ago
+        <form action="" class="form">
+            <div class="question-box">
+                <p>
+                    <span class="question-num">1</span>
+                    Company Started in               
+                </p>
+                <div class="input-container" >
+                    <input type="date" name="company-start-date">
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card ">
-              <div class="card-header ">
-                <h5 class="card-title">Email Statistics</h5>
-                <p class="card-category">Last Campaign Performance</p>
-              </div>
-              <div class="card-body ">
-                <canvas id="chartEmail"></canvas>
-              </div>
-              <div class="card-footer ">
-                <div class="legend">
-                  <i class="fa fa-circle text-primary"></i> Opened
-                  <i class="fa fa-circle text-warning"></i> Read
-                  <i class="fa fa-circle text-danger"></i> Deleted
-                  <i class="fa fa-circle text-gray"></i> Unopened
+            <div class="question box">
+                <p>
+                    <span class="question-num">2</span>
+                    Has a legal entity been incorporated? 
+                </p>
+                <div class="input-container">
+                    <input type="radio" id="" name="legal-entity" value="100"/>
+                    <span for="">Yes</span><br/>
+                    <input type="radio" id="" name="legal-entity" value="0"/>
+                    <span for="">No</span><br/>
                 </div>
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar"></i> Number of emails sent
-                </div>
-              </div>
+                <!-- year of incorporation left -->
             </div>
-          </div>
-          <div class="col-md-8">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-title">NASDAQ: AAPL</h5>
-                <p class="card-category">Line Chart with Points</p>
-              </div>
-              <div class="card-body">
-                <canvas id="speedChart" width="400" height="100"></canvas>
-              </div>
-              <div class="card-footer">
-                <div class="chart-legend">
-                  <i class="fa fa-circle text-info"></i> Tesla Model S
-                  <i class="fa fa-circle text-warning"></i> BMW 5 Series
+            <!-- if above yes then show below-->
+            <div class="question-box">
+                <p>
+                    <span class="question-num">3</span>
+                    Company Identification Number (CIN)           
+                </p>
+                <div class="input-container" >
+                    <input type="number" name="cin" placeholder="21 digit CIN number">
                 </div>
-                <hr />
-                <div class="card-stats">
-                  <i class="fa fa-check"></i> Data information certified
-                </div>
-              </div>
             </div>
+            <div class="question box">
+                <p>
+                    <span class="question-num">4</span>
+                    Does the company have external legal advisors?	
+                </p>
+                <div class="input-container">
+                    <input type="radio" id="" name="ext-advisor" value="100"/>
+                    <span for="">Yes</span><br/>
+                    <input type="radio" id="" name="ext-advisor" value="0"/>
+                    <span for="">No</span><br/>
+                </div>
+            </div>
+            <div class="question box">
+                <p>
+                    <span class="question-num">5</span>
+                    Which kind of Intellectual Property (IP) applies to the product/service?            
+                </p>
+                <div class="input-container">
+                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <span for="">Trade Secrets</span><br/>
+                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <span for="">Trademark and/or domain names</span><br/>
+                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <span for="">Copyright</span><br/>
+                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <span for="">Patent</span><br/>
+                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <span for="">Other</span><br/>
+                </div>
+            </div>
+            <div class="question box">
+                <p>
+                    <span class="question-num">6</span>
+                    What is your current IP status?            
+                </p>
+                <div class="input-container">
+                    <input type="radio" id="" name="ip-status" value="0"/>
+                    <span for="">Not applicable</span><br/>
+                    <input type="radio" id="" name="ip-status" value="75"/>
+                    <span for="">IP approval is awaited</span><br/>
+                    <input type="radio" id="" name="ip-status" value="125"/>
+                    <span for="">IP protection secured at the regional level</span><br/>
+                    <input type="radio" id="" name="ip-status" value="150"/>
+                    <span for="">IP protection secured at the global level</span><br/>
+                </div>
+            </div>
+            <div class="btn-container" >
+              <button class="submit-btn" type="submit" >Submit Your Answers</button>
           </div>
-        </div>
+        </form>
       </div>
+
+      <!-- footer start -->
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
           <div class="row">
             <nav class="footer-nav">
-              <!-- <ul>
-                <li><a href="https://www.creative-tim.com" target="_blank">Creative Tim</a></li>
-                <li><a href="https://www.creative-tim.com/blog" target="_blank">Blog</a></li>
-                <li><a href="https://www.creative-tim.com/license" target="_blank">Licenses</a></li>
-              </ul> -->
+              
             </nav>
             <div class="credits ml-auto">
               <span class="copyright">
@@ -341,6 +261,7 @@
 
   <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
   <script src="../assets/demo/demo.js"></script>
+
   <script>
     $(document).ready(function() {
       demo.initChartsPages();

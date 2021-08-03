@@ -6,8 +6,9 @@ const mongoose = require("mongoose");
 const app = express();
 
 app.use(express.static("public"));
+app.use(express.json());
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({
+app.use(express.urlencoded({
   extended: true
 }));
 
@@ -17,15 +18,16 @@ app.get("/", function(req, res){
     res.render("login");
   });
 
-
 app.get("/user", function(req, res){
     res.render("user");
   });
 
 app.get("/dashboard", function(req, res){
     res.render("dashboard");
-  });
+});
 
+
+app.use('/questionnaire', require('./routes/question-route'));
 
 
 app.listen(process.env.PORT || 3000, function(){
