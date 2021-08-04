@@ -18,19 +18,21 @@
   <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
 
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/questionnaire.css">
+
 </head>
 
 <body class="">
   <div class="wrapper ">
     <div class="sidebar" data-color="white" data-active-color="danger">
       <div class="logo">
-        <a href="" class="simple-text logo-mini">
+        <a href="https://www.creative-tim.com" class="simple-text logo-mini">
           <div class="logo-image-small">
             <img src="../assets/img/logo-small.png">
           </div>
           <!-- <p>CT</p> -->
         </a>
-        <a href="" class="simple-text logo-normal">
+        <a href="https://www.creative-tim.com" class="simple-text logo-normal">
           StartUp
           <!-- <div class="logo-image-big">
             <img src="../assets/img/logo-big.png">
@@ -39,21 +41,21 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li class="active ">
+          <li>
             <a href="/dashboard">
               <i class="nc-icon nc-bank"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li>
+          <li class="active">
             <a href="./questionnaire">
-              <i class="nc-icon nc-bullet-list-67"></i>
+              <i class="nc-icon nc-diamond"></i>
               <p>Questionnaire</p>
             </a>
           </li>
           
           <li>
-            <a href="./notifications.html">
+            <a href="./financial">
               <i class="nc-icon nc-bell-55"></i>
               <p>Financial</p>
             </a>
@@ -132,179 +134,144 @@
         </div>
       </nav>
       <!-- End Navbar -->
+
       <div class="content">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-globe text-warning"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Capacity</p>
-                      <p class="card-title">150GB<p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  Update Now
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-money-coins text-success"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Revenue</p>
-                      <p class="card-title">$ 1,345<p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar-o"></i>
-                  Last day
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-vector text-danger"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Errors</p>
-                      <p class="card-title">23<p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-clock-o"></i>
-                  In the last hour
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 col-sm-6">
-            <div class="card card-stats">
-              <div class="card-body ">
-                <div class="row">
-                  <div class="col-5 col-md-4">
-                    <div class="icon-big text-center icon-warning">
-                      <i class="nc-icon nc-favourite-28 text-primary"></i>
-                    </div>
-                  </div>
-                  <div class="col-7 col-md-8">
-                    <div class="numbers">
-                      <p class="card-category">Followers</p>
-                      <p class="card-title">+45K<p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-refresh"></i>
-                  Update now
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="question-nav">
+            <a href="/questionnaire/generic" class="question-link">Generic</a>
+            <a href="/questionnaire/business" class="question-link">Business</a>
+            <a href="/questionnaire/team" class="question-link">Team</a>
+            <a href="/questionnaire/legal" class="question-link">Legal</a>
+            <a href="/questionnaire/market" class="question-link">Market</a>
         </div>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card ">
-              <div class="card-header ">
-                <h5 class="card-title">Users Behavior</h5>
-                <p class="card-category">24 Hours performance</p>
-              </div>
-              <div class="card-body ">
-                <canvas id=chartHours width="400" height="100"></canvas>
-              </div>
-              <div class="card-footer ">
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-history"></i> Updated 3 minutes ago
-                </div>
-              </div>
+        <form class="form">
+            <div class="question-box">
+                <p class="question-para">
+                    <span class="question-num">1</span>
+                    Which sector or industry does your business belong to?
+                </p>
+                <select name="sector" class="sector-select"></select>
             </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card ">
-              <div class="card-header ">
-                <h5 class="card-title">Email Statistics</h5>
-                <p class="card-category">Last Campaign Performance</p>
-              </div>
-              <div class="card-body ">
-                <canvas id="chartEmail"></canvas>
-              </div>
-              <div class="card-footer ">
-                <div class="legend">
-                  <i class="fa fa-circle text-primary"></i> Opened
-                  <i class="fa fa-circle text-warning"></i> Read
-                  <i class="fa fa-circle text-danger"></i> Deleted
-                  <i class="fa fa-circle text-gray"></i> Unopened
-                </div>
-                <hr>
-                <div class="stats">
-                  <i class="fa fa-calendar"></i> Number of emails sent
-                </div>
-              </div>
+            <div class="question-box">
+                <p class="question-para">
+                    <span class="question-num">2</span>
+                    What type of business activity does your start-up engage in?            
+                </p>
+                <select name="business" class="business-select"></select>
             </div>
-          </div>
-          <div class="col-md-8">
-            <div class="card card-chart">
-              <div class="card-header">
-                <h5 class="card-title">NASDAQ: AAPL</h5>
-                <p class="card-category">Line Chart with Points</p>
-              </div>
-              <div class="card-body">
-                <canvas id="speedChart" width="400" height="100"></canvas>
-              </div>
-              <div class="card-footer">
-                <div class="chart-legend">
-                  <i class="fa fa-circle text-info"></i> Tesla Model S
-                  <i class="fa fa-circle text-warning"></i> BMW 5 Series
-                </div>
-                <hr />
-                <div class="card-stats">
-                  <i class="fa fa-check"></i> Data information certified
-                </div>
-              </div>
+            <div class="question-box">
+                <p class="question-para">
+                    <span class="question-num">3</span>
+                    Which market category does your business target?            
+                </p>
+                <select name="market" class="market-select"></select>
             </div>
-          </div>
-        </div>
+            <div class="question-box">
+                <p class="question-para">
+                    <span class="question-num">4</span>
+                    What is your current Stage of Development?         
+                </p>
+                <select name="stage" class="stage-select"></select>
+            </div>
+            <div class="question-box">
+                <p class="question-para">
+                    <span class="question-num">5</span>
+                    What type of products/services do you manufacture/provide?   
+                </p>
+                <select name="service" class="service-select"></select>
+            </div>
+            <div class="question-box">
+                <p class="question-para">
+                    <span class="question-num">6</span>
+                    What is the mission of your start-up?
+                </p>
+                <textarea name="mission" rows="3" ></textarea>
+            </div>
+            <div class="question-box">
+                <p>
+                    <span class="question-num">7</span>
+                    What is the number of founder ? 
+                </p>
+                <div class="input-container" >
+                    <input name="founderNum" type="number" min="0" placeholder="Num. of founders" />
+                </div>
+            </div>
+            <div class="question-box">
+                <p>
+                    <span class="question-num">8</span>
+                    Give us some background on them. 
+                </p>
+                <ol class="founder-list" ></ol>
+                <div class="input-container" >
+                    <input type="text" class="founder-input" placeholder="LinkedIn Link" />
+                </div>
+                <button class="add-btn add-founder-btn">Add Link</button>
+            </div>
+            <div class="question-box">
+                <p>
+                    <span class="question-num">9</span>
+                    What is the number of permanent employees?            
+                </p>
+                <div class="input-container" >
+                    <input name="employeeNum" type="number" min="0" placeholder="Num. of employee" />
+                </div>
+            </div>
+            <div class="question-box">
+                <p>
+                    <span class="question-num">10</span>
+                    Give us some background on them. 
+                </p>
+                <ol class="employee-list" ></ol>
+                <div class="input-container" >
+                    <input type="text" class="employee-input" placeholder="LinkedIn Link" />
+                </div>
+                <button class="add-btn add-employee-btn">Add Link</button>
+            </div>
+            <div class="question-box">
+                <p>
+                    <span class="question-num">11</span>
+                    Committed Capital, <span>if any</span>
+                </p>
+                <div class="input-container" >
+                    <input name="commited-capital" type="number" min="0" placeholder="Number (INR)"/>
+                </div>
+            </div>
+            <div class="question-box">
+                <p>
+                    <span class="question-num">12</span>
+                    Which type of funding are you targeting?
+                </p>
+                <div class="input-container" >
+                    <input name="target-funding" type="number" min="0" placeholder="Number (INR)" />
+                </div>
+            </div>
+            <div class="question-box">
+                <p>
+                    <span class="question-num">13</span>
+                     What is the current ownership status of your start-up?
+                </p>
+                <div class="input-container" >
+                    <input name="owner-name" type="text" placeholder="Name of the owner" /> 
+                    <input name="owner-percentage" type="number" min="0" placeholder="Percentage"/>
+                </div>
+            </div>
+            <div class="question-box">
+                <p>
+                    <span class="question-num">14</span>
+                    Give us some background on the past funding rounds of your start-up?
+                </p>
+                <div class="input-container" >
+                    <input name="past-owner" type="text" placeholder="Name of the owner" /> 
+                    <input name="past-percentage" type="number" min="0" placeholder="Percentage"/>
+                </div>
+            </div>
+            <div class="btn-container" >
+                <button class="submit-btn" type="submit" >Submit Your Answers</button>
+            </div>
+    
+        </form>
       </div>
+
+      <!-- footer start -->
       <footer class="footer footer-black  footer-white ">
         <div class="container-fluid">
           <div class="row">
@@ -341,6 +308,8 @@
 
   <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
   <script src="../assets/demo/demo.js"></script>
+  <script src="../assets/js/generic.js"></script>
+
   <script>
     $(document).ready(function() {
       demo.initChartsPages();
