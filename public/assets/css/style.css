@@ -221,11 +221,10 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px 0 10px 30px;
+  padding: 10px 30px 10px 30px;
   font-family: "Nunito", sans-serif;
   font-size: 16px;
   font-weight: 700;
-  color: #013289;
   white-space: nowrap;
   transition: 0.3s;
 }
