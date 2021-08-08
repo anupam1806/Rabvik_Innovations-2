@@ -37,13 +37,15 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="getstarted scrollto" href="" data-toggle="modal" data-target="#elegantModalForm">Login</a></li>
-<li><a class="getstarted scrollto"  href="" data-toggle="modal" data-target="#elegantModalForm1">Sign Up</a></li>
+          <li><a class="getstarted scrollto"  href="" data-toggle="modal" data-target="#elegantModalForm1">Sign Up</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
 
     </div>
   </header>
+
+  
 <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -59,23 +61,26 @@
       <!--Body-->
       <div class="modal-body mx-4">
         <!--Body-->
+
+        <form class="" action="/log" method="post">
         <div class="md-form mb-3">
-          <input type="email" id="Form-email1" class="form-control validate" required>
-          <label data-error="wrong" data-success="right" for="Form-email1">Company ID or Email</label>
+          <input type="email" id="Form-email1" class="form-control validate" name="username" required>
+          <label data-error="wrong" data-success="right" for="Form-email1">Company ID or Email <span style="color: red;">*</span></label>
         </div>
 
         <div class="md-form pb-3">
-          <input type="password" id="Form-pass1" class="form-control validate" required>
-          <label data-error="wrong" data-success="right" for="Form-pass1">Your password</label>
+          <input type="password" id="Form-pass1" class="form-control validate" name="password" required>
+          <label data-error="wrong" data-success="right" for="Form-pass1">Your password <span style="color: red;">*</span></label>
           <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
               Password?</a></p>
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" class="btn blue-gradient btn-primary btn-block btn-rounded z-depth-1a">Sign in</button>
+          <button type="submit" name="button" class="btn blue-gradient btn-primary btn-block btn-rounded z-depth-1a">Sign in</button>
         </div>
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in
           with:</p>
+        </form>
 
         <div class="row my-3 d-flex justify-content-center">
           <!--Facebook-->
@@ -113,25 +118,28 @@
       <!--Body-->
       <div class="modal-body mx-4">
         <!--Body-->
+
+        <form class="" action="/register" method="post">
         <div class="md-form mb-3">
-          <input type="email" id="Form-email1" class="form-control validate" required>
-          <label data-error="wrong" data-success="right" for="Form-email1">Work email address</label>
+          <input type="email" id="Form-email1" class="form-control validate" name="username" required >
+          <label data-error="wrong" data-success="right" for="Form-email1">Work email address <span style="color: red;">*</span></label>
         </div>
 
         <div class="md-form pb-3">
-          <input type="password" id="Form-pass1" class="form-control validate" required>
-          <label data-error="wrong" data-success="right" for="Form-pass1">Password</label>
+          <input type="password" id="Form-pass1" class="form-control validate" name="password" required>
+          <label data-error="wrong" data-success="right" for="Form-pass1" >Password <span style="color: red;">*</span></label>
           <!-- <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
               Password?</a></p> -->
               <input type="password" id="Form-pass2" class="form-control validate" required>
-              <label data-error="wrong" data-success="right" for="Form-pass2">Confirm password</label> 
+              <label data-error="wrong" data-success="right" for="Form-pass2">Confirm password <span style="color: red;">*</span></label> 
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" class="btn btn-primary blue-gradient btn-block btn-rounded z-depth-1a">Sign Up</button>
+          <button type="submit" name="button" class="btn btn-primary blue-gradient btn-block btn-rounded z-depth-1a">Sign Up</button>
         </div>
         <p class="font-small text-right d-flex justify-content-center mb-3 pt-2"> or Sign up
           with:</p>
+        </form>
 
         <div class="row my-3 d-flex justify-content-center">
             <a href="https://www.google.com" class="btn btn-white btn-rounded mr-md-3 z-depth-1a"><i class="fab fa-google-plus-g" style="height: 25px;"></i></a>

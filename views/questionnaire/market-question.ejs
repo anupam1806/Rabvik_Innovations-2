@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Rabvik
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../assets/css/paper-dashboard.css?v=2.0.1" rel="stylesheet" />
+
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/questionnaire.css">
+
+</head>
+
+<body class="">
+  <div class="wrapper ">
+    <div class="sidebar" data-color="white" data-active-color="danger">
+      <div class="logo">
+        <a href="https://www.creative-tim.com" class="simple-text logo-mini">
+          <div class="logo-image-small">
+            <img src="../assets/img/logo-small.png">
+          </div>
+          <!-- <p>CT</p> -->
+        </a>
+        <a href="https://www.creative-tim.com" class="simple-text logo-normal">
+          StartUp
+          <!-- <div class="logo-image-big">
+            <img src="../assets/img/logo-big.png">
+          </div> -->
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+
+          <li>
+
+          <li class="active ">
+
+            <a href="/dashboard">
+              <i class="nc-icon nc-bank"></i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+
+          <li class="active">
+
+          <li>
+
+            <a href="./questionnaire">
+              <i class="nc-icon nc-diamond"></i>
+              <p>Questionnaire</p>
+            </a>
+          </li>
+          
+          <li>
+            <a href="./financial">
+              <i class="nc-icon nc-bell-55"></i>
+              <p>Financial</p>
+            </a>
+          </li>
+          <li>
+            <a href="/user">
+              <i class="nc-icon nc-single-02"></i>
+              <p>Company Profile</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-absolute fixed-top navbar-transparent">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <div class="navbar-toggle">
+              <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </button>
+            </div>
+            <a class="navbar-brand" href="javascript:;">Rabvik Innovations</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+            <span class="navbar-toggler-bar navbar-kebab"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <form>
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <i class="nc-icon nc-zoom-split"></i>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link btn-magnify" href="javascript:;">
+                  <i class="nc-icon nc-layout-11"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Stats</span>
+                  </p>
+                </a>
+              </li>
+              <li class="nav-item btn-rotate dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="nc-icon nc-bell-55"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Some Actions</span>
+                  </p>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" href="#">Action</a>
+                  <a class="dropdown-item" href="#">Another action</a>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link btn-rotate" href="javascript:;">
+                  <i class="nc-icon nc-settings-gear-65"></i>
+                  <p>
+                    <span class="d-lg-none d-md-block">Account</span>
+                  </p>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+
+      <div class="content">
+        <div class="question-nav">
+            <a href="/questionnaire/generic" class="question-link">Generic</a>
+            <a href="/questionnaire/business" class="question-link">Business</a>
+            <a href="/questionnaire/team" class="question-link">Team</a>
+            <a href="/questionnaire/legal" class="question-link">Legal</a>
+            <a href="/questionnaire/market" class="question-link">Market</a>
+        </div>
+        <form action="" class="form">
+            <div class="question-box">
+                <p>
+                    <span class="question-num">1</span>
+                    What is the current size of your Total Addressable Market (TAM), in monetary terms?	
+                </p>
+                <div class="input-container" >
+                    <input name="tam-size" type="number" min="0" />
+                </div>
+                <span class="info-text" style="color: #828282; font-weight: 600; font-style: italic;">
+                    *TAM:Value of the potential customers all over the world with the need the company is addressing
+                </span>
+            </div>
+            <div class="question-box">
+                <p>
+                    <span class="question-num">2</span>
+                    What is the annual growth rate of this market?
+                </p>
+                <div class="input-container" >
+                    <input name="growth-rate" type="number" min="0" placeholder="percentage" />
+                </div>
+            </div>
+    
+            <h2>Competitions</h2>
+            <div class="question box">
+                <p>
+                    <span class="question-num">3</span>
+                    How high are the barriers to entry of the market the company is targeting for potential competitors?	            </p>
+                <div class="input-container">
+                    <input type="radio" id="" name="entry-barrier" value="150"/>
+                    <span for="">Very low</span><br/>
+                    <input type="radio" id="" name="entry-barrier" value="125"/>
+                    <span for="">Low</span><br/>
+                    <input type="radio" id="" name="entry-barrier" value="100"/>
+                    <span for="">Modest</span><br/>
+                    <input type="radio" id="" name="entry-barrier" value="50"/>
+                    <span for="">High</span><br/>
+                    <input type="radio" id="" name="entry-barrier" value="25"/>
+                    <span for="">Very High</span><br/>
+                </div>
+            </div>
+            <div class="question box">
+                <p>
+                    <span class="question-num">4</span>
+                        How would you define the level of competition in your targeted market?
+                    <div class="input-container">
+                        <input type="radio" id="" name="competition-level" value="25"/>
+                        <span for="">Dominated by a single player</span><br/>
+                        <input type="radio" id="" name="competition-level" value="50"/>
+                        <span for="">Dominated by several players</span><br/>
+                        <input type="radio" id="" name="competition-level" value="75"/>
+                        <span for="">Many small players</span><br/>
+                        <input type="radio" id="" name="competition-level" value="100"/>
+                        <span for="">Some small players</span><br/>
+                        <input type="radio" id="" name="competition-level" value="125"/>
+                        <span for="">Blue ocean (negligible competition)</span><br/>
+                </div>
+            </div>
+            <div class="question box">
+                <p>
+                    <span class="question-num">5</span>
+                        Existing competitive products/services are:
+                    <div class="input-container">
+                        <input type="radio" id="" name="competitive-service" value="50"/>
+                        <span for="">Excellent</span><br/>
+                        <input type="radio" id="" name="competitive-service" value="100"/>
+                        <span for="">Good</span><br/>
+                        <input type="radio" id="" name="competitive-service" value="125"/>
+                        <span for="">Weak</span><br/>  
+                </div>
+            </div>
+            <div class="question box">
+                <p>
+                    <span class="question-num">6</span>
+                        How would you define your product/service compared to the ones of existing competitors?	
+                    <div class="input-container">
+                        <input type="radio" id="" name="your-service" value="75"/>
+                        <span for="">Comparable</span><br/>
+                        <input type="radio" id="" name="your-service" value="100"/>
+                        <span for="">Comparable, but we innovate in terms of marketing proposition/USP</span><br/>
+                        <input type="radio" id="" name="your-service" value="125"/>
+                        <span for="">Comparable, but radically innovative in terms of execution (e.g. costs, manufacturing, etc.)</span><br/>  
+                        <input type="radio" id="" name="your-service" value="150"/>
+                        <span for="">Current products solve the same needs with a non comparable solution</span><br/>
+                </div>
+            </div>
+            <h2>Testing, UX, and Market Response </h2>
+            <div class="question box">
+                <p>
+                    <span class="question-num">7</span>
+                        Have you already tested the customer demand?
+                    <div class="input-container">
+                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                        <span for="">No, not yet</span><br/>
+                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                        <span for="">Not tested yet, but comparable products (e.g. in the domestic market / foreign countries) were successful</span><br/>
+                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                        <span for="">Yes, we have tested possible customer demand and have not generated initial product revenues yet</span><br/>  
+                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                        <span for="">Yes, we have tested possible customer demand and have generated product revenues
+                        </span><br/>  
+                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                    </div>
+            </div>
+            <div class="question box">
+                <p>
+                    <span class="question-num">8</span>
+                        How is the average trend of feedback received so far from early adopters/industry experts?
+                    <div class="input-container">
+                        <input type="radio" id="" name="feedback" value=""/>
+                        <span for="">Mainly negative</span><br/>
+                        <input type="radio" id="" name="feedback" value=""/>
+                        <span for="">Fairly negative</span><br/>
+                        <input type="radio" id="" name="feedback" value=""/>
+                        <span for="">Fairly positive</span><br/>  
+                        <input type="radio" id="" name="feedback" value=""/>
+                        <span for="">Mainly positive</span><br/>  
+                        <input type="radio" id="" name="feedback" value=""/>
+                        <span for="">All positive</span><br/>  
+                </div>
+            </div>
+            <div class="question box">
+                <p>
+                    <span class="question-num">9</span>
+                        How would you define the degree of loyalty of your customers?
+                    <div class="input-container">
+                        <input type="radio" id="" name="customer-loyalty" value=""/>
+                        <span for="">Still to be tested or under testing</span><br/>
+                        <input type="radio" id="" name="customer-loyalty" value=""/>
+                        <span for="">Low retention: the business model requires time to develop higher retention</span><br/>
+                        <input type="radio" id="" name="customer-loyalty" value=""/>
+                        <span for="">Average retention: already at a good level and can be further improved</span><br/>  
+                        <input type="radio" id="" name="customer-loyalty" value=""/>
+                        <span for="">High retention: high level of loyalty already developed with customers</span><br/>  
+                </div>
+            </div>
+            <div class="question box">
+                <p>
+                    <span class="question-num">10</span>
+                        How strong are the relationships with key strategic partners (including distributors, suppliers)?
+                    <div class="input-container">
+                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <span for="">No partners contacted so far</span><br/>
+                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <span for="">We identified and contacted them</span><br/>
+                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <span for="">Informal agreements already in place</span><br/>  
+                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <span for="">Contracts signed</span><br/>  
+                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <span for="">Contracts signed and serving high volumes</span><br/>  
+                </div>
+            </div>
+            <div class="btn-container" >
+              <button class="submit-btn" type="submit" >Submit Your Answers</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- footer start -->
+      <footer class="footer footer-black  footer-white ">
+        <div class="container-fluid">
+          <div class="row">
+            <nav class="footer-nav">
+              
+            </nav>
+            <div class="credits ml-auto">
+              <span class="copyright">
+                © <script>
+                  document.write(new Date().getFullYear())
+                </script> made by Rabvik
+              </span>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script src="../assets/js/core/jquery.min.js"></script>
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+
+  <script src="../assets/js/plugins/chartjs.min.js"></script>
+
+  <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+
+  <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
+  <script src="../assets/demo/demo.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      demo.initChartsPages();
+    });
+  </script>
+</body>
+
+</html>
