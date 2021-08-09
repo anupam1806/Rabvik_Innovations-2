@@ -4,16 +4,13 @@
     padding: 0;
     box-sizing: border-box;
 }
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-}
 h2{
     margin-bottom: 1em;
     color: #505050;
 }
 .question-nav{
-    width: 90%;
+    width: 100%;
     margin: 10px auto;
     background: #333;
     display: flex;
@@ -21,6 +18,10 @@ h2{
     justify-content: space-around;
     align-items: center;
     border-radius: 3px;
+}
+.question-para{
+    font-size: 1rem;
+    font-weight: 600;
 }
 .question-link{
     flex: 150px;
@@ -40,7 +41,7 @@ h2{
     background: #f0f0f0;
 }
 .form{
-    width: 90%;
+    width: 100%;
     padding: 1em;
     margin: 1em auto;
     background: #fff;
@@ -56,11 +57,11 @@ h2{
 p{
     font-weight: 500;
 }
-p > .question-num{
+.question-num{
     font-weight: 600;
     margin-right: .5em;
 }
-p > .question-num::after{
+.question-num::after{
     content: '.';
 }
 textarea{
@@ -68,10 +69,14 @@ textarea{
     max-width: 25em;
 }
 
-input,
-select{
+.question-box  input,
+.question-box select,
+.question-box ul{
     margin: 2px 5px;
     padding: 3px;
+}
+ul{
+    list-style: none;
 }
 .add-btn{
     margin-left: 5px;
@@ -82,7 +87,7 @@ select{
     padding: 5px 10px;
     color: #fff;
     font-weight: 600;
-    font-size: 1rem;
+    font-size: .8rem;
 }
 @media (max-width:600px) {
     .input-container input{
@@ -106,6 +111,6 @@ select{
     border-radius: 3px;
     padding: 5px;
     color: #fff;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 600;
 }
