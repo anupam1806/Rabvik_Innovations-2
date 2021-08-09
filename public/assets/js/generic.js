@@ -1,6 +1,6 @@
 const form = document.querySelector('.form');
 form.addEventListener('submit',(e)=>{
-    e.preventDefault();
+    // e.preventDefault();
 })
 const sectorOptions = [
     '3d printing','Accounting','AdTech','Advisory','Agri-Tech','Agricultural Chemicals',
@@ -130,7 +130,7 @@ addFounderBtn.addEventListener('click',()=>{
         return
     }
     const founderItem = document.createElement('li');
-    founderItem.innerHTML = founderInput.value;
+    founderItem.innerHTML = `${founderInput.value}<input value=${founderInput.value} type='hidden' name='founders[]' />`;
     founderList.appendChild(founderItem);
     founderInput.value='';
 });
@@ -147,5 +147,10 @@ addEmployeeBtn.addEventListener('click',()=>{
     employeeItem.innerHTML = employeeInput.value;
     employeeList.appendChild(employeeItem);
     employeeInput.value='';
+});
+
+const submitBtn = document.querySelector('.submit-btn');
+submitBtn.addEventListener('click',()=>{
+    form.submit();
 });
 
