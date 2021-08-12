@@ -171,8 +171,3 @@ app.post("/log", function(req, res){
 app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
-
-
-// Client Id : 368334907870-fbjd0e76huoaje2jfv9156jq6q7842cv.apps.googleusercontent.com
-
-// Client secret : 0GxO13B6ZcUeKWy2jh-e_x17
