@@ -131,6 +131,10 @@ app.get("/dashboard", function(req, res){
 
 app.use('/questionnaire', require('./routes/question-route'));
 
+app.get('/financial', (req,res)=>{
+  res.render("Financials") ;
+})
+
 app.post("/register", function(req, res){
 
   User.register({username: req.body.username}, req.body.password, function(err, user){
