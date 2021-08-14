@@ -10,16 +10,17 @@ const router = require('express').Router();
 
 
 router.get('/',async(req,res)=>{
-    const genericData =await GenericQuestion.findOne({_id:"611753c7f138c12954b9de82"});
-    console.log(genericData);
-    res.render('./questionnaire/generic-question.ejs',{
-        genericData,
-        sectorOptions,
-        businessActivities,
-        marketCategory, 
-        devStages,
-        services 
-    })
+    res.redirect('/questionnaire/generic')
+    // const genericData =await GenericQuestion.findOne({_id:"611753c7f138c12954b9de82"});
+    // console.log(genericData);
+    // res.render('./questionnaire/generic-question.ejs',{
+    //     genericData,
+    //     sectorOptions,
+    //     businessActivities,
+    //     marketCategory, 
+    //     devStages,
+    //     services 
+    // })
 });
 router.get('/generic',async(req,res)=>{
     const genericData =await GenericQuestion.findOne({_id:"611753c7f138c12954b9de82"});
@@ -56,7 +57,7 @@ router.post('/generic',async(req,res)=>{
         past_percentage : req.body.past_percentage,
     });
     newGenric.save();
-    res.send('Got it')
+    res.redirect('/questionnaire/generic')
 });
 
 router.get('/business',(req,res)=>{
