@@ -22,10 +22,12 @@ app.use(bodyParser.urlencoded({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect(process.env.MONGO_URI_LOCAL,
- {useNewUrlParser: true, useUnifiedTopology: true},
+mongoose.connect(
+  process.env.MONGO_URI_LOCAL,
+ {useNewUrlParser: true, 
+  useUnifiedTopology: true,
+  useCreateIndex:true},
  ()=>console.log('MongoDB is connected !'));
-mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema({
   email: String,
