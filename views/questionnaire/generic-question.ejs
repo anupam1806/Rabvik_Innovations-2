@@ -148,8 +148,8 @@
                     Which sector or industry does your business belong to?
                 </p>
                 <select name="sector" class="sector-select">
-                  <%if(genericData.sector){ %>
-                    <option selected disabled ><%= genericData.sector %></option>
+                  <%if(typeof genericData ==='object'){ %>
+                    <option selected disabled ><%= genericData?.sector%></option>
                   <% } else{ %>
                     <option selected disabled>--Select market category--</option>
                   <% }%>
@@ -164,8 +164,8 @@
                     What type of business activity does your start-up engage in?            
                 </p>
                 <select name="business" class="business-select">
-                  <%if(genericData.business){ %>
-                    <option selected disabled ><%= genericData.business %></option>
+                  <%if(typeof genericData ==='object'){ %>
+                    <option selected disabled ><%= genericData?.business %></option>
                   <% } else{ %>
                     <option selected disabled>--Select market category--</option>
                   <% }%>
@@ -180,8 +180,8 @@
                     Which market category does your business target?            
                 </p>
                 <select name="market" class="market-select">
-                  <%if(genericData.market){ %>
-                    <option selected disabled ><%= genericData.market %></option>
+                  <%if(typeof genericData ==='object'){ %>
+                    <option selected disabled ><%= genericData?.market %></option>
                   <% } else{ %>
                     <option selected disabled>--Select market category--</option>
                   <% }%>
@@ -196,8 +196,8 @@
                     What is your current Stage of Development?         
                 </p>
                 <select name="stage" class="stage-select">
-                  <%if(genericData.stage){ %>
-                    <option selected disabled ><%= genericData.stage %></option>
+                  <%if(typeof genericData ==='object'){ %>
+                    <option selected disabled ><%= genericData?.stage %></option>
                   <% } else{ %>
                     <option selected disabled>--Select market category--</option>
                   <% }%>
@@ -212,8 +212,8 @@
                     What type of products/services do you manufacture/provide?   
                 </p>
                 <select name="service" class="service-select">
-                  <%if(genericData.service){ %>
-                    <option selected disabled ><%= genericData.service %></option>
+                  <%if(typeof genericData ==='object'){ %>
+                    <option selected disabled ><%= genericData?.service %></option>
                   <% } else{ %>
                     <option selected disabled>--Select market category--</option>
                   <% }%>
@@ -227,7 +227,7 @@
                     <span class="question-num">6</span>
                     What is the mission of your start-up?
                 </p>
-                <textarea name="mission" rows="3" ><%= genericData.mission %></textarea>
+                <textarea name="mission" rows="3" ><%= genericData?.mission %></textarea>
             </div>
             <div class="question-box">
                 <p class="question-para">
@@ -235,7 +235,7 @@
                     What is the number of founder ? 
                 </p>
                 <div class="input-container" >
-                    <input name="founderNum" type="number" min="0" value="<%= genericData.founderNum %>" placeholder="Num. of founders" />
+                    <input name="founderNum" type="number" min="0" value="<%= genericData?.founderNum %>" placeholder="Num. of founders" />
                 </div>
             </div>
             <div class="question-box">
@@ -244,7 +244,7 @@
                     Give us some background on them. 
                 </p>
                 <ul class="founder-list" >
-                  <% genericData.founders.forEach(founder=>{ %>
+                  <% genericData?.founders.forEach(founder=>{ %>
                     <li><%= founder %><input value="<%=founder%>" type='hidden' name='founders[]' /></li>
                   <% }) %>
                 </ul>
@@ -259,7 +259,7 @@
                     What is the number of permanent employees?            
                 </p>
                 <div class="input-container" >
-                    <input name="employeeNum" type="number" min="0" value="<%= genericData.employeeNum %>" placeholder="Num. of employee" />
+                    <input name="employeeNum" type="number" min="0" value="<%= genericData?.employeeNum %>" placeholder="Num. of employee" />
                 </div>
             </div>
             <div class="question-box">
@@ -268,7 +268,7 @@
                     Give us some background on them. 
                 </p>
                 <ul class="employee-list" >
-                  <% genericData.employees.forEach(employee=>{ %>
+                  <% genericData?.employees.forEach(employee=>{ %>
                     <li><%= employee %><input value="<%=employee%>" type='hidden' name='employees[]' /></li>
                   <% }) %>
                 </ul>
@@ -283,7 +283,7 @@
                     Committed Capital, <span>if any</span>
                 </p>
                 <div class="input-container" >
-                    <input name="commited_capital" type="number" min="0" value="<%= genericData.commited_capital %>" placeholder="Number (INR)"/>
+                    <input name="commited_capital" type="number" min="0" value="<%= genericData?.commited_capital %>" placeholder="Number (INR)"/>
                 </div>
             </div>
             <div class="question-box">
@@ -292,7 +292,7 @@
                     Which type of funding are you targeting?
                 </p>
                 <div class="input-container" >
-                    <input name="target_funding" type="number" value="<%=genericData.target_funding%>" min="0" placeholder="Number (INR)" />
+                    <input name="target_funding" type="number" value="<%=genericData?.target_funding%>" min="0" placeholder="Number (INR)" />
                 </div>
             </div>
             <div class="question-box">
@@ -301,8 +301,8 @@
                      What is the current ownership status of your start-up?
                 </p>
                 <div class="input-container" >
-                    <input name="owner_name" type="text" value="<%=genericData.owner_name%>" placeholder="Name of the owner" /> 
-                    <input name="owner_percentage" type="number" min="0" value="<%=genericData.owner_percentage%>" placeholder="Percentage"/>
+                    <input name="owner_name" type="text" value="<%=genericData?.owner_name%>" placeholder="Name of the owner" /> 
+                    <input name="owner_percentage" type="number" min="0" value="<%=genericData?.owner_percentage%>" placeholder="Percentage"/>
                 </div>
             </div>
             <div class="question-box">
@@ -311,8 +311,8 @@
                     Give us some background on the past funding rounds of your start-up?
                 </p>
                 <div class="input-container" >
-                    <input name="past_owner" type="text" value="<%=genericData.past_owner%>" placeholder="Name of the owner" /> 
-                    <input name="past_percentage" type="number" min="0" value="<%=genericData.past_percentage%>" placeholder="Percentage"/>
+                    <input name="past_owner" type="text" value="<%=genericData?.past_owner%>" placeholder="Name of the owner" /> 
+                    <input name="past_percentage" type="number" min="0" value="<%=genericData?.past_percentage%>" placeholder="Percentage"/>
                 </div>
             </div>
             <div class="btn-container" >

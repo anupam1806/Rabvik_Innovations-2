@@ -23,7 +23,7 @@ router.get('/',async(req,res)=>{
     // })
 });
 router.get('/generic',async(req,res)=>{
-    const genericData =await GenericQuestion.findOne({_id:"611753c7f138c12954b9de82"});
+    const genericData =await GenericQuestion.findOne({_id:"6117c1562b3fc930d42388ce"});
     // console.log(sectorOptions);
     // res.send(genericData);
     console.log(genericData);
