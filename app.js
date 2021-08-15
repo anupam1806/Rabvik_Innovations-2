@@ -22,7 +22,9 @@ app.use(bodyParser.urlencoded({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://admin-rabvik:Test123@cluster0.thhlu.mongodb.net/userDB", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.MONGO_URI_LOCAL,
+ {useNewUrlParser: true, useUnifiedTopology: true},
+ ()=>console.log('MongoDB is connected !'));
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema({
@@ -177,5 +179,6 @@ app.post("/log", function(req, res){
 
 
 app.listen(process.env.PORT || 3000, function(){
+
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
