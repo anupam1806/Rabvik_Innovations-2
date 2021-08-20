@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
   googleId: String,
   outlookId: String,
   name: String,
-  profile: String
+  profile: String,
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -130,6 +130,8 @@ app.get("/dashboard", function(req, res){
   });
 
 app.use('/questionnaire', require('./routes/question-route'));
+
+
 
 app.get('/financial', (req,res)=>{
   res.render("Financials") ;

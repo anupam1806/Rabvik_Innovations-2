@@ -1,218 +1,237 @@
 <%- include('partials/header') %>
-<div class="sidebar" data-color="white" data-active-color="danger">
-  <div class="logo">
-    <a href="" class="simple-text logo-mini">
-      <div class="logo-image-small">
-        <img src="../assets/img/logo-small.png">
-      </div>
-      <!-- <p>CT</p> -->
-    </a>
-    <label id="emailid" class="simple-text logo-normal">
-      StartUp
-      <!-- <div class="logo-image-big">
-        <img src="../assets/img/logo-big.png">
-      </div> -->
-    </label>
-  </div>
-  <div class="sidebar-wrapper">
-    <ul class="nav">
-      <li>
-        <a href="/dashboard">
-          <i class="nc-icon nc-bank"></i>
-          <p>Dashboard</p>
-        </a>
-      </li>
-      <li>
-        <a href="./questionnaire">
-          <i class="nc-icon nc-bullet-list-67"></i>
-          <p>Questionnaire</p>
-        </a>
-      </li>
-      
-      <li class="active">
-        <a href="./financial">
-          <i class="nc-icon nc-bell-55"></i>
-          <p>Financial</p>
-        </a>
-      </li>
-      <li>
-        <a href="/user">
-          <i class="nc-icon nc-single-02"></i>
-          <p>Company Profile</p>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>
+<%- include('partials/SideBar') %>
       <!-- End Navbar -->
-      <div class="content">
-        <div class="row">
-          <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col">#</th>
-                <th scope="col"></th>
-                <th scope="col">Past Year(Y-1)</th>
-                <th scope="col">Present Year(Y)</th>
-                <th scope="col">Forcast(Y+1)</th>
-                <th scope="col">Forcast(Y+2)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Revenues</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">2</th>
-                <td>Cost Of Goods</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">3</th>
-                <td>Salaries</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">4</th>
-                <td>Operation Cost</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">5</th>
-                <td>EBITDA</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">6</th>
-                <td>D&A</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">7</th>
-                <td>EBIT</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">8</th>
-                <td>Interest</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">9</th>
-                <td>Taxes</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">10</th>
-                <td>Net Profit</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">11</th>
-                <td>Recievealbles</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">12</th>
-                <td>Inventory</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">13</th>
-                <td>Payables</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">14</th>
-                <td>Working Capital</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">15</th>
-                <td>Capital Expenditures</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">16</th>
-                <td>Debt at end of year</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">17</th>
-                <td>Change in Outstanding Debt</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">18</th>
-                <td>Future Funding</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-                <tr>
-                <th scope="row">19</th>
-                <td>Free Cash Flow</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                <td>-</td>
-                </tr>
-            </tbody>
-            </table>
+        <div class="content">
+          <div class="row">
+            <table class="table">
+              <thead class="thead-dark">
+                  <tr>
+                  <th scope="col">#</th>
+                  <th scope="col"></th>
+                  <th scope="col">Past Year(Y-1)</th>
+                  <th scope="col">Present Year(Y)</th>
+                  <th scope="col">Forcast(Y+1)</th>
+                  <th scope="col">Forcast(Y+2)</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                  <th scope="row">1</th>
+                  <td>Revenues</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">2</th>
+                  <td>Cost Of Goods</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">3</th>
+                  <td>Salaries</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">4</th>
+                  <td>Operation Cost</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">5</th>
+                  <td>EBITDA</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">6</th>
+                  <td>D&A</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">7</th>
+                  <td>EBIT</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">8</th>
+                  <td>Interest</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">9</th>
+                  <td>Taxes</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">10</th>
+                  <td>Net Profit</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">11</th>
+                  <td>Recievealbles</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">12</th>
+                  <td>Inventory</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">13</th>
+                  <td>Payables</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">14</th>
+                  <td>Working Capital</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">15</th>
+                  <td>Capital Expenditures</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">16</th>
+                  <td>Debt at end of year</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">17</th>
+                  <td>Change in Outstanding Debt</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">18</th>
+                  <td>Future Funding</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+                  <tr>
+                  <th scope="row">19</th>
+                  <td>Free Cash Flow</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  <td>-</td>
+                  </tr>
+              </tbody>
+              </table>
+          </div>
+          <div class="row mx-10 ">
+            <h2>Last Available Balance Sheet </h2>
+          </div>
+            <div class="row">
+              <div class="col-6">
+                <table class="table">
+                  <thead class="thead-dark">
+                      <tr>
+                      <th scope="col">Assests</th>
+                      <th scpoe="col"></th>
+                      </tr>
+                  </thead> 
+                  <tbody>
+                    <tr>
+                      <td>Cash and Equivalents</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>Tangible Assets</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>Intangible Assets</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>Financial Assets</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>Differed Tax Assets</td>
+                      <td>-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="col-6">
+                <table class="table">
+                  <thead class="thead-dark">
+                      <tr>
+                      <th scope="col">Liabilities</th>
+                      <th scpoe="col"></th>
+                      </tr>
+                  </thead> 
+                  <tbody>
+                    <tr>
+                      <td>Debts Due Within one year time</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>Debts Due beyond one year time</td>
+                      <td>-</td>
+                    </tr>
+                    <tr>
+                      <td>Equity</td>
+                      <td>-</td>
+                    </tr>
+                  </tbody>
+              </div>
+          
+          </div>
         </div>
-      </div>
+
 <%- include('partials/footer') %>
