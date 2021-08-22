@@ -10,7 +10,13 @@
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/adf2a1b67f.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+       
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script><link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
@@ -30,8 +36,8 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="getstarted scrollto" href="#sign up">Sign up</a></li>
-          <li><a class="getstarted scrollto" href="#about">Login</a></li>
+          <li><a class="getstarted scrollto" href="" data-toggle="modal" data-target="#elegantModalForm">Login</a></li>
+          <li><a class="getstarted scrollto"  href="" data-toggle="modal" data-target="#elegantModalForm1">Sign Up</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
@@ -39,8 +45,6 @@
     </div>
   </header>
 
-<<<<<<< HEAD
-=======
   
 <div class="modal fade" id="elegantModalForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
@@ -66,13 +70,13 @@
                   <% } %>
         <form class="" action="/login" method="post">
         <div class="md-form mb-3">
-          <label data-error="wrong" data-success="right" for="Form-email1">Company ID or Email <span style="color: red;">*</span></label>
           <input type="email" id="Form-email1" class="form-control validate" name="username" required>
+          <label data-error="wrong" data-success="right" for="Form-email1">Company ID or Email <span style="color: red;">*</span></label>
         </div>
 
         <div class="md-form pb-3">
-          <label data-error="wrong" data-success="right" for="Form-pass1">Your password <span style="color: red;">*</span></label>
           <input type="password" id="Form-pass1" class="form-control validate" name="password" required>
+          <label data-error="wrong" data-success="right" for="Form-pass1">Your password <span style="color: red;">*</span></label>
           <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
               Password?</a></p>
         </div>
@@ -118,6 +122,7 @@
       </div>
       <!--Body-->
       <div class="modal-body mx-4">
+        <!--Body-->
         <% if(typeof registerErrors !='undefined' ){ %>
           <% registerErrors.forEach(function(err){ %>
               <div class="alert alert-warning" role="alert">
@@ -125,25 +130,23 @@
               </div>
               <% }) %>
                   <% } %>
-        <!--Body-->
-
         <form class="" action="/register" method="post">
         <div class="md-form mb-3">
-          <label data-error="wrong" data-success="right" for="Form-email1">Work email address <span style="color: red;">*</span></label>
           <input type="email" id="Form-email1" class="form-control validate" name="username" required >
+          <label data-error="wrong" data-success="right" for="Form-email1">Work email address <span style="color: red;">*</span></label>
         </div>
 
         <div class="md-form pb-3">
-          <label data-error="wrong" data-success="right" for="Form-pass1" >Password <span style="color: red;">*</span></label>
           <input type="password" id="Form-pass1" class="form-control validate" name="password" required>
+          <label data-error="wrong" data-success="right" for="Form-pass1" >Password <span style="color: red;">*</span></label>
           <!-- <p class="font-small blue-text d-flex justify-content-end">Forgot <a href="#" class="blue-text ml-1">
               Password?</a></p> -->
+              <input type="password" id="Form-pass2" class="form-control validate" name = "conf_password" required>
               <label data-error="wrong" data-success="right" for="Form-pass2">Confirm password <span style="color: red;">*</span></label> 
-              <input type="password" id="Form-pass2" class="form-control validate" name="conf_password" required>
         </div>
 
         <div class="text-center mb-3">
-          <button type="submit" class="btn btn-primary blue-gradient btn-block btn-rounded z-depth-1a">Sign Up</button>
+          <button type="submit" name="button" class="btn btn-primary blue-gradient btn-block btn-rounded z-depth-1a">Sign Up</button>
         </div>
         <p class="font-small text-right d-flex justify-content-center mb-3 pt-2"> or Sign up
           with:</p>
@@ -166,7 +169,6 @@
 </div>
 <!-- Modal -->
 
->>>>>>> 9216dfc... update questionnaire
   <section id="hero" class="hero d-flex align-items-center">
 
     <div class="container">
@@ -176,7 +178,7 @@
           <h2 data-aos="fade-up" data-aos-delay="400">We are team of talented designers making websites</h2>
           <div data-aos="fade-up" data-aos-delay="600">
             <div class="text-center text-lg-start">
-                <a href="/dashboard" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">Get Started</a>
+                <a href="" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">Get Started</a>
                 <i class="bi bi-arrow-right"></i>
               </a>
             </div>

@@ -52,17 +52,6 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-<<<<<<< HEAD
-mongoose.connect(
-  process.env.MONGO_URI_LOCAL,
- {useNewUrlParser: true, 
-  useUnifiedTopology: true,
-  useCreateIndex:true},
- ()=>console.log('MongoDB is connected !'));
-=======
-
->>>>>>> 9216dfc... update questionnaire
-
 const userSchema = new mongoose.Schema({
   email: String,
   password: String,
@@ -129,7 +118,7 @@ function(accessToken, refreshToken, profile, done) {
 ));
 
 app.get("/", function(req, res){
-    res.render("login");
+    res.render("landing");
   });
 
 app.get('/auth/google',
@@ -177,17 +166,6 @@ app.get('/financial', (req,res)=>{
   res.render("Financials" ) ;
 })
 
-<<<<<<< HEAD
-app.post("/register", function(req, res){
-
-  User.register({username: req.body.username}, req.body.password, function(err, user){
-    if (err) {
-      console.log(err);
-      res.redirect("/");
-    } else {
-      passport.authenticate("local")(req, res, function(){
-        res.render("dashboard" );
-=======
 // const USER = require('./models/User');
 app.post("/register",async function(req, res){
   let registerErrors = [];
@@ -215,7 +193,6 @@ app.post("/register",async function(req, res){
       const newUser = await new User({
         username:username,
         password:hashedPass
->>>>>>> 9216dfc... update questionnaire
       });
       await newUser.save();
       req.session.user = newUser;
@@ -225,26 +202,6 @@ app.post("/register",async function(req, res){
 }
 });
 
-<<<<<<< HEAD
-app.post("/log", function(req, res){
-
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password
-  });
-
-  req.login(user, function(err){
-    if (err) {
-      console.log(err);
-      res.redirect("/")
-    } else {
-      passport.authenticate("local")(req, res, function(){
-        res.render("dashboard");
-      });
-    }
-  });
-
-=======
 app.post("/login",async function(req, res){
   let loginErrors = [];
   const {username,password}=req.body;
@@ -276,7 +233,6 @@ app.post("/login",async function(req, res){
             }
         }
   }
->>>>>>> 9216dfc... update questionnaire
 });
 
 
