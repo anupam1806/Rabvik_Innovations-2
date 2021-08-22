@@ -9,6 +9,8 @@ const findOrCreate = require('mongoose-findorcreate');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const OutlookStrategy = require('passport-outlook').Strategy;
 
+
+
 const app = express();
 
 app.use(express.static("public"));
@@ -134,7 +136,7 @@ app.use('/questionnaire', require('./routes/question-route'));
 
 
 app.get('/financial', (req,res)=>{
-  res.render("Financials") ;
+  res.render("Financials" ) ;
 })
 
 app.post("/register", function(req, res){
