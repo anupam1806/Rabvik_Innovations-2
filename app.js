@@ -9,6 +9,8 @@ const findOrCreate = require('mongoose-findorcreate');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const OutlookStrategy = require('passport-outlook').Strategy;
 
+
+
 const app = express();
 
 app.use(express.static("public"));
@@ -29,7 +31,7 @@ const userSchema = new mongoose.Schema({
   googleId: String,
   outlookId: String,
   name: String,
-  profile: String
+  profile: String,
 });
 
 userSchema.plugin(passportLocalMongoose);
@@ -131,8 +133,10 @@ app.get("/dashboard", function(req, res){
 
 app.use('/questionnaire', require('./routes/question-route'));
 
+
+
 app.get('/financial', (req,res)=>{
-  res.render("Financials") ;
+  res.render("Financials" ) ;
 })
 
 app.post("/register", function(req, res){

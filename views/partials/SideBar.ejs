@@ -1,0 +1,58 @@
+<div class="sidebar" data-color="white" data-active-color="danger">
+  <div class="logo">
+    <a href="" class="simple-text logo-mini">
+      <div class="logo-image-small">
+        <img src="../assets/img/logo-small.png">
+      </div>
+      <!-- <p>CT</p> -->
+    </a>
+    <label id="emailid" class="simple-text logo-normal">
+      StartUp
+      <!-- <div class="logo-image-big">
+        <img src="../assets/img/logo-big.png">
+      </div> -->
+    </label>
+  </div>
+  <div class="sidebar-wrapper">
+    <ul class="nav">
+      <li id="dashboard">
+        <a href="/dashboard">
+          <i class="nc-icon nc-bank"></i>
+          <p>Dashboard</p>
+        </a>
+      </li>
+      <li id="questionnaire">
+        <a href="./questionnaire">
+          <i class="nc-icon nc-bullet-list-67"></i>
+          <p>Questionnaire</p>
+        </a>
+      </li>
+      
+      <!-- <li class="active"> -->
+      <li id="financials">
+        <a href="./financial">
+          <i class="nc-icon nc-bell-55"></i>
+          <p>Financial</p>
+        </a>
+      </li>
+      <li id="user">
+        <a href="/user">
+          <i class="nc-icon nc-single-02"></i>
+          <p>Company Profile</p>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+<script>
+  console.log(window.location.href) ; 
+  if(window.location.href.toString().endsWith('financial')){
+    document.getElementById('financials').classList.toggle('active') ;
+  }else if(window.location.href.endsWith('user')){
+    document.getElementById('user').classList.toggle('active') ;
+  }else if(window.location.href.endsWith('financials')){
+    document.getElementById('questionnaire').classList.toggle('active') ;
+  }else if(window.location.href.endsWith('dashboard')){
+    document.getElementById('dashboard').classList.toggle('active') ;
+  }
+</script>
