@@ -67,6 +67,7 @@ p{
 textarea{
     width: 100%;
     max-width: 25em;
+    padding: .5em;
 }
 
 .question-box  input,

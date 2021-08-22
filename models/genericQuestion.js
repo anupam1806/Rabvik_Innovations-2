@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const GenericQuestionSchema = new mongoose.Schema({
-    // userId:{
-    //     type: String
-    // },
+    userId:{
+        type:String
+    },
     sector: {
         type: String
     },

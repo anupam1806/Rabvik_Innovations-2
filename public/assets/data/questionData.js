@@ -42,21 +42,21 @@ const sectorOptions = [
     'Talent Management','Testing','Textile','Ticketing','Tires & Rubber Products','Trading',
     'Traffic Management','Training','Transport Infrastructure','Transportation','Travel','Utility Services',
     'Virtual Games','Waste Management','Wayside Amenities','Wearables','Web Design','Web Development',
-    'Weddings','Wireless','Other'
+    'Weddings','Wireless',
 ];
 
 const businessActivities = [
     'e-Shop','e-Mall','e-Auction','Virtual community','Collaborative platform','Marketplace',
     'Added value service','Infrastructure portal','Infrastructure producer','Infomediary',
-    'Affiliate','Direct sales','Other'
+    'Affiliate','Direct sales'
 ]
 
-const marketCategory = ['B2C','B2B','B2B2C','Other']
+const marketCategory = ['B2C','B2B','B2B2C']
 
 const devStages = ['Ideation','Concept','Validation','Early Traction','Scaling','Growth']
 
 const services = ['IaaS platform','SaaS software','IoT','PaaS platform','Business Process as a Service (BPaaS)',
-    'Hardware','Software On-Premises','Intellectual services','Other']
+    'Hardware','Software On-Premises','Intellectual services']
 
 module.exports = {
     sectorOptions,

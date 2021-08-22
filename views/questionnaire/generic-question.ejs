@@ -142,20 +142,22 @@
             <a href="/questionnaire/market" class="question-link">Market</a>
         </div>
         <form class="form" method="POST" action="/questionnaire/generic">
+          
             <div class="question-box">
                 <p class="question-para">
                     <span class="question-num">1</span>
                     Which sector or industry does your business belong to?
                 </p>
                 <select name="sector" class="sector-select">
-                  <%if(typeof genericData ==='object'){ %>
-                    <option selected disabled ><%= genericData?.sector%></option>
+                  <%if(typeof genericData?.sector !='undefined' && genericData){ %>
+                    <option selected disabled ><%= genericData.sector%></option>
                   <% } else{ %>
-                    <option selected disabled>--Select market category--</option>
+                    <option selected disabled>--Select sector/ industry --</option>
                   <% }%>
                   <% sectorOptions.forEach(sector=>{ %>
                     <option value="<%= sector %>"><%= sector %></option>
                   <% }) %>
+                  <option value="">Other</option>
                 </select>
             </div>
             <div class="question-box">
@@ -164,14 +166,15 @@
                     What type of business activity does your start-up engage in?            
                 </p>
                 <select name="business" class="business-select">
-                  <%if(typeof genericData ==='object'){ %>
-                    <option selected disabled ><%= genericData?.business %></option>
+                  <%if(typeof genericData?.business !='undefined' && genericData){ %>
+                    <option selected disabled ><%= genericData.business %></option>
                   <% } else{ %>
-                    <option selected disabled>--Select market category--</option>
+                    <option selected disabled>--Select business activity--</option>
                   <% }%>
                   <% businessActivities.forEach(business=>{ %>
                     <option value="<%= business %>"><%= business %></option>
                   <% }) %>
+                  <option value="">Other</option>
                 </select>
             </div>
             <div class="question-box">
@@ -180,14 +183,15 @@
                     Which market category does your business target?            
                 </p>
                 <select name="market" class="market-select">
-                  <%if(typeof genericData ==='object'){ %>
-                    <option selected disabled ><%= genericData?.market %></option>
+                  <%if(typeof genericData?.market !='undefined' && genericData){ %>
+                    <option selected disabled ><%= genericData.market %></option>
                   <% } else{ %>
                     <option selected disabled>--Select market category--</option>
                   <% }%>
                   <% marketCategory.forEach(market=>{ %>
                     <option value="<%= market %>"><%= market %></option>
-                  <% }) %>
+                    <% }) %>
+                    <option value="">Other</option>
                 </select>
             </div>
             <div class="question-box">
@@ -196,14 +200,15 @@
                     What is your current Stage of Development?         
                 </p>
                 <select name="stage" class="stage-select">
-                  <%if(typeof genericData ==='object'){ %>
-                    <option selected disabled ><%= genericData?.stage %></option>
+                  <%if(typeof genericData?.stage !='undefined' && genericData){ %>
+                    <option selected disabled ><%= genericData.stage %></option>
                   <% } else{ %>
-                    <option selected disabled>--Select market category--</option>
+                    <option selected disabled>--Select development stage--</option>
                   <% }%>
                   <% devStages.forEach(stage=>{ %>
                     <option value="<%= stage %>"><%= stage %></option>
                   <% }) %>
+                  <option value="">Other</option>
                 </select>
             </div>
             <div class="question-box">
@@ -212,14 +217,15 @@
                     What type of products/services do you manufacture/provide?   
                 </p>
                 <select name="service" class="service-select">
-                  <%if(typeof genericData ==='object'){ %>
-                    <option selected disabled ><%= genericData?.service %></option>
+                  <%if(typeof genericData?.service !='undefined' && genericData){ %>
+                    <option selected disabled ><%= genericData.service %></option>
                   <% } else{ %>
-                    <option selected disabled>--Select market category--</option>
+                    <option selected disabled>--Select service/ product--</option>
                   <% }%>
                   <% services.forEach(service=>{ %>
                     <option value="<%= service %>"><%= service %></option>
                   <% }) %>
+                  <option value="">Other</option>
                 </select>
             </div>
             <div class="question-box">
@@ -359,7 +365,7 @@
 
   <script src="../assets/js/paper-dashboard.min.js?v=2.0.1" type="text/javascript"></script>
   <script src="../assets/demo/demo.js"></script>
-  <script src="../assets/js/generic.js"></script>
+  <script src="../assets/js/questionnaire.js"></script>
 
   <script>
     $(document).ready(function() {
