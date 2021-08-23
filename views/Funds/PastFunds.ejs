@@ -1,0 +1,93 @@
+<%- include('../partials/header') %>
+<%- include('../partials/SideBar') %>
+<style>
+    .question-nav{
+    width: 90%;
+    margin: 10px auto;
+    background: #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 3px;
+    }
+    .question-link {
+        flex: 150px;
+        text-decoration: none;
+        color: #fff;
+        padding: 5px 10px;
+        background: hsla(0, 0%, 100%, 0.1);
+        margin: 10px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.2rem;
+        border-radius: 3px;
+    }
+    .question-link:hover{
+        text-decoration: none;
+        color: #000;
+        background: #f0f0f0;
+    }
+    .active-question-link {
+        text-decoration: none;
+        color: #000;
+        background: #f0f0f0;
+    }
+    .add-button {
+        background-color: hsla(0, 0%, 100%, .1);
+    }
+</style>
+<div class="content" style="height: 100vh;">
+        <div class="question-nav">
+            <a href="/funds" class="question-link" id="main">main</a>
+            <a href="/funds/pastfunds" class="question-link" id="pastfunds">Past Fundings</a>
+        </div>
+        <div class="data">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">Equity %</th>
+                    <th scope="col">Capital Raised</th>
+                    <th scope="col">Valuation</th>
+                    <th scope="col">Closed Date</th>
+                    </tr>
+                </thead>
+                <tbody id="Tbody">
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div><button class="add-button">Add+</button></div>
+        </div>
+</div>
+<script>
+    if(window.location.href.toString().endsWith("pastfunds")){
+        document.getElementById('pastfunds').classList.add('active-question-link') ;
+    }else if(window.location.href.toString().endsWith("funds")){
+        document.getElementById('main').classList.add('active-question-link') ;
+    }
+
+    document.addEventListener('click', function (event) {
+        if (!event.target.matches('.add-button')) return;
+        event.preventDefault();
+        console.log(event.target);
+        var table = document.getElementById('Tbody') ;
+        var len = table.length ; 
+        var row = table.insertRow(len-1) ;
+        var d1 = row.insertCell(0) ;
+        var d2 = row.insertCell(1) ;
+        var d3 = row.insertCell(2) ;
+        var d4 = row.insertCell(3) ;
+        d1.innerText = "-" ;
+        d2.innerText = "-" ;
+        d3.innerText = "-" ;
+        d4.innerText = "-" ;
+    },);
+</script>
+
+
+<%- include('../partials/footer') %>

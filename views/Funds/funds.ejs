@@ -1,0 +1,85 @@
+<%- include('../partials/header') %>
+<%- include('../partials/SideBar') %>
+<style>
+    .question-nav{
+    width: 90%;
+    margin: 10px auto;
+    background: #333;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 3px;
+    }
+    .question-link {
+        flex: 150px;
+        text-decoration: none;
+        color: #fff;
+        padding: 5px 10px;
+        background: hsla(0, 0%, 100%, 0.1);
+        margin: 10px;
+        text-align: center;
+        font-weight: 600;
+        font-size: 1.2rem;
+        border-radius: 3px;
+    }
+    .question-link:hover{
+        text-decoration: none;
+        color: #000;
+        background: #f0f0f0;
+    }
+    .active-question-link {
+        text-decoration: none;
+        color: #000;
+        background: #f0f0f0;
+    }
+</style>
+<div class="content" style="height: 100vh;">
+        <div class="question-nav">
+            <a href="/funds" class="question-link" id="main">main</a>
+            <a href="/funds/pastfunds" class="question-link" id="pastfunds">Past Fundings</a>
+        </div>
+        <div class="data">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                    <th scope="col">Use Of Fund</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody id="Tbody">
+                    <tr>
+                        <td>Product and R&amp;D</td>
+                        <td>%</td>
+                    </tr>
+                    <tr>
+                        <td>Sales and Marketing</td>
+                        <td>%</td>
+                    </tr><tr>
+                        <td>Inventory</td>
+                        <td>%</td>
+                    </tr><tr>
+                        <td>Operations</td>
+                        <td>%</td>
+                    </tr><tr>
+                        <td>Capital Expenditures</td>
+                        <td>%</td>
+                    </tr>
+                    <tr>
+                        <td>Others</td>
+                        <td>%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+</div>
+<script>
+    if(window.location.href.toString().endsWith("pastfunds")){
+        document.getElementById('pastfunds').classList.add('active-question-link') ;
+    }else if(window.location.href.toString().endsWith("funds")){
+        document.getElementById('main').classList.add('active-question-link') ;
+    }
+</script>
+
+
+<%- include('../partials/footer') %>
