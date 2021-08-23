@@ -159,7 +159,7 @@ app.get("/dashboard", function(req, res){
   });
 
 app.use('/questionnaire', require('./routes/question-route'));
-
+app.use('/funds' , require('./routes/funds-route')) ;
 
 
 app.get('/financial', (req,res)=>{

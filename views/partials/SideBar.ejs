@@ -24,8 +24,12 @@
           <p>Questionnaire</p>
         </a>
       </li>
-      
-      <!-- <li class="active"> -->
+      <li id="funds">
+        <a href="/funds">
+          <i class="nc-icon nc-bell-55"></i>
+          <p>Funds</p>
+        </a>
+      </li>
       <li id="financials">
         <a href="/financial">
           <i class="nc-icon nc-bell-55"></i>
@@ -51,5 +55,7 @@
     document.getElementById('questionnaire').classList.toggle('active') ;
   }else if(window.location.href.endsWith('dashboard')){
     document.getElementById('dashboard').classList.toggle('active') ;
+  }else if(window.location.href.endsWith('funds')){
+    document.getElementById('funds').classList.toggle('active') ;
   }
 </script>
