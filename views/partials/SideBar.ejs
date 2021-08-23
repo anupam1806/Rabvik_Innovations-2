@@ -4,14 +4,11 @@
       <div class="logo-image-small">
         <img src="../assets/img/logo-small.png">
       </div>
-      <!-- <p>CT</p> -->
     </a>
-    <label id="emailid" class="simple-text logo-normal">
+    <a href="" id="emailid" class="simple-text logo-normal">
       StartUp
-      <!-- <div class="logo-image-big">
-        <img src="../assets/img/logo-big.png">
-      </div> -->
-    </label>
+     
+    </a>
   </div>
   <div class="sidebar-wrapper">
     <ul class="nav">
@@ -22,7 +19,7 @@
         </a>
       </li>
       <li id="questionnaire">
-        <a href="./questionnaire">
+        <a href="/questionnaire">
           <i class="nc-icon nc-bullet-list-67"></i>
           <p>Questionnaire</p>
         </a>
@@ -30,7 +27,7 @@
       
       <!-- <li class="active"> -->
       <li id="financials">
-        <a href="./financial">
+        <a href="/financial">
           <i class="nc-icon nc-bell-55"></i>
           <p>Financial</p>
         </a>
@@ -50,7 +47,7 @@
     document.getElementById('financials').classList.toggle('active') ;
   }else if(window.location.href.endsWith('user')){
     document.getElementById('user').classList.toggle('active') ;
-  }else if(window.location.href.endsWith('financials')){
+  }else if(window.location.href.includes('questionnaire')){
     document.getElementById('questionnaire').classList.toggle('active') ;
   }else if(window.location.href.endsWith('dashboard')){
     document.getElementById('dashboard').classList.toggle('active') ;

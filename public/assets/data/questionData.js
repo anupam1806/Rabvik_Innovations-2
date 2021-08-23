@@ -1,7 +1,3 @@
-const form = document.querySelector('.form');
-form.addEventListener('submit',(e)=>{
-    e.preventDefault();
-})
 const sectorOptions = [
     '3d printing','Accounting','AdTech','Advisory','Agri-Tech','Agricultural Chemicals',
     'Agriculture','Animal Husbandry','Apparel','Apparel & Accessories','Application Development',
@@ -46,106 +42,26 @@ const sectorOptions = [
     'Talent Management','Testing','Textile','Ticketing','Tires & Rubber Products','Trading',
     'Traffic Management','Training','Transport Infrastructure','Transportation','Travel','Utility Services',
     'Virtual Games','Waste Management','Wayside Amenities','Wearables','Web Design','Web Development',
-    'Weddings','Wireless','Other'
+    'Weddings','Wireless',
 ];
+
 const businessActivities = [
     'e-Shop','e-Mall','e-Auction','Virtual community','Collaborative platform','Marketplace',
     'Added value service','Infrastructure portal','Infrastructure producer','Infomediary',
-    'Affiliate','Direct sales','Other'
+    'Affiliate','Direct sales'
 ]
 
-const marketCategory = ['B2C','B2B','B2B2C','Other']
+const marketCategory = ['B2C','B2B','B2B2C']
 
 const devStages = ['Ideation','Concept','Validation','Early Traction','Scaling','Growth']
 
 const services = ['IaaS platform','SaaS software','IoT','PaaS platform','Business Process as a Service (BPaaS)',
-    'Hardware','Software On-Premises','Intellectual services','Other']
+    'Hardware','Software On-Premises','Intellectual services']
 
-function addOptions(select,value){
-    let option = document.createElement('option');
-    option.innerHTML = value;
-    option.value = value.toLowerCase();
-    select.appendChild(option);
+module.exports = {
+    sectorOptions,
+    businessActivities,
+    marketCategory,
+    devStages,
+    services
 }
-
-//------------sector-----------------------
-const sectorSelect = document.querySelector('.sector-select')
-let selectedSector;
-sectorSelect.addEventListener('change',(e)=>{
-    selectedSector = e.target.value;
-    console.log(selectedSector);
-})
-sectorOptions.forEach(sector=>{
-    addOptions(sectorSelect,sector);
-});
-
-//---------busness activity----------------------
-const businessSelect = document.querySelector('.business-select')
-let selectedBusiness;
-businessSelect.addEventListener('change',(e)=>{
-    selectedBusiness = e.target.value;
-    console.log(selectedBusiness);
-})
-businessActivities.forEach(business=>{
-    addOptions(businessSelect,business);
-});
-
-//-----------------market category------------------------
-const marketSelect = document.querySelector('.market-select');
-let selectedMarket;
-marketSelect.addEventListener('change',(e)=>{
-    selectedMarket = e.target.value;
-});
-marketCategory.forEach(market=>{
-    addOptions(marketSelect,market)
-})
-
-//---------------- stage of development------------
-const stageSelect = document.querySelector('.stage-select');
-let selectedStage;
-stageSelect.addEventListener('change',e=>{
-    selectedStage = e.target.value;
-});
-devStages.forEach(stage=>{
-    addOptions(stageSelect,stage)
-});
-
-//-------------------product/service------------
-const serviceSelect = document.querySelector('.service-select');
-let selectedService;
-serviceSelect.addEventListener('change',e=>{
-    selectedService = e.target.value;
-});
-services.forEach(service=>{
-    addOptions(serviceSelect,service)
-})
-
-//-------add founder list-----------------------
-const founderList = document.querySelector('.founder-list');
-const addFounderBtn = document.querySelector('.add-founder-btn');
-const founderInput = document.querySelector('.founder-input');
-
-addFounderBtn.addEventListener('click',()=>{
-    if(founderInput.value===''){
-        return
-    }
-    const founderItem = document.createElement('li');
-    founderItem.innerHTML = founderInput.value;
-    founderList.appendChild(founderItem);
-    founderInput.value='';
-});
-
-//-----------------add employee list----------------------------------------------
-const employeeList = document.querySelector('.employee-list');
-const addEmployeeBtn = document.querySelector('.add-employee-btn');
-const employeeInput = document.querySelector('.employee-input');
-addEmployeeBtn.addEventListener('click',()=>{
-    if(employeeInput.value===''){
-        return
-    }
-    const employeeItem = document.createElement('li');
-    employeeItem.innerHTML = employeeInput.value;
-    employeeList.appendChild(employeeItem);
-    employeeInput.value='';
-});
-

@@ -8,22 +8,49 @@ const passportLocalMongoose = require("passport-local-mongoose");
 const findOrCreate = require('mongoose-findorcreate');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const OutlookStrategy = require('passport-outlook').Strategy;
+const bcrypt = require('bcryptjs');
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
 
 
 
 const app = express();
 
-app.use(express.static("public"));
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({
+app.set('x-powered-by', false);
+
+mongoose.connect(process.env.MONGO_URI_LOCAL,{
+  useNewUrlParser: true, 
+  useUnifiedTopology: true,
+  useCreateIndex:true
+}).then(()=>console.log('MongoDB is connected !'))
+.catch(err=>console.log(err))
+
+const sessionStore = new MongoStore({
+  mongooseConnection:mongoose.connection,
+  collection:'sessions'
+});
+
+app.use(express.static("public"));
+app.use(express.json());
+app.use(express.urlencoded({
   extended: true
+}));
+
+app.use(session({
+  name:'sid',
+  secret:process.env.SESSION_SECRET,
+  resave:false,
+  saveUninitialized:false,
+  store:sessionStore,
+  cookie:{
+    httpOnly:true,
+    maxAge:1000 * 60 * 60 * 24
+  }
 }));
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-mongoose.connect("mongodb+srv://admin-rabvik:Test123@cluster0.thhlu.mongodb.net/userDB", {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema({
   email: String,
@@ -91,10 +118,10 @@ function(accessToken, refreshToken, profile, done) {
 ));
 
 app.get("/", function(req, res){
-    res.render("login");
+    res.render("landing");
   });
 
-  app.get('/auth/google',
+app.get('/auth/google',
   passport.authenticate('google', { scope:
       [ 'email', 'profile' ] }
 ));
@@ -139,43 +166,78 @@ app.get('/financial', (req,res)=>{
   res.render("Financials" ) ;
 })
 
-app.post("/register", function(req, res){
-
-  User.register({username: req.body.username}, req.body.password, function(err, user){
-    if (err) {
-      console.log(err);
-      res.redirect("/");
-    } else {
-      passport.authenticate("local")(req, res, function(){
-        res.render("dashboard" );
+// const USER = require('./models/User');
+app.post("/register",async function(req, res){
+  let registerErrors = [];
+  const {username,password,conf_password}=req.body;
+  if(!username || !password || !conf_password){
+    registerErrors.push({msg:'Fill the empty field !'})
+  }
+  if(password.length < 8){
+    registerErrors.push({msg:'Password must be 8 character !'})
+  }
+  if(password !== conf_password){
+    registerErrors.push({msg:'Password not matched !'})
+  }
+  if(registerErrors.length > 0){
+    res.render('landing',{registerErrors})
+  }
+  else{
+    const fetchUser = await User.findOne({ username: username });
+    if (fetchUser) {
+      registerErrors.push({msg:`${username} is already exist !`});
+      res.render('landing', { registerErrors, username });
+    }else{
+      const salt = await bcrypt.genSalt(10);
+      const hashedPass = await bcrypt.hash(password,salt);
+      const newUser = await new User({
+        username:username,
+        password:hashedPass
       });
+      await newUser.save();
+      req.session.user = newUser;
+      console.log(req.session);
+      res.redirect('/dashboard');
     }
-  });
-
+}
 });
 
-app.post("/log", function(req, res){
-
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password
-  });
-
-  req.login(user, function(err){
-    if (err) {
-      console.log(err);
-      res.redirect("/")
-    } else {
-      passport.authenticate("local")(req, res, function(){
-        res.render("dashboard");
-      });
-    }
-  });
-
+app.post("/login",async function(req, res){
+  let loginErrors = [];
+  const {username,password}=req.body;
+  if(!username || !password){
+    loginErrors.push({msg:'Fill the empty field !'})
+  }
+  if(password.length < 8){
+    loginErrors.push({msg:'Password must be 8 character !'})
+  }
+  if(loginErrors.length > 0){
+    res.render('landing',{loginErrors})
+  }
+  else{
+    const fetchUser = await User.findOne({ username: username });
+        if (!fetchUser) {
+          loginErrors.push({msg:`${username} is not registered yet !`});
+          res.render('landing', { loginErrors, username });
+        }
+        else {
+            const validPass = await bcrypt.compare(password, fetchUser.password);
+            if (!validPass) {
+              loginErrors.push({msg:'Check ur password !'});
+              res.render('landing', { loginErrors, username });
+            }
+            else {
+                req.session.user = fetchUser;
+                console.log(req.session);
+                res.redirect('/dashboard');
+            }
+        }
+  }
 });
 
 
 
 app.listen(process.env.PORT || 3000, function(){
+
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
