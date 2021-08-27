@@ -10,14 +10,14 @@
             <a href="/questionnaire/legal" class="question-link">Legal</a>
             <a href="/questionnaire/market" class="question-link">Market</a>
         </div>
-        <form class="form" method="POST" action="/questionnaire/business">
+        <form action="" class="form">
             <div class="question-box">
                 <p class="question-para">
                     <span class="question-num">1</span>
                     Let’s have your product description below:           
                 </p>
                 <div class="input-container" >
-                    <input type="text" name="description" value="<%= businessData?.description %>" />
+                    <input style = "position:relative; left:20px;" type="text" name="description" />
                 </div>
             </div>
             <div class="question-box">
@@ -25,14 +25,14 @@
                     <span class="question-num">2</span>
                     How would you describe your product/service concept?            
                 </p>
-                <div class="input-container" >
-                    <input type="radio" id="" name="service_concept" value="50" <%= businessData?.service_concept == 50 ? 'checked' : '' %>/>
+                <div class="input-container" style = "position:relative; left:20px;" >
+                    <input type="radio" id="" name="service_concept" value="50"/>
                     <span for="">We’ve introduced a radical concept that will create a new market for itself.</span><br/>
-                    <input type="radio" id="" name="service_concept" value="75" <%= businessData?.service_concept == 75 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="service_concept" value="75"/>
                     <span for="">We've introduced a disruptive concept that will create a stir in the existing market.</span><br/>
-                    <input type="radio" id="" name="service_concept" value="100" <%= businessData?.service_concept == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="service_concept" value="100"/>
                     <span for="">We’ve reintroduced a pre-existing concept with some new features.</span><br/>
-                    <input type="radio" id="" name="service_concept" value="125" <%= businessData?.service_concept == 125 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="service_concept" value="125"/>
                     <span for="">We’ve reintroduced a pre-existing concept with negligible changes</span><br/>            
                 </div>
             </div>
@@ -41,14 +41,14 @@
                     <span class="question-num">3</span>
                     Where does your product-market fit stand right now?            
                 </p>
-                <div class="input-container" >
-                    <input type="radio" id="" name="market_fit" value="50" <%= businessData?.market_fit == 50 ? 'checked' : '' %>/>
+                <div class="input-container" style = "position:relative; left:20px;" >
+                    <input type="radio" id="" name="market_fit" value="50"/>
                     <span for="">Proof of Concept: The feasibility of our concept has been verified</span><br/>
-                    <input type="radio" id="" name="market_fit" value="75" <%= businessData?.market_fit == 75 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="market_fit" value="75"/>
                     <span for="">Prototype: We have built a prototype to visualize the product development process and usage. </span><br/>
-                    <input type="radio" id="" name="market_fit" value="100" <%= businessData?.market_fit == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="market_fit" value="100"/>
                     <span for="">Minimum Viable Product: We have built a minimum version of the product and released it into the market. </span><br/>
-                    <input type="radio" id="" name="market_fit" value="125" <%= businessData?.market_fit == 125 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="market_fit" value="125"/>
                     <span for="">Product-Market Fit: The market has validated the product and we have released a complete version into the market. </span><br/>
                 </div>
             </div>
@@ -57,14 +57,14 @@
                     <span class="question-num">4</span>
                     Is the product or service scalable?            
                 </p>
-                <div class="input-container" >
-                    <input type="radio" id="" name="scalable" value="25" <%= businessData?.scalable == 25 ? 'checked' : '' %>/>
+                <div class="input-container" style = "position:relative; left:20px;" >
+                    <input type="radio" id="" name="scalable" value="25"/>
                     <span for="">No operating leverage: Very low scalability</span><br/>
-                    <input type="radio" id="" name="scalable" value="50" <%= businessData?.scalable == 50 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="scalable" value="50"/>
                     <span for="">Limited operating leverage: Low Scalability </span><br/>
-                    <input type="radio" id="" name="scalable" value="100" <%= businessData?.scalable == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="scalable" value="100"/>
                     <span for="">Medium operating leverage: Medium scalability</span><br/>
-                    <input type="radio" id="" name="scalable" value="150" <%= businessData?.scalable == 150 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="scalable" value="150"/>
                     <span for="">High operating leverage: High scalability </span><br/>
                 </div>
             </div>
@@ -73,8 +73,8 @@
                     <span class="question-num">5</span>
                     Define your company’s business model.            
                 </p>
-                <div class="input-container" >
-                    <input type="radio" id="" name="business_model" value="" <%= businessData?.business_model == 25 ? 'checked' : '' %>/>
+                <div class="input-container" style = "position:relative; left:20px;" >
+                    <input type="radio" id="" name="business_model" value=""/>
                     <span for="">B2C (Business to Customers)</span><br/>
                     <input type="radio" id="" name="business_model" value=""/>
                     <span for="">B2B (Business to Business)</span><br/>
@@ -91,8 +91,8 @@
                     <span class="question-num">6</span>
                     What is your current stage of startup development?            
                 </p>
-                <div class="input-container" >
-                    <input type="radio" id="" name="dev_stage" value=""<%= businessData?.dev_stage == 25 ? 'checked' : '' %> />
+                <div class="input-container" style = "position:relative; left:20px;" >
+                    <input type="radio" id="" name="dev_stage" value=""/>
                     <span for="">Idea stage: The idea is being worked upon to solidify it into an executable plan.</span><br/>
                     <input type="radio" id="" name="dev_stage" value=""/>
                     <span for="">Seed Fund:  Funding from angel investors/friends and family to work on the product.</span><br/>
@@ -107,10 +107,10 @@
                     <span class="question-num">7</span>
                     Is the business sustainably breakeven?           
                 </p>
-                <div class="input-container" >
-                    <input type="radio" id="" name="breakeven" value="100" <%= businessData?.breakeven == 100 ? 'checked' : '' %> />
+                <div class="input-container" style = "position:relative; left:20px;" >
+                    <input type="radio" id="" name="breakeven" value="100"/>
                     <span for="">Yes</span><br/>
-                    <input type="radio" id="" name="breakeven" value="0" <%= businessData?.breakeven == 0 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="breakeven" value="0"/>
                     <span for="">No</span><br/>
                 </div>
             </div>
