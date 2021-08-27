@@ -10,24 +10,15 @@
             <a href="/questionnaire/legal" class="question-link">Legal</a>
             <a href="/questionnaire/market" class="question-link">Market</a>
         </div>
-<<<<<<< HEAD
         <form action="" class="form">
             <h2>&nbsp;&nbsp;Founders/Co-Founders</h2>
-=======
-        <form action="/questionnaire/team" method="POST" class="form">
-            <h2>Founders/Co-Founders</h2>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
             <div class="question-box">
                 <p class="question-para">
                     <span class="question-num">1</span>
                     How many founders does the company have?               
                 </p>
                 <div class="input-container" >
-<<<<<<< HEAD
                     <input style = "position:relative; left:27px;" type="number" min="0" name="founder-num" />
-=======
-                    <input type="number" min="0" name="founder_num" value="<%= teamData?.founder_num %>" />
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                 </div>
             </div>
             <div class="question-box">
@@ -36,11 +27,7 @@
                     How many employees work for the company? (excluding founders, interns and freelancers)	               
                 </p>
                 <div class="input-container" >
-<<<<<<< HEAD
                     <input style = "position:relative; left:27px;" type="number" min="0" name="founder-num" />
-=======
-                    <input type="number" min="0" name="employee_num" value="<%= teamData?.employee_num %>"/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                 </div>
             </div>
             <div class="question-box">
@@ -48,19 +35,14 @@
                     <span class="question-num">3</span>
                     Do any of you have entrepreneurial experience?               
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;" >
                     <input type="radio" id="" name="entre-exp" value="0"/>
-=======
-                <div class="input-container" >
-                    <input type="radio" id="" name="entre_exp" value="0" <%= teamData?.entre_exp == 0 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">No prior entrepreneurial experience</span><br/>
-                    <input type="radio" id="" name="entre_exp" value="50" <%= teamData?.entre_exp == 50 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="entre-exp" value="75"/>
                     <span for="">At least one of us has prior entrepreneurial expertise, but no experience as a founder </span><br/>
-                    <input type="radio" id="" name="entre_exp" value="75" <%= teamData?.entre_exp == 75 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="entre-exp" value="75"/>
                     <span for="">At least one of us has found a company before</span><br/>
-                    <input type="radio" id="" name="entre_exp" value="100" <%= teamData?.entre_exp == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="entre-exp" value="100"/>
                     <span for="">At least one of us has successfully run a company before </span><br/>
                 </div>
             </div>
@@ -72,19 +54,14 @@
                     <span class="question-num">4</span>
                     How long have your core team members worked together?
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;">
                     <input type="radio" id="" name="work-together" value="50"/>
-=======
-                <div class="input-container" >
-                    <input type="radio" id="" name="work_together" value="50" <%= teamData?.work_together == 50 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">less than a year</span><br/>
-                    <input type="radio" id="" name="work_together" value="100" <%= teamData?.work_together == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="work-together" value="100"/>
                     <span for="">Between 1 and 2 years</span><br/>
-                    <input type="radio" id="" name="work_together" value="125" <%= teamData?.work_together == 125 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="work-together" value="125"/>
                     <span for="">Between 2+ and 5 years</span><br/>
-                    <input type="radio" id="" name="work_together" value="150" <%= teamData?.work_together == 150 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="work-together" value="150"/>
                     <span for="">More than 5 years </span><br/>
                 </div>
             </div>
@@ -93,20 +70,15 @@
                     <span class="question-num">5</span>
                     Is the core team equipped with all necessary technical competencies? 
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;">
                     <input type="radio" id="" name="work-together" value="50"/>
-=======
-                <div class="input-container">
-                    <input type="radio" id="" name="equipped_level" value="50" <%= teamData?.equipped_level == 50 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">We lack several vital technical competencies. Thus, we rely heavily on outsourcing</span><br/>
-                    <input type="radio" id="" name="equipped_level" value="100" <%= teamData?.equipped_level == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="work-together" value="100"/>
                     <span for="">We have some technical competencies and the rest is outsourced</span><br/>
-                    <input type="radio" id="" name="equipped_level" value="125" <%= teamData?.equipped_level == 125 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="work-together" value="125"/>
                     <span for="">The majority of technical competencies are available in-house. Only a few are outsourced.
                     </span><br/>
-                    <input type="radio" id="" name="equipped_level" value="150" <%= teamData?.equipped_level == 150 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="work-together" value="150"/>
                     <span for="">All technical competencies necessary are available in-house</span><br/>
                 </div>
             </div>
@@ -118,19 +90,14 @@
                     <span class="question-num">6</span>
                     Does the management team have demonstrable leadership experience?
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;">
                     <input type="radio" id="" name="work-together" value="0"/>
-=======
-                <div class="input-container">
-                    <input type="radio" id="" name="leadership_level" value="0" <%= teamData?.leadership_level == 0 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">No leadership experience</span><br/>
-                    <input type="radio" id="" name="leadership_level" value="75" <%= teamData?.leadership_level == 75 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="work-together" value="75"/>
                     <span for="">Few of us have leadership experience (< 25% of the team)</span><br/>
-                    <input type="radio" id="" name="leadership_level" value="100" <%= teamData?.leadership_level == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="work-together" value="100"/>
                     <span for="">Many of us have leadership experience. (25% - 75% of the team)</span><br/>
-                    <input type="radio" id="" name="leadership_level" value="125" <%= teamData?.leadership_level == 125 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="work-together" value="125"/>
                     <span for="">Most of us have leadership experience. (>75% of the team) </span><br/>
                 </div>
             </div>
@@ -140,11 +107,7 @@
                     What is the collective amount of capital invested by the founders so far ?	
                 </p>
                 <div class="input-container" >
-<<<<<<< HEAD
                     <input style = "position:relative; left:27px;" name="capital-invested" type="number" min="0" placeholder="        capital invested" />
-=======
-                    <input name="capital_invested" type="number" min="0" placeholder="capital invested" value="<%= teamData?.capital_invested %>" />
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                 </div>
             </div>
             <div class="question-box">
@@ -152,19 +115,14 @@
                     <span class="question-num">8</span>
                     What is the founder's degree of involvement?
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;">
                     <input type="radio" id="" name="founder-invol-degree" value="50"/>
-=======
-                <div class="input-container">
-                    <input type="radio" id="" name="founder_involve_degree" value="50" <%= teamData?.founder_involve_degree == 50 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">We consider the business as a side gig to our present job</span><br/>
-                    <input type="radio" id="" name="founder_involve_degree" value="75" <%= teamData?.founder_involve_degree == 75 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="founder-invol-degree" value="75"/>
                     <span for="">We are now dedicated part-time on a regular basis</span><br/>
-                    <input type="radio" id="" name="founder_involve_degree" value="100" <%= teamData?.founder_involve_degree == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="founder-invol-degree" value="100"/>
                     <span for="">We are now dedicated part-time and aim to commit full-time once the company's organizational structure is fully functional.</span><br/>
-                    <input type="radio" id="" name="founder_involve_degree" value="200" <%= teamData?.founder_involve_degree == 200 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="founder-invol-degree" value="200"/>
                     <span for="">We've made a full-time commitment</span><br/>
                 </div>
             </div>
@@ -176,11 +134,7 @@
                     How many employees does the company have? (Founders, interns, and freelancers excluded)
                 </p>
                 <div class="input-container" >
-<<<<<<< HEAD
                     <input style = "position:relative; left:27px;" name="company-employee" type="number" min="0" />
-=======
-                    <input name="company_employee" type="number" min="0" value="<%= teamData?.company_employee %>" />
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                 </div>
             </div>
             <div class="question-box">
@@ -188,30 +142,18 @@
                     <span class="question-num">10</span>
                     How are roles and responsibilities assigned within the organization?	
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;">
                     <input type="radio" id="" name="role-respon" value="0"/>
-=======
-                <div class="input-container">
-                    <input type="radio" id="" name="role_respon" value="0" <%= teamData?.role_respon == 0 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">Roles and Responsibilities are not pre-defined</span><br/>
-                    <input type="radio" id="" name="role_respon" value="50" <%= teamData?.role_respon == 50 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="role-respon" value="50"/>
                     <span for="">Roles and Responsibilities are pre-defined and are communicated verbally</span><br/>
-                    <input type="radio" id="" name="role_respon" value="100" <%= teamData?.role_respon == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="role-respon" value="100"/>
                     <span for="">Roles and Responsibilities are clearly defined and are well documented.</span><br/>
-<<<<<<< HEAD
                     <input type ="radio" id="" name="role-respon" value="125"/>
                     <span for="">Roles and Responsibilities are defined and documented while ensuring the team agreement on the same.</span><br/>
                     <p class="" style="margin: 8px;"></p>
                     <p>&nbsp;Please enter your comment here:</p>
                     <textarea style = "position:relative; left:5px;" name="role-respon-comment" rows="3" ></textarea>
-=======
-                    <input type="radio" id="" name="role_respon" value="125" <%= teamData?.role_respon == 125 ? 'checked' : '' %>/>
-                    <span for="">Roles and Responsibilities are defined and documented while ensuring the team agreement on the same.</span><br/>
-                    <p>Please enter your comment here:</p>
-                    <textarea name="role_respon_comment" rows="3" ><%= teamData?.role_respon_comment %></textarea>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                 </div>
             </div>
             <div class="question-box">
@@ -219,28 +161,18 @@
                     <span class="question-num">11</span>
                     What are the organization’s skills and knowledge enhancement plans?	
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;">
                     <input type="radio" id="" name="skill-enhance" value="0"/>
-=======
-                <div class="input-container">
-                    <input type="radio" id="" name="skill_enhance" value="0" <%= teamData?.skill_enhance == 0 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">No upskilling is required. </span><br/>
-                    <input type="radio" id="" name="skill_enhance" value="50" <%= teamData?.skill_enhance == 50 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="skill-enhance" value="50"/>
                     <span for="">Training needs are fulfilled through self-learning. </span><br/>
-                    <input type="radio" id="" name="skill_enhance" value="100" <%= teamData?.skill_enhance == 100 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="skill-enhance" value="100"/>
                     <span for="">Training plans are executed if the needs are expressed by the team members</span><br/>
-                    <input type="radio" id="" name="skill_enhance" value="120" <%= teamData?.skill_enhance == 120 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="skill-enhance" value="120"/>
                     <span for="">Training plans are executed based on the regular need assessment for teams and individuals</span><br/>
-<<<<<<< HEAD
                     <p class="" style="margin: 8px;"></p>
                     <p>&nbsp;Please enter your comment here:</p>
                     <textarea style = "position:relative; left:5px;" name="skill-enhance-comment" rows="3" ></textarea>
-=======
-                    <p>Please enter your comment here:</p>
-                    <textarea name="skill_enhance_comment" rows="3"><%= teamData?.skill_enhance_comment %></textarea>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                 </div>
             </div>
             <div class="question-box">
@@ -248,28 +180,18 @@
                     <span class="question-num">12</span>
                     How do you ensure the key skills availability in the team?
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;">
                     <input type="radio" id="" name="skill-avail" value="0"/>
-=======
-                <div class="input-container">
-                    <input type="radio" id="" name="skill_avail" value="0" <%= teamData?.skill_avail == 0 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">We’re unsure about our key skill requirements. </span><br/>
-                    <input type="radio" id="" name="skill_avail" value="75" <%= teamData?.skill_avail == 75 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="skill-avail" value="75"/>
                     <span for="">The key skills are well defined but the recruitment process has to be undertaken. </span><br/>
-                    <input type="radio" id="" name="skill_avail" value="125" <%= teamData?.skill_avail == 125 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="skill-avail" value="125"/>
                     <span for="">The key skills are well defined and the majority of the key skills are held by few individuals</span><br/>
-                    <input type="radio" id="" name="skill_avail" value="150" <%= teamData?.skill_avail == 150 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="skill-avail" value="150"/>
                     <span for="">The key skills are well defined and owned by several individuals working in different teams</span><br/>
-<<<<<<< HEAD
                     <p class="" style="margin: 8px;"></p>
                     <p>&nbsp;Please enter your comment here:</p>
                     <textarea style = "position:relative; left:5px;" name="skill-avail-comment" rows="3" ></textarea>
-=======
-                    <p>Please enter your comment here:</p>
-                    <textarea name="skill_avail_comment" rows="3"  ><%= teamData?.skill_avail_comment %></textarea>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                 </div>
             </div>
             <div class="question-box">
@@ -277,28 +199,18 @@
                     <span class="question-num">13</span>
                     What are the reward and recognition methods? 
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;">
                     <input type="radio" id="" name="reward-method" value="0"/>
-=======
-                <div class="input-container">
-                    <input type="radio" id="" name="reward_method" value="0" <%= teamData?.reward_method == 0 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">Only intangible rewards and recognition such as public appreciation is used </span><br/>
-                    <input type="radio" id="" name="reward_method" value="75" <%= teamData?.reward_method == 75 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="reward-method" value="75"/>
                     <span for="">A bonus is awarded if the team or individual goals are met.</span><br/>
-                    <input type="radio" id="" name="reward_method" value="125" <%= teamData?.reward_method == 125 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="reward-method" value="125"/>
                     <span for="">A bonus is given for meeting personal goals. </span><br/>
-                    <input type="radio" id="" name="reward_method" value="150" <%= teamData?.reward_method == 150 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="reward-method" value="150"/>
                     <span for="">A bonus is paid if personal goals are met, and key employees own equity in the company.</span><br/>
-<<<<<<< HEAD
                     <p class="" style="margin: 8px;"></p>
                     <p>&nbsp;Please enter your comment here:</p>
                     <textarea style = "position:relative; left:5px;" name="reward-method-comment" rows="3" ></textarea>
-=======
-                    <p>Please enter your comment here:</p>
-                    <textarea name="reward_method_comment" rows="3" ><%= teamData?.reward_method_comment %></textarea>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                 </div>
             </div>
             <div class="question box">
@@ -307,11 +219,7 @@
                     How do you position yourself as an employer in the job market? 
                 </p>
                 <div class="input-container">
-<<<<<<< HEAD
                     <textarea style = "position:relative; left:30px;" name="your-market-position" rows="3" ></textarea>
-=======
-                    <textarea name="your_market_position" rows="3"><%= teamData?.your_market_position %></textarea>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                 </div>
                 <p class="" style="margin: 9px;"></p>
             </div>
@@ -320,15 +228,10 @@
                     <span class="question-num">15</span>
                     Does your company have a mentor(s)?    
                 </p>
-<<<<<<< HEAD
                 <div class="input-container" style = "position:relative; left:27px;">
                     <input type="radio" id="" name="have-mentor" value="100"/>
-=======
-                <div class="input-container">
-                    <input type="radio" id="" name="have_mentor" value="100" <%= teamData?.have_mentor == 100 ? 'checked' : '' %>/>
->>>>>>> 83a16c26ab186c603ba8a4d449fc3ee709c30049
                     <span for="">Yes</span><br/>
-                    <input type="radio" id="" name="have_mentor" value="0" <%= teamData?.have_mentor == 0 ? 'checked' : '' %>/>
+                    <input type="radio" id="" name="have-mentor" value="0"/>
                     <span for="">No</span><br/>
                 </div>
                 <!-- table left -->
