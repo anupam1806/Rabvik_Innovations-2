@@ -10,14 +10,14 @@
             <a href="/questionnaire/legal" class="question-link">Legal</a>
             <a href="/questionnaire/market" class="question-link">Market</a>
         </div>
-        <form action="" class="form">
+        <form action="/questionnaire/legal" method="POST" class="form">
             <div class="question-box">
                 <p class="question-para">
                     <span class="question-num">1</span>
                     Company Started in               
                 </p>
                 <div class="input-container" >
-                    <input type="date" name="company-start-date">
+                    <input type="date" name="company_start_date" value="<%= legalData?.company_start_date %>">
                 </div>
             </div>
             <div class="question box">
@@ -26,9 +26,9 @@
                     Has a legal entity been incorporated? 
                 </p>
                 <div class="input-container">
-                    <input type="radio" id="" name="legal-entity" value="100"/>
+                    <input type="radio" id="" name="legal_entity" value="100" <%= legalData?.legal_entity == 100 ? 'checked' : ''%>/>
                     <span for="">Yes</span><br/>
-                    <input type="radio" id="" name="legal-entity" value="0"/>
+                    <input type="radio" id="" name="legal_entity" value="0" <%= legalData?.legal_entity == 0 ? 'checked' : ''%>/>
                     <span for="">No</span><br/>
                 </div>
                 <!-- year of incorporation left -->
@@ -40,7 +40,7 @@
                     Company Identification Number (CIN)           
                 </p>
                 <div class="input-container" >
-                    <input type="number" name="cin" placeholder="21 digit CIN number">
+                    <input type="number" name="cin" min="0" placeholder="21 digit CIN number" value="<%=legalData?.cin %>">
                 </div>
             </div>
             <div class="question box">
@@ -49,9 +49,9 @@
                     Does the company have external legal advisors?	
                 </p>
                 <div class="input-container">
-                    <input type="radio" id="" name="ext-advisor" value="100"/>
+                    <input type="radio" id="" name="ext_advisor" value="100" <%= legalData?.ext_advisor == 100 ? 'checked' : ''%>/>
                     <span for="">Yes</span><br/>
-                    <input type="radio" id="" name="ext-advisor" value="0"/>
+                    <input type="radio" id="" name="ext_advisor" value="0" <%= legalData?.ext_advisor == 0 ? 'checked' : ''%>/>
                     <span for="">No</span><br/>
                 </div>
             </div>
@@ -61,15 +61,15 @@
                     Which kind of Intellectual Property (IP) applies to the product/service?            
                 </p>
                 <div class="input-container">
-                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <input type="radio" id="" name="kind_of_ip" value="" <%= legalData?.kind_of_ip == 0 ? 'checked' : ''%>/>
                     <span for="">Trade Secrets</span><br/>
-                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <input type="radio" id="" name="kind_of_ip" value="" <%= legalData?.kind_of_ip == 0 ? 'checked' : ''%>/>
                     <span for="">Trademark and/or domain names</span><br/>
-                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <input type="radio" id="" name="kind_of_ip" value="" <%= legalData?.kind_of_ip == 0 ? 'checked' : ''%>/>
                     <span for="">Copyright</span><br/>
-                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <input type="radio" id="" name="kind_of_ip" value="" <%= legalData?.kind_of_ip == 0 ? 'checked' : ''%>/>
                     <span for="">Patent</span><br/>
-                    <input type="radio" id="" name="kink-of-ip" value=""/>
+                    <input type="radio" id="" name="kind_of_ip" value="" <%= legalData?.kind_of_ip == 0 ? 'checked' : ''%>/>
                     <span for="">Other</span><br/>
                 </div>
             </div>
@@ -79,13 +79,13 @@
                     What is your current IP status?            
                 </p>
                 <div class="input-container">
-                    <input type="radio" id="" name="ip-status" value="0"/>
+                    <input type="radio" id="" name="ip_status" value="0" <%= legalData?.ip_status == 0 ? 'checked' : ''%>/>
                     <span for="">Not applicable</span><br/>
-                    <input type="radio" id="" name="ip-status" value="75"/>
+                    <input type="radio" id="" name="ip_status" value="75" <%= legalData?.ip_status == 75 ? 'checked' : ''%>/>
                     <span for="">IP approval is awaited</span><br/>
-                    <input type="radio" id="" name="ip-status" value="125"/>
+                    <input type="radio" id="" name="ip_status" value="125" <%= legalData?.ip_status == 125 ? 'checked' : ''%>/>
                     <span for="">IP protection secured at the regional level</span><br/>
-                    <input type="radio" id="" name="ip-status" value="150"/>
+                    <input type="radio" id="" name="ip_status" value="150" <%= legalData?.ip_status == 150 ? 'checked' : ''%>/>
                     <span for="">IP protection secured at the global level</span><br/>
                 </div>
             </div>
