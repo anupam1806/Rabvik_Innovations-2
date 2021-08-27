@@ -9,14 +9,14 @@
             <a href="/questionnaire/legal" class="question-link">Legal</a>
             <a href="/questionnaire/market" class="question-link">Market</a>
         </div>
-        <form action="" class="form">
+        <form action="/questionnaire/market" method="POST" class="form">
             <div class="question-box">
                 <p class="question-para">
                     <span class="question-num">1</span>
                     What is the current size of your Total Addressable Market (TAM), in monetary terms?	
                 </p>
                 <div class="input-container" >
-                    <input name="tam-size" type="number" min="0" />
+                    <input name="tam_size" type="number" min="0" value="<%= marketData?.tam_size %>" />
                 </div>
                 <span class="info-text" style="color: #828282; font-weight: 600; font-style: italic;">
                     *TAM:Value of the potential customers all over the world with the need the company is addressing
@@ -28,7 +28,7 @@
                     What is the annual growth rate of this market?
                 </p>
                 <div class="input-container" >
-                    <input name="growth-rate" type="number" min="0" placeholder="percentage" />
+                    <input name="growth_rate" type="number" min="0" placeholder="percentage" value="<%= marketData?.growth_rate %>" />
                 </div>
             </div>
     
@@ -38,15 +38,15 @@
                     <span class="question-num">3</span>
                     How high are the barriers to entry of the market the company is targeting for potential competitors?	            </p>
                 <div class="input-container">
-                    <input type="radio" id="" name="entry-barrier" value="150"/>
+                    <input type="radio" id="" name="entry_barrier" value="150" <%= marketData?.entry_barrier == 150 ? 'checked' : '' %>/>
                     <span for="">Very low</span><br/>
-                    <input type="radio" id="" name="entry-barrier" value="125"/>
+                    <input type="radio" id="" name="entry_barrier" value="125" <%= marketData?.entry_barrier == 125 ? 'checked' : '' %>/>
                     <span for="">Low</span><br/>
-                    <input type="radio" id="" name="entry-barrier" value="100"/>
+                    <input type="radio" id="" name="entry_barrier" value="100" <%= marketData?.entry_barrier == 100 ? 'checked' : '' %>/>
                     <span for="">Modest</span><br/>
-                    <input type="radio" id="" name="entry-barrier" value="50"/>
+                    <input type="radio" id="" name="entry_barrier" value="50" <%= marketData?.entry_barrier == 50 ? 'checked' : '' %>/>
                     <span for="">High</span><br/>
-                    <input type="radio" id="" name="entry-barrier" value="25"/>
+                    <input type="radio" id="" name="entry_barrier" value="25" <%= marketData?.entry_barrier == 25 ? 'checked' : '' %>/>
                     <span for="">Very High</span><br/>
                 </div>
             </div>
@@ -55,15 +55,15 @@
                     <span class="question-num">4</span>
                         How would you define the level of competition in your targeted market?
                     <div class="input-container">
-                        <input type="radio" id="" name="competition-level" value="25"/>
+                        <input type="radio" id="" name="competition_level" value="25" <%= marketData?.competition_level == 25 ? 'checked' : '' %>/>
                         <span for="">Dominated by a single player</span><br/>
-                        <input type="radio" id="" name="competition-level" value="50"/>
+                        <input type="radio" id="" name="competition_level" value="50" <%= marketData?.competition_level == 50 ? 'checked' : '' %>/>
                         <span for="">Dominated by several players</span><br/>
-                        <input type="radio" id="" name="competition-level" value="75"/>
+                        <input type="radio" id="" name="competition_level" value="75" <%= marketData?.competition_level == 75 ? 'checked' : '' %>/>
                         <span for="">Many small players</span><br/>
-                        <input type="radio" id="" name="competition-level" value="100"/>
+                        <input type="radio" id="" name="competition_level" value="100" <%= marketData?.competition_level == 100 ? 'checked' : '' %>/>
                         <span for="">Some small players</span><br/>
-                        <input type="radio" id="" name="competition-level" value="125"/>
+                        <input type="radio" id="" name="competition_level" value="125" <%= marketData?.competition_level == 125 ? 'checked' : '' %>/>
                         <span for="">Blue ocean (negligible competition)</span><br/>
                 </div>
             </div>
@@ -72,11 +72,11 @@
                     <span class="question-num">5</span>
                         Existing competitive products/services are:
                     <div class="input-container">
-                        <input type="radio" id="" name="competitive-service" value="50"/>
+                        <input type="radio" id="" name="competitive_service" value="50" <%= marketData?.competitive_service == 50 ? 'checked' : '' %>/>
                         <span for="">Excellent</span><br/>
-                        <input type="radio" id="" name="competitive-service" value="100"/>
+                        <input type="radio" id="" name="competitive_service" value="100" <%= marketData?.competitive_service == 100 ? 'checked' : '' %>/>
                         <span for="">Good</span><br/>
-                        <input type="radio" id="" name="competitive-service" value="125"/>
+                        <input type="radio" id="" name="competitive_service" value="125" <%= marketData?.competitive_service == 125 ? 'checked' : '' %>/>
                         <span for="">Weak</span><br/>  
                 </div>
             </div>
@@ -85,13 +85,13 @@
                     <span class="question-num">6</span>
                         How would you define your product/service compared to the ones of existing competitors?	
                     <div class="input-container">
-                        <input type="radio" id="" name="your-service" value="75"/>
+                        <input type="radio" id="" name="your_service" value="75" <%= marketData?.your_service == 75 ? 'checked' : '' %>/>
                         <span for="">Comparable</span><br/>
-                        <input type="radio" id="" name="your-service" value="100"/>
+                        <input type="radio" id="" name="your_service" value="100" <%= marketData?.your_service == 100 ? 'checked' : '' %>/>
                         <span for="">Comparable, but we innovate in terms of marketing proposition/USP</span><br/>
-                        <input type="radio" id="" name="your-service" value="125"/>
+                        <input type="radio" id="" name="your_service" value="125" <%= marketData?.your_service == 125 ? 'checked' : '' %>/>
                         <span for="">Comparable, but radically innovative in terms of execution (e.g. costs, manufacturing, etc.)</span><br/>  
-                        <input type="radio" id="" name="your-service" value="150"/>
+                        <input type="radio" id="" name="your_service" value="150" <%= marketData?.your_service == 150 ? 'checked' : '' %>/>
                         <span for="">Current products solve the same needs with a non comparable solution</span><br/>
                 </div>
             </div>
@@ -101,16 +101,16 @@
                     <span class="question-num">7</span>
                         Have you already tested the customer demand?
                     <div class="input-container">
-                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                        <input type="radio" id="" name="test_customer_demand" value="" <%= marketData?.test_customer_demand == 150 ? 'checked' : '' %>/>
                         <span for="">No, not yet</span><br/>
-                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                        <input type="radio" id="" name="test_customer_demand" value="" <%= marketData?.test_customer_demand == 150 ? 'checked' : '' %>/>
                         <span for="">Not tested yet, but comparable products (e.g. in the domestic market / foreign countries) were successful</span><br/>
-                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                        <input type="radio" id="" name="test_customer_demand" value="" <%= marketData?.test_customer_demand == 150 ? 'checked' : '' %>/>
                         <span for="">Yes, we have tested possible customer demand and have not generated initial product revenues yet</span><br/>  
-                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                        <input type="radio" id="" name="test_customer_demand" value="" <%= marketData?.test_customer_demand == 150 ? 'checked' : '' %>/>
                         <span for="">Yes, we have tested possible customer demand and have generated product revenues
                         </span><br/>  
-                        <input type="radio" id="" name="test-customer-demand" value=""/>
+                        
                     </div>
             </div>
             <div class="question box">
@@ -118,15 +118,15 @@
                     <span class="question-num">8</span>
                         How is the average trend of feedback received so far from early adopters/industry experts?
                     <div class="input-container">
-                        <input type="radio" id="" name="feedback" value=""/>
+                        <input type="radio" id="" name="feedback" value="" <%= marketData?.feedback == 150 ? 'checked' : '' %>/>
                         <span for="">Mainly negative</span><br/>
-                        <input type="radio" id="" name="feedback" value=""/>
+                        <input type="radio" id="" name="feedback" value="" <%= marketData?.feedback == 150 ? 'checked' : '' %>/>
                         <span for="">Fairly negative</span><br/>
-                        <input type="radio" id="" name="feedback" value=""/>
+                        <input type="radio" id="" name="feedback" value="" <%= marketData?.feedback == 150 ? 'checked' : '' %>/>
                         <span for="">Fairly positive</span><br/>  
-                        <input type="radio" id="" name="feedback" value=""/>
+                        <input type="radio" id="" name="feedback" value="" <%= marketData?.feedback == 150 ? 'checked' : '' %>/>
                         <span for="">Mainly positive</span><br/>  
-                        <input type="radio" id="" name="feedback" value=""/>
+                        <input type="radio" id="" name="feedback" value="" <%= marketData?.feedback == 150 ? 'checked' : '' %>/>
                         <span for="">All positive</span><br/>  
                 </div>
             </div>
@@ -135,13 +135,13 @@
                     <span class="question-num">9</span>
                         How would you define the degree of loyalty of your customers?
                     <div class="input-container">
-                        <input type="radio" id="" name="customer-loyalty" value=""/>
+                        <input type="radio" id="" name="customer_loyalty" value="" <%= marketData?.customer_loyalty == 150 ? 'checked' : '' %>/>
                         <span for="">Still to be tested or under testing</span><br/>
-                        <input type="radio" id="" name="customer-loyalty" value=""/>
+                        <input type="radio" id="" name="customer_loyalty" value="" <%= marketData?.customer_loyalty == 150 ? 'checked' : '' %>/>
                         <span for="">Low retention: the business model requires time to develop higher retention</span><br/>
-                        <input type="radio" id="" name="customer-loyalty" value=""/>
+                        <input type="radio" id="" name="customer_loyalty" value="" <%= marketData?.customer_loyalty == 150 ? 'checked' : '' %>/>
                         <span for="">Average retention: already at a good level and can be further improved</span><br/>  
-                        <input type="radio" id="" name="customer-loyalty" value=""/>
+                        <input type="radio" id="" name="customer_loyalty" value="" <%= marketData?.customer_loyalty == 150 ? 'checked' : '' %>/>
                         <span for="">High retention: high level of loyalty already developed with customers</span><br/>  
                 </div>
             </div>
@@ -150,15 +150,15 @@
                     <span class="question-num">10</span>
                         How strong are the relationships with key strategic partners (including distributors, suppliers)?
                     <div class="input-container">
-                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <input type="radio" id="" name="partner_relation" value="" <%= marketData?.partner_relation == 150 ? 'checked' : '' %>/>
                         <span for="">No partners contacted so far</span><br/>
-                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <input type="radio" id="" name="partner_relation" value="" <%= marketData?.partner_relation == 150 ? 'checked' : '' %>/>
                         <span for="">We identified and contacted them</span><br/>
-                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <input type="radio" id="" name="partner_relation" value="" <%= marketData?.partner_relation == 150 ? 'checked' : '' %>/>
                         <span for="">Informal agreements already in place</span><br/>  
-                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <input type="radio" id="" name="partner_relation" value="" <%= marketData?.partner_relation == 150 ? 'checked' : '' %>/>
                         <span for="">Contracts signed</span><br/>  
-                        <input type="radio" id="" name="partner-relation" value=""/>
+                        <input type="radio" id="" name="partner_relation" value="" <%= marketData?.partner_relation == 150 ? 'checked' : '' %>/>
                         <span for="">Contracts signed and serving high volumes</span><br/>  
                 </div>
             </div>
