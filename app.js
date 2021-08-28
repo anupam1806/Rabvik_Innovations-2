@@ -151,14 +151,9 @@ app.get('/auth/outlook/dashboard',
   });
 
 
-app.get("/user", function(req, res){
-  const email = req.session.username;
-    User.find({ username: email}, function(err, email){
-      res.render("user", {
-        username: email
-        });
-    });
-  });
+app.use("/user", require('./routes/profile-route'), function(req,res){
+  res.render("user.ejs")
+});
 
 app.get("/dashboard", function(req, res){
     res.render("dashboard",{user:req.user});
