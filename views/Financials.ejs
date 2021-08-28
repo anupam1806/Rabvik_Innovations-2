@@ -1,7 +1,7 @@
 <%- include('partials/header') %>
 <%- include('partials/SideBar') %>
       <!-- End Navbar -->
-        <div class="content">
+        <div class="content container">
           <div class="data">
             <table class="table">
               <thead class="thead-dark">
@@ -15,223 +15,84 @@
                   </tr>
               </thead>
               <tbody>
+                <% tableData.forEach(function(data, indx){ %>
                   <tr>
-                  <th scope="data">1</th>
-                  <td>Revenues</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
+                  <th scope="data"><%= indx+1 %></th>
+                  <td><%= data.topic %></td>
+                  <td><input style="outline: none; border : none; background-color: inherit;" value=<%= data["Y-1"] || "-" %> ></td>
+                  <td><input style="outline: none; border : none; background-color: inherit;" value=<%= data["Y"] || "-" %> ></td>
+                  <td><input style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+1"] || "-" %> ></td>
+                  <td><input style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+2"] || "-" %> ></td>
                   </tr>
-                  <tr>
-                  <th scope="data">2</th>
-                  <td>Cost Of Goods</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">3</th>
-                  <td>Salaries</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">4</th>
-                  <td>Operation Cost</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">5</th>
-                  <td>EBITDA</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">6</th>
-                  <td>D&A</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">7</th>
-                  <td>EBIT</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">8</th>
-                  <td>Interest</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">9</th>
-                  <td>Taxes</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">10</th>
-                  <td>Net Profit</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">11</th>
-                  <td>Recievealbles</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">12</th>
-                  <td>Inventory</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">13</th>
-                  <td>Payables</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">14</th>
-                  <td>Working Capital</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">15</th>
-                  <td>Capital Expenditures</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">16</th>
-                  <td>Debt at end of year</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">17</th>
-                  <td>Change in Outstanding Debt</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">18</th>
-                  <td>Future Funding</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
-                  <tr>
-                  <th scope="data">19</th>
-                  <td>Free Cash Flow</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  <td>-</td>
-                  </tr>
+                <% }) %>
               </tbody>
               </table>
           </div>
-          <div class="data mx-10 ">
+          <div class="data mx-10 row">
             <h2>Last Available Balance Sheet </h2>
           </div>
-            <div class="data">
-              <div class="col-6">
-                <table class="table">
-                  <thead class="thead-dark">
+            <div class="data container">
+              <div class="row">
+                <div class="col-6">
+                  <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Assests</th>
+                        <th scpoe="col"></th>
+                        </tr>
+                    </thead> 
+                    <tbody>
                       <tr>
-                      <th scope="col">Assests</th>
-                      <th scpoe="col"></th>
+                        <td>Cash and Equivalents</td>
+                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
-                  </thead> 
-                  <tbody>
-                    <tr>
-                      <td>Cash and Equivalents</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>Tangible Assets</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>Intangible Assets</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>Financial Assets</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>Differed Tax Assets</td>
-                      <td>-</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
+                      <tr>
+                        <td>Tangible Assets</td>
+                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                      </tr>
+                      <tr>
+                        <td>Intangible Assets</td>
+                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                      </tr>
+                      <tr>
+                        <td>Financial Assets</td>
+                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                      </tr>
+                      <tr>
+                        <td>Differed Tax Assets</td>
+                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
 
-              <div class="col-6">
-                <table class="table">
-                  <thead class="thead-dark">
+                <div class="col-6">
+                  <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Liabilities</th>
+                        <th scpoe="col"></th>
+                        </tr>
+                    </thead> 
+                    <tbody>
                       <tr>
-                      <th scope="col">Liabilities</th>
-                      <th scpoe="col"></th>
+                        <td>Debts Due Within one year time</td>
+                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
-                  </thead> 
-                  <tbody>
-                    <tr>
-                      <td>Debts Due Within one year time</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>Debts Due beyond one year time</td>
-                      <td>-</td>
-                    </tr>
-                    <tr>
-                      <td>Equity</td>
-                      <td>-</td>
-                    </tr>
-                  </tbody>
+                      <tr>
+                        <td>Debts Due beyond one year time</td>
+                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                      </tr>
+                      <tr>
+                        <td>Equity</td>
+                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                      </tr>
+
+                    </tbody>
+                    </table>
+                </div>
               </div>
-          
           </div>
         </div>
-
+  <div class="row"><br/></div>
 <%- include('partials/footer') %>

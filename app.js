@@ -12,6 +12,8 @@ const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
+const tableData = require('./constants') ;
+
 
 
 const app = express();
@@ -164,7 +166,7 @@ app.use('/funds' , require('./routes/funds-route')) ;
 
 
 app.get('/financial', (req,res)=>{
-  res.render("Financials" ) ;
+  res.render("Financials" , {tableData: tableData} ) ;
 })
 
 // const USER = require('./models/User');
