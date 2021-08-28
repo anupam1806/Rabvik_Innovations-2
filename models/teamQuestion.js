@@ -1,0 +1,64 @@
+const mongoose = require('mongoose');
+const TeamQuestionSchema = new mongoose.Schema({
+    userId:{
+        type:String
+    },
+    founder_num:{
+        type: Number
+    },
+    employee_num:{
+        type:Number
+    },
+    entre_exp:{
+        type:Number
+    },
+    work_together:{
+        type:Number
+    },
+    equipped_level:{
+        type:Number
+    },
+    leadership_level:{
+        type:Number
+    },
+    capital_invested:{
+        type:Number
+    },
+    founder_involve_degree:{
+        type:Number
+    },
+    company_employee:{
+        type:Number
+    },
+    role_respon:{
+        type:Number
+    },
+    role_respon_comment:{
+        type:String
+    },
+    skill_enhance:{
+        type:Number
+    },
+    skill_enhance_comment:{
+        type:String
+    },
+    skill_avail:{
+        type:Number
+    },
+    skill_avail_comment:{
+        type:String
+    },
+    reward_method:{
+        type:Number
+    },
+    reward_method_comment:{
+        type:String
+    },
+    your_market_position:{
+        type:String
+    },
+    have_mentor:{
+        type:Number
+    },
+});
+module.exports = mongoose.model('teamQuestion',TeamQuestionSchema);
