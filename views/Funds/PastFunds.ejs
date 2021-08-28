@@ -1,6 +1,11 @@
 <%- include('../partials/header') %>
 <%- include('../partials/SideBar') %>
 <style>
+    .inputs{
+        border: none ;
+        outline: none ;
+        background-color: inherit;
+    }
     .question-nav{
     width: 90%;
     margin: 10px auto;
@@ -54,14 +59,14 @@
                 </thead>
                 <tbody id="Tbody">
                     <tr>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
-                        <td>-</td>
+                        <td><input type="text" placeholder="0" class="inputs"/></td>
+                        <td><input type="text" placeholder="0" class="inputs"/></td>
+                        <td><input type="text" placeholder="0" class="inputs"/></td>
+                        <td><input type="text" placeholder="0" class="inputs"/></td>
                     </tr>
                 </tbody>
             </table>
-            <div><button class="add-button">Add+</button></div>
+            <div><button class="add-button btn btn-primary bg-dark">Add+</button></div>
         </div>
 </div>
 <script>
@@ -75,17 +80,35 @@
         if (!event.target.matches('.add-button')) return;
         event.preventDefault();
         console.log(event.target);
-        var table = document.getElementById('Tbody') ;
-        var len = table.length ; 
-        var row = table.insertRow(len-1) ;
-        var d1 = row.insertCell(0) ;
-        var d2 = row.insertCell(1) ;
-        var d3 = row.insertCell(2) ;
-        var d4 = row.insertCell(3) ;
-        d1.innerText = "-" ;
-        d2.innerText = "-" ;
-        d3.innerText = "-" ;
-        d4.innerText = "-" ;
+        let table = document.createElement('tr') ;
+        let i1 = document.createElement('input') ; 
+        let i2 = document.createElement('input') ; 
+        let i3 = document.createElement('input') ; 
+        let i4 = document.createElement('input') ; 
+        let d1 = document.createElement('td') ;
+        let d2 = document.createElement('td') ;
+        let d3 = document.createElement('td') ;
+        let d4 = document.createElement('td') ;
+
+        i1.placeholder = '0' ;
+        i2.placeholder = '0' ;
+        i3.placeholder = '0' ;
+        i4.placeholder = '0' ;
+
+        i1.classList.add('inputs') ;
+        i2.classList.add('inputs') ;
+        i3.classList.add('inputs') ;
+        i4.classList.add('inputs') ;
+
+        d1.appendChild(i1) ;
+        d2.appendChild(i2) ;
+        d3.appendChild(i3) ;
+        d4.appendChild(i4) ;
+        table.appendChild(d1) ;
+        table.appendChild(d2) ;
+        table.appendChild(d3) ;
+        table.appendChild(d4) ;
+        document.getElementById('Tbody').appendChild(table) ;
     },);
 </script>
 

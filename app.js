@@ -12,6 +12,8 @@ const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
+const tableData = require('./constants') ;
+
 
 
 const app = express();
@@ -19,7 +21,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('x-powered-by', false);
 
-mongoose.connect(process.env.MONGO_URI_LOCAL,{
+mongoose.connect(process.env.MONGO_URI,{
   useNewUrlParser: true, 
   useUnifiedTopology: true,
   useCreateIndex:true
@@ -163,7 +165,7 @@ app.use('/funds' , require('./routes/funds-route')) ;
 
 
 app.get('/financial', (req,res)=>{
-  res.render("Financials" ) ;
+  res.render("Financials" , {tableData: tableData} ) ;
 })
 
 // const USER = require('./models/User');
