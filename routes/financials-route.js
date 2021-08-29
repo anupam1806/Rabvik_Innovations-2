@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const FinancialsData = require('../models/FinancialsData') ;
-const tableData = require('./constants') ;
+const tableData = require('../constants') ;
 
 
 router.get('/financial', (req,res)=>{

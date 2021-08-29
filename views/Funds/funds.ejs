@@ -38,6 +38,7 @@
     }
 </style>
 <div class="content" style="height: 100vh;">
+    <form method="POST" action="/funds">
         <div class="question-nav">
             <a href="/funds" class="question-link" id="main">main</a>
             <a href="/funds/pastfunds" class="question-link" id="pastfunds">Past Fundings</a>
@@ -53,28 +54,34 @@
                 <tbody id="Tbody">
                     <tr>
                         <td>Product and R&amp;D</td>
-                        <td><input class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
+                        <td><input name="Product and R&D" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
                     </tr>
                     <tr>
                         <td>Sales and Marketing</td>
-                        <td><input class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
+                        <td><input name="Sales and Marketing" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
                     </tr><tr>
                         <td>Inventory</td>
-                        <td><input class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
+                        <td><input name="Inventory" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
                     </tr><tr>
                         <td>Operations</td>
-                        <td><input class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
+                        <td><input name="Operations" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
                     </tr><tr>
                         <td>Capital Expenditures</td>
-                        <td><input class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
+                        <td><input name="Capital Expenditures" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
                     </tr>
                     <tr>
                         <td>Others</td>
-                        <td><input class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="0" %> ></td>
+                        <td><input name="Others" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="0" %> ></td>
                     </tr>
                 </tbody>
             </table>
         </div>
+        <div class="row">
+            <div class="update ml-auto mr-auto">
+                <button type="submit" class="btn btn-primary btn-round">Save Changes</button>
+            </div>
+        </div>
+    </form>
 </div>
 <script>
     if(window.location.href.toString().endsWith("pastfunds")){
