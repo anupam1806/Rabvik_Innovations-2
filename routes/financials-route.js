@@ -3,11 +3,11 @@ const FinancialsData = require('../models/FinancialsData') ;
 const tableData = require('../constants') ;
 
 
-router.get('/financial', (req,res)=>{
+router.get('/', (req,res)=>{
   res.render("Financials" , {tableData: tableData} ) ;
 })
 
-router.post('/financials' , async(req,res)=>{
+router.post('/' , async(req,res)=>{
   const fetchedData = await FinancialsData.findOne({userId:req.session.user._id}) ;
   if(fetchedData){
     fetchedData.userId = req.session.user._id ;
@@ -37,7 +37,7 @@ router.post('/financials' , async(req,res)=>{
     fetchedData["Financial Assets"] = req.body['Financial Assets'] ;
     fetchedData["Differed Tax Assets"] = req.body['Differed Tax Assets'] ;
     fetchedData["Debts due within one year time"] = req.body['Debts due within one year time'] ;
-    fetchedData["Debts due beyond one year time"] = req.body['Debts due beyond one year time["Y-1"]'] ;
+    fetchedData["Debts due beyond one year time"] = req.body['Debts due beyond one year time'] ;
     fetchedData.Equity = req.body['Equity'] ;
     
     fetchedData.save() ; 
@@ -63,12 +63,13 @@ router.post('/financials' , async(req,res)=>{
       "Change in outstanding debt" : [ req.body['Change in outstanding debt["Y-1"]'],req.body['Change in outstanding debt["Y"]'],req.body['Change in outstanding debt["Y+1"]'],req.body['Change in outstanding debt["Y+2"]']] ,
       "Future Funding" : [ req.body['Future Funding["Y-1"]'],req.body['Future Funding["Y"]'],req.body['Future Funding["Y+1"]'],req.body['Future Funding["Y+2"]']] ,
       "Free cash flow" : [ req.body['Free cash flow["Y-1"]'],req.body['Free cash flow["Y"]'],req.body['Free cash flow["Y+1"]'],req.body['Free cash flow["Y+2"]']] ,
-      "Cash and equivalents" : req.body['Cash and equivalents'] ,
+      "Cash and equivalents" : req.body["Cash and Equivalents"] ,
       "Tangible Assets" : req.body['Tangible Assets'] ,
+      "Intangible Assets" : req.body['Intangible Assets'] ,
       "Financial Assets" : req.body['Financial Assets'] ,
       "Differed Tax Assets" : req.body['Differed Tax Assets'] ,
       "Debts due within one year time" : req.body['Debts due within one year time'] ,
-      "Debts due beyond one year time" : req.body['Debts due beyond one year time["Y-1"]'] ,
+      "Debts due beyond one year time" : req.body['Debts due beyond one year time'] ,
       Equity : req.body['Equity'] 
     }) ;
     newData.save() ; 

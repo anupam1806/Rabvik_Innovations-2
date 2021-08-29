@@ -68,6 +68,9 @@ const FinancialsSchema = new mongoose.Schema({
     "Tangible Assets" : {
         type : String
     },
+    "Intangible Assets" : {
+        type : String
+    },
     "Financial Assets" : {
         type : String
     },

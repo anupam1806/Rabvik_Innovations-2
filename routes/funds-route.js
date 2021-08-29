@@ -12,7 +12,19 @@ router.post('/' , async(req,res)=>{
         fetchedData["Operations"] = req.body["Operations"] ;
         fetchedData["Capital Expenditures"] = req.body["Capital Expenditures"] ;
         fetchedData["Others"] = req.body["Others"] ;
+        fetchedData.save() ; 
+    }else{
+        const newData = new Funds({
+            "Product and R&D" : req.body["Product and R&D"] ,
+            "Sales and Marketing" : req.body["Sales and Marketing"] ,
+            "Inventory" : req.body["Inventory"] ,
+            "Operations" : req.body["Operations"] ,
+            "Capital Expenditures" : req.body["Capital Expenditures"] ,
+            "Others" : req.body["Others"] 
+        });
+        newData.save() ;
     }
+    res.redirect('/funds') ;
 });
 router.get('/pastfunds' , (req,res)=>{
     res.render("./Funds/pastfunds.ejs") ;
