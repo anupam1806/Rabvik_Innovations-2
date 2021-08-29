@@ -6,82 +6,82 @@ const FinancialsSchema = new mongoose.Schema({
         required : true 
     },
     Revenues : {
-        type : [Number] 
+        type : [String] 
     },
     'Cost Of Goods' : {
-        type : [Number] 
+        type : [String] 
     },
     Salaries : {
-        type : [Number] 
+        type : [String] 
     },
     "Operation Cost" : {
-        type : [Number] 
+        type : [String] 
     },
     EBITDA : {
-        type : [Number] 
+        type : [String] 
     },
     "D&A" : {
-        type : [Number]
+        type : [String]
     },
     EBIT : {
-        type : [Number]
+        type : [String]
     },
     Interest : {
-        type : [Number]
+        type : [String]
     },
     Taxes : {
-        type : [Number]
+        type : [String]
     },
     "Net Profit" : {
-        type : [Number]
+        type : [String]
     },
     Recieveables : {
-        type : [Number]
+        type : [String]
     },
     Inventory : {
-        type : [Number]
+        type : [String]
     },
     Payables : {
-        type : [Number]
+        type : [String]
     },
     "Working Capital" : {
-        type : [Number]
+        type : [String]
     },
     "Capital Expenditures" : {
-        type : [Number]
+        type : [String]
     },
     "Debt at the end of the year" : {
-        type : [Number]
+        type : [String]
     },
     "Change in outstanding debt" : {
-        type : [Number]
+        type : [String]
     },
     "Future Funding" : {
-        type : [Number]
+        type : [String]
     },
     "Free cash flow" : {
-        type : [Number]
+        type : [String]
     },
     "Cash and equivalents" : {
-        type : [Number]
+        type : String
     },
     "Tangible Assets" : {
-        type : [Number]
+        type : String
     },
     "Financial Assets" : {
-        type : [Number]
+        type : String
     },
     "Differed Tax Assets" : {
-        type : [Number]
+        type : String
     },
     "Debts due within one year time" : {
-        type : [Number]
+        type : String
     },
     "Debts due beyond one year time" : {
-        type : [Number]
+        type : String
     },
     "Equity" : {
-        type : [Number]
+        type : String
     }
 });
 
