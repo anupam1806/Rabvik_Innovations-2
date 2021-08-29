@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
 const profileSchema = new mongoose.Schema({
+
     userId : {
-        type : String , 
+        type : String, 
+        required: true
     },
     company: {
         type: String,
@@ -21,7 +23,7 @@ const profileSchema = new mongoose.Schema({
         required: true
     },
     address: {
-        type: String,
+        type: [String],
         required: true
     },
     city: {
