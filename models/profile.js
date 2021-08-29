@@ -1,6 +1,9 @@
 const mongoose = require('mongoose');
 
 const profileSchema = new mongoose.Schema({
+    userId:{
+        type:String
+    },
     company: {
         type: String,
         required: true
