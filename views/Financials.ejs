@@ -21,10 +21,10 @@
                     <tr>
                     <th scope="data"><%= indx+1 %></th>
                     <td><%= data.topic %></td>
-                    <td><input name='<%= data.topic + "[Y-1]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y-1"] %> ></td>
-                    <td><input name='<%= data.topic + "[Y]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y"] %> ></td>
-                    <td><input name='<%= data.topic + "[Y+1]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+1"] %> ></td>
-                    <td><input name='<%= data.topic + "[Y+2]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+2"] %> ></td>
+                    <td><input name='<%= data.topic + "[Y-1]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y-1"] ? data["Y-1"] : null  %> ></td>
+                    <td><input name='<%= data.topic + "[Y]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y"] ? data["Y"] : null %> ></td>
+                    <td><input name='<%= data.topic + "[Y+1]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+1"] ? data["Y+1"] : null %> ></td>
+                    <td><input name='<%= data.topic + "[Y+2]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+2"] ? data["Y+2"] : null %> ></td>
                     </tr>
                   <% }) %>
                 </tbody>

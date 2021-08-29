@@ -5,10 +5,10 @@ const FinancialsSchema = new mongoose.Schema({
         type : String ,
         required : true 
     },
-    Revenues : {
+    "Revenues" : {
         type : [String] 
     },
-    'Cost Of Goods' : {
+    "Cost Of Goods" : {
         type : [String] 
     },
     Salaries : {
