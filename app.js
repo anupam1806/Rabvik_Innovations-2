@@ -11,6 +11,7 @@ const OutlookStrategy = require('passport-outlook').Strategy;
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
+const Profile = require('./models/profile');
 
 const tableData = require('./constants') ;
 
@@ -154,7 +155,7 @@ app.get('/auth/outlook/dashboard',
   });
 
 
-app.get("/user", function(req,res){
+app.get("/user", async(req,res)=>{
   const profileDetail = await Profile.findOne({userId:req.session.user._id});
   res.render("user")
 });
