@@ -17,7 +17,7 @@ router.get('/',async(req,res)=>{
     res.redirect('/questionnaire/generic')
 });
 router.get('/generic',async(req,res)=>{
-    const genericData = await GenericQuestion.findOne({userId:req.session.user._id});
+    const genericData = await GenericQuestion.findOne({userId:req.session.user._id}); 
     // console.log(sectorOptions);
     // res.send(genericData);
     // console.log(genericData);
@@ -31,8 +31,8 @@ router.get('/generic',async(req,res)=>{
     })
 });
 router.post('/generic',async(req,res)=>{
-    // console.log(req.body);
     const fetchedGeneric = await GenericQuestion.findOne({userId:req.session.user._id});
+    console.log(fetchedGeneric.sector) ;
     if(fetchedGeneric){
         // console.log(fetchedGeneric);
         fetchedGeneric.sector = req.body.sector || req.body.sectorInput || fetchedGeneric.sector;

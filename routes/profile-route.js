@@ -12,6 +12,7 @@ router.get("/user",async(req,res)=>{
 });
 
 router.post("/user",async(req,res)=>{
+    console.log(req.body) ;
     const profileDetail = await Profile.findOne({userId:req.session.user._id});
     if(profileDetail){
         profileDetail.company = req.body.company;
@@ -25,7 +26,7 @@ router.post("/user",async(req,res)=>{
         profileDetail.contact = req.body.contact ;
         profileDetail.img = req.body.img ;
         profileDetail.about = req.body.about ;
-        profileDetail.save();
+        await profileDetail.save();
     }else{
         const newProfile = new Profile({
             userId:req.session.user._id,
@@ -44,6 +45,7 @@ router.post("/user",async(req,res)=>{
         });
         await newProfile.save();
     }
+    res.redirect('/user') ;
 })
 
 module.exports = router;
