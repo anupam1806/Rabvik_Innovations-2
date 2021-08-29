@@ -14,17 +14,22 @@
                   <th scope="col">Forcast(Y+2)</th>
                   </tr>
               </thead>
-              <tbody>
+              <tbody id="table">
+                <form method="POST" action="/financials">
                 <% tableData.forEach(function(data, indx){ %>
                   <tr>
                   <th scope="data"><%= indx+1 %></th>
                   <td><%= data.topic %></td>
-                  <td><input style="outline: none; border : none; background-color: inherit;" value=<%= data["Y-1"] || "-" %> ></td>
-                  <td><input style="outline: none; border : none; background-color: inherit;" value=<%= data["Y"] || "-" %> ></td>
-                  <td><input style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+1"] || "-" %> ></td>
-                  <td><input style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+2"] || "-" %> ></td>
+                  <td><input name='<%= data.topic + "[Y-1]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y-1"] %> ></td>
+                  <td><input name='<%= data.topic + "[Y]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y"] %> ></td>
+                  <td><input name='<%= data.topic + "[Y+1]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+1"] %> ></td>
+                  <td><input name='<%= data.topic + "[Y+2]"%>' placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= data["Y+2"] %> ></td>
                   </tr>
                 <% }) %>
+                <div class="btn-container" >
+                <button class="submit-btn" type="submit" >Submit Your Answers</button>
+            </div>
+                </form>
               </tbody>
               </table>
           </div>
@@ -44,23 +49,23 @@
                     <tbody>
                       <tr>
                         <td>Cash and Equivalents</td>
-                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                        <td><input placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
                       <tr>
                         <td>Tangible Assets</td>
-                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                        <td><input placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
                       <tr>
                         <td>Intangible Assets</td>
-                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                        <td><input placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
                       <tr>
                         <td>Financial Assets</td>
-                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                        <td><input placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
                       <tr>
                         <td>Differed Tax Assets</td>
-                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                        <td><input placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
                     </tbody>
                   </table>
@@ -77,15 +82,15 @@
                     <tbody>
                       <tr>
                         <td>Debts Due Within one year time</td>
-                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                        <td><input placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
                       <tr>
                         <td>Debts Due beyond one year time</td>
-                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                        <td><input placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
                       <tr>
                         <td>Equity</td>
-                        <td><input style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
+                        <td><input placeholder="-" style="outline: none; border : none; background-color: inherit;" value=<%= "-" %> ></td>
                       </tr>
 
                     </tbody>
@@ -94,5 +99,7 @@
               </div>
           </div>
         </div>
-  <div class="row"><br/></div>
+        <script>
+          document.getElementById('')
+        </script>
 <%- include('partials/footer') %>

@@ -14,6 +14,7 @@ const MongoStore = require('connect-mongo')(session);
 
 const tableData = require('./constants') ;
 
+const FinancialsData = require('./models/FinancialsData') ;
 
 
 const app = express();
@@ -153,9 +154,46 @@ app.get('/auth/outlook/dashboard',
   });
 
 
-app.use("/user", require('./routes/profile-route'), function(req,res){
-  res.render("user.ejs")
+app.get("/user", function(req,res){
+  const profileDetail = await Profile.findOne({userId:req.session.user._id});
+  res.render("user")
 });
+
+app.post("/user", async(req,res)=>{
+  const profileDetail = await Profile.findOne({userId:req.session.user._id});
+    if(profileDetail){
+        profileDetail.company = req.body.company;
+        profileDetail.email = req.body.email;
+        profileDetail.fname = req.body.fname;
+        profileDetail.lname = req.body.lname ;
+        profileDetail.address = req.body.address ;
+        profileDetail.city = req.body.city ;
+        profileDetail.country = req.body.country ;
+        profileDetail.pincode = req.body.pincode ;
+        profileDetail.contact = req.body.contact ;
+        profileDetail.img = req.body.img ;
+        profileDetail.about = req.body.about ;
+        await profileDetail.save();
+    }else{
+        const newProfile = new Profile({
+            userId:req.session.user._id,
+            company:req.body.company,
+            email:req.body.email,
+            fname:req.body.fname,
+            lname:req.body.lname,
+            address:req.body.address,
+            city:req.body.city,
+            country:req.body.country,
+            pincode:req.body.pincode,
+            country:req.body.country,
+            contact:req.body.contact,
+            img:req.body.img,
+            about:req.body.about,
+        });
+        await newProfile.save();
+    }
+    res.redirect('/user') ;
+})
 
 app.get("/dashboard", function(req, res){
     res.render("dashboard",{user:req.user});
@@ -168,6 +206,45 @@ app.use('/funds' , require('./routes/funds-route')) ;
 app.get('/financial', (req,res)=>{
   res.render("Financials" , {tableData: tableData} ) ;
 })
+
+app.post('/financials' , async(req,res)=>{
+  console.log(req.body.Revenues["Y-1"]) ;
+  // const fetchedData = await FinancialsData.findOne({userId:req.session.user._id}) ;
+  // if(fetchedData){
+  //   fetchedData.userId = req.session.user._id ;
+  //   fetchedData.Revenues =[ req.body.Revenues["Y-1"] ,req.body.Revenues["Y"] ,req.body.Revenues["Y+1"] ,req.body.Revenues["Y+2"] ];
+  //   fetchedData['Cost Of Goods'] = req.body['Cost Of Goods'] ;
+  //   fetchedData.Salaries = req.body.Salaries ; 
+  //   fetchedData["Operation Cost"] = req.body["Operation Cost"] ;
+  //   fetchedData["EBITDA"] = req.body["EBITDA"] 
+  //   fetchedData["D&A"] = req.body["D&A"] ;
+  //   fetchedData["EBIT"] = req.body["EBIT"] ;
+  //   fetchedData.Interest = req.body.Interest ;
+  //   fetchedData.Taxes = req.body.Taxes ;
+  //   fetchedData["Net Profit"] = req.body["Net Profit"] ;
+  //   fetchedData.Recieveables = req.body.Recieveables ;
+  //   fetchedData.Inventory = req.body.Inventory ;
+  //   fetchedData.Payables = req.body.Payables ;
+  //   fetchedData["Working Capital"] = req.body["Working Capital"] ;
+  //   fetchedData["Capital Expenditures"] = req.body["Capital Expenditures"] ;
+  //   fetchedData["Debt at the end of the year"] = req.body["Debt at the end of the year"] ;
+  //   fetchedData["Change in outstanding debt"] = req.body["Change in outstanding debt"] ;
+  //   fetchedData["Future Funding"] = req.body["Future Funding"] ;
+  //   fetchedData["Free cash flow"] = req.body["Free cash flow"] ;
+  //   fetchedData["Cash and equivalents"] = req.body["Cash and equivalents"] ;
+  //   fetchedData["Tangible Assets"] = req.body["Tangible Assets"] ;
+  //   fetchedData["Financial Assets"] = req.body["Financial Assets"] ;
+  //   fetchedData["Differed Tax Assets"] = req.body["Differed Tax Assets"] ;
+  //   fetchedData["Debts due within one year time"] = req.body["Debts due within one year time"] ;
+  //   fetchedData["Debts due beyond one year time"] = req.body["Debts due beyond one year time"] ;
+  //   fetchedData.Equity = req.body.Equity ; 
+  //   fetchedData.save() ; 
+  // }else{
+  //   const newData = new FinancialsData(req.body) ;
+  //   newData.save() ; 
+  // }
+  res.redirect('/financial') ;
+});
 
 // const USER = require('./models/User');
 app.post("/register",async function(req, res){

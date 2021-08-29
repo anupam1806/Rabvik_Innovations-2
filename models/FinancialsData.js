@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const FinancialsSchema = new mongoose.Schema({
+    userId : {
+        type : String ,
+        required : true 
+    },
     Revenues : {
         type : [Number] 
     },
