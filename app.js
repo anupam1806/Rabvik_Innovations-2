@@ -20,7 +20,7 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('x-powered-by', false);
 
-mongoose.connect(process.env.MONGO_URI,{
+mongoose.connect(process.env.MONGO_URI_LOCAL,{
   useNewUrlParser: true, 
   useUnifiedTopology: true,
   useCreateIndex:true
