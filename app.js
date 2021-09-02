@@ -194,6 +194,8 @@ app.post("/user", async(req,res)=>{
 })
 
 app.get("/dashboard", function(req, res){
+    console.log(req.user);
+    console.log(req.session);
     res.render("dashboard",{user:req.user});
   });
 

@@ -54,6 +54,7 @@ h2{
 .question-box > *{
     margin-bottom: 1em;
 }
+
 p{
     font-weight: 500;
 }
@@ -68,19 +69,24 @@ textarea{
     width: 100%;
     max-width: 25em;
     padding: .5em;
+    margin: 2px 25px;
 }
 
-.question-box  input,
+.question-box  .input-container,
 .question-box select,
-.question-box ul{
-    margin: 2px 5px;
+.question-box ul,
+.add-btn{
+    margin: 2px 25px;
+    padding: 3px;
+}
+.input-container > input{
     padding: 3px;
 }
 ul{
     list-style: none;
 }
 .add-btn{
-    margin-left: 5px;
+   
     background: none;
     border: none;
     background: #01afba;
