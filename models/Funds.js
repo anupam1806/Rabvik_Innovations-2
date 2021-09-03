@@ -5,6 +5,9 @@ const Funds = new mongoose.Schema({
         type : String , 
         required : true 
     },
+    "totalFunds" : {
+        type : String , 
+    },
     "Product and R&D" : {
         type : String
     },
@@ -22,7 +25,24 @@ const Funds = new mongoose.Schema({
     },
     "Others" : {
         type : String
+    },
+    "Past Funds" : { 
+        type : {
+            "Equity" :{
+                type : String
+            },
+            "Capital Raised" :{
+                type : String
+            },
+            "Valuation" :{
+                type : String
+            },
+            "Closed Date" :{
+                type : String
+            }
+        }
     }
 });
+
 
 module.exports = mongoose.model('funds', Funds);

@@ -1,6 +1,16 @@
 <%- include('../partials/header') %>
 <%- include('../partials/SideBar') %>
 <style>
+    /* .input-td {
+        float: right;
+    } */
+</style>
+<style>
+    .inputs{
+        border: none ;
+        outline: none ;
+        background-color: inherit;
+    }
     .question-nav{
     width: 90%;
     margin: 10px auto;
@@ -33,62 +43,133 @@
         color: #000;
         background: #f0f0f0;
     }
-    .input-td {
-        float: right;
+    .add-button {
+        background-color: hsla(0, 0%, 100%, .1);
     }
+    .form{
+    width: 100%;
+    padding: 1em;
+    margin: 1em auto;
+    background: #fff;
+    box-shadow: 0 0 10px 5px rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
 </style>
-<div class="content" style="height: 100vh;">
-    <form method="POST" action="/funds">
-        <div class="question-nav">
-            <a href="/funds" class="question-link" id="main">main</a>
-            <a href="/funds/pastfunds" class="question-link" id="pastfunds">Past Fundings</a>
-        </div>
-        <div class="data">
-            <table class="table">
-                <thead class="thead-dark">
-                    <tr>
-                    <th scope="col">Use Of Fund</th>
-                    <th scope="col"><span class="input-td my-20">%</span></th>
-                    </tr>
-                </thead>
-                <tbody id="Tbody">
-                    <tr>
-                        <td>Product and R&amp;D</td>
-                        <td><input name="Product and R&D" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
-                    </tr>
-                    <tr>
-                        <td>Sales and Marketing</td>
-                        <td><input name="Sales and Marketing" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
-                    </tr><tr>
-                        <td>Inventory</td>
-                        <td><input name="Inventory" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
-                    </tr><tr>
-                        <td>Operations</td>
-                        <td><input name="Operations" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
-                    </tr><tr>
-                        <td>Capital Expenditures</td>
-                        <td><input name="Capital Expenditures" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> ></td>
-                    </tr>
-                    <tr>
-                        <td>Others</td>
-                        <td><input name="Others" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="0" %> ></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="row">
-            <div class="update ml-auto mr-auto">
-                <button type="submit" class="btn btn-primary btn-round">Save Changes</button>
+<div class="container form" style="margin-top: 10vh;">
+<div class="content container" style="align-items: center;" >
+    <form  method="POST" action="/funds">
+        <div class="row container">
+            <div class="form-group pb-10">
+            <label for="totalFunds">Total Funds </label>
+            <input type="text" name="totalFunds" class="form-control" id="totalFunds" placeholder="100000000">
             </div>
         </div>
-    </form>
+        <div class="data">
+            <div class="row">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Use Of Fund</th>
+                        <th scope="col"><span class="input-td my-20">%</span></th>
+                        <th scope="col">Funds</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Tbody1">
+                        <tr>
+                            <td>Product and R&amp;D</td>
+                            <td><input  id="PR" name="Product and R&D" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" > </td>
+                            <td id="PRFunds">-</td>
+                        </tr>
+                        <tr>
+                            <td>Sales and Marketing</td>
+                            <td><input name="Sales and Marketing" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" > </td>
+                            <td id="SMFunds">-</td>
+                        </tr><tr>
+                            <td>Inventory</td>
+                            <td><input name="Inventory" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" > </td>
+                            <td id="IFunds">-</td>
+                        </tr><tr>
+                            <td>Operations</td>
+                            <td><input name="Operations" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" > </td>
+                            <td id="OFunds">-</td>
+                        </tr><tr>
+                            <td>Capital Expenditures</td>
+                            <td><input name="Capital Expenditures" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="20" %> </td>
+                            <td id="CEFunds">-</td>
+                        </tr>
+                        <tr>
+                            <td>Others</td>
+                            <td><input name="Others" class="input-td" style="outline: none; border : none; background-color: inherit;" placeholder="0" %> </td>
+                            <td id="OtherFunds">-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                        <th scope="col">Equity %</th>
+                        <th scope="col">Capital Raised</th>
+                        <th scope="col">Valuation</th>
+                        <th scope="col">Closed Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="Tbody">
+                        <tr>
+                            <td><input name="Equity" type="text" placeholder="0" class="inputs"/></td>
+                            <td><input name="Capital Raised" type="text" placeholder="0" class="inputs"/></td>
+                            <td><input name="Valuation" type="text" placeholder="0" class="inputs"/></td>
+                            <td><input name="Closed Date" type="text" placeholder="0" class="inputs"/></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row"><button class="add-button btn btn-primary bg-dark">Add+</button></div>
+            </div>
+            <div class="row">
+                <div class="update ml-auto mr-auto">
+                    <button type="submit" class="btn btn-primary btn-round">Save Changes</button>
+                </div>
+            </div>   
+        </form>
+    </div>
+</div>
 </div>
 <script>
-    if(window.location.href.toString().endsWith("pastfunds")){
-        document.getElementById('pastfunds').classList.add('active-question-link') ;
-    }else if(window.location.href.toString().endsWith("funds")){
-        document.getElementById('main').classList.add('active-question-link') ;
-    }
+    document.addEventListener('click', function (event) {
+        if (!event.target.matches('.add-button')) return;
+        event.preventDefault();
+        console.log(event.target);
+        let table = document.createElement('tr') ;
+        let i1 = document.createElement('input') ; 
+        let i2 = document.createElement('input') ; 
+        let i3 = document.createElement('input') ; 
+        let i4 = document.createElement('input') ; 
+        let d1 = document.createElement('td') ;
+        let d2 = document.createElement('td') ;
+        let d3 = document.createElement('td') ;
+        let d4 = document.createElement('td') ;
+
+        i1.placeholder = '0' ;
+        i2.placeholder = '0' ;
+        i3.placeholder = '0' ;
+        i4.placeholder = '0' ;
+
+        i1.classList.add('inputs') ;
+        i2.classList.add('inputs') ;
+        i3.classList.add('inputs') ;
+        i4.classList.add('inputs') ;
+
+        d1.appendChild(i1) ;
+        d2.appendChild(i2) ;
+        d3.appendChild(i3) ;
+        d4.appendChild(i4) ;
+        table.appendChild(d1) ;
+        table.appendChild(d2) ;
+        table.appendChild(d3) ;
+        table.appendChild(d4) ;
+        document.getElementById('Tbody').appendChild(table) ;
+    },);
 </script>
 
 
