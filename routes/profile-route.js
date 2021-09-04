@@ -1,13 +1,14 @@
 const User = require('../models/User');
 const route = require('express').Router();
 route.get("/", async(req,res)=>{
-    const profileDetail = await User.findOne({userId:req.user ? req.user._id : req.session.user._id});
+    // console.log(req.user)
+    const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     console.log(profileDetail);
-    res.render("user")
+    res.render("user",{profileDetail})
   });
   
   route.post("/", async(req,res)=>{
-    const profileDetail = await Profile.findOne({userId:req.session.user._id});
+    const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
       if(profileDetail){
           profileDetail.company = req.body.company;
           profileDetail.email = req.body.email;

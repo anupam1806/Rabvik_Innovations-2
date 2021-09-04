@@ -12,12 +12,13 @@
               <div class="card-body">
                 <div class="author">
                   <a href="#">
-                    <img class="avatar border-gray" src="./assets/img/logo-small.png" alt="image">
+                    <img class="avatar border-gray" src="<%= profileDetail?.image %>" alt="image">
                     <!-- <p>image</p> -->
-                    <h5 class="title"><div class='title description printName' id='printName'>Name</div></h5>
+                    <h5 class="title"><div class='title description printName' id='printName'>
+                      <%= profileDetail?.firstName %><%= profileDetail?.lastName %></div></h5>
                   </a>
                   <p id="companyName" class="description">
-                    <div class='description printchatbox' id='printchatbox'>@company name</div>
+                    <div class='description printchatbox' id='printchatbox'>@<%= profileDetail?.companyName %></div>
                   </p>
                 </div>
                 <!-- <p class="description text-center">
@@ -117,7 +118,7 @@
                       <div class="form-group">
                         <label>Company Name</label>
                       
-                        <input id="chatinput" name="company" type="text" class="form-control workExperience" placeholder="Company" >
+                        <input id="chatinput" name="company" type="text" class="form-control workExperience" placeholder="Company" value="<%= profileDetail?.companyName %>" >
                
                       </div>
                     </div>
@@ -130,7 +131,7 @@
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Email address</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email">
+                        <input type="email" name="email" class="form-control" placeholder="Email" value="<%= profileDetail?.email %>">
                       </div>
                     </div>
                   </div>
@@ -138,13 +139,13 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input id="nameInput" name="fname" type="text" class="form-control" placeholder="">
+                        <input id="nameInput" name="fname" type="text" class="form-control" placeholder="" value="<%= profileDetail?.firstName %>">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" name="lname" class="form-control" placeholder="" value="">
+                        <input type="text" name="lname" class="form-control" placeholder="" value="<%= profileDetail?.lastName %>">
                       </div>
                     </div>
                   </div>
