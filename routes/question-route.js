@@ -17,10 +17,8 @@ router.get('/',async(req,res)=>{
     res.redirect('/questionnaire/generic')
 });
 router.get('/generic',async(req,res)=>{
-    const genericData = await GenericQuestion.findOne({userId:req.session.user._id}); 
-    // console.log(sectorOptions);
-    // res.send(genericData);
-    // console.log(genericData);
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const genericData = await GenericQuestion.findOne({userId: user_id}); 
     res.render('./questionnaire/generic-question.ejs',{
         genericData,
         sectorOptions,
@@ -31,8 +29,9 @@ router.get('/generic',async(req,res)=>{
     })
 });
 router.post('/generic',async(req,res)=>{
-    const fetchedGeneric = await GenericQuestion.findOne({userId:req.session.user._id});
-    console.log(fetchedGeneric.sector) ;
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const fetchedGeneric = await GenericQuestion.findOne({userId: user_id});
+    // console.log(fetchedGeneric.sector) ;
     if(fetchedGeneric){
         // console.log(fetchedGeneric);
         fetchedGeneric.sector = req.body.sector || req.body.sectorInput || fetchedGeneric.sector;
@@ -54,7 +53,7 @@ router.post('/generic',async(req,res)=>{
         fetchedGeneric.save();
     }else{
         const newGeneric = new GenericQuestion({
-            userId:req.session.user._id,
+            userId:user_id,
             sector : req.body.sector || req.body.sectorInput,
             business : req.body.business,
             market : req.body.market,
@@ -78,15 +77,16 @@ router.post('/generic',async(req,res)=>{
 });
 
 router.get('/business',async(req,res)=>{
-    const businessData = await BusinessQuestion.findOne({userId:req.session.user._id});
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const businessData = await BusinessQuestion.findOne({userId: user_id});
     console.log(businessData);
     res.render('./questionnaire/business-question.ejs',{
         businessData
     });
 });
 router.post('/business',async(req,res)=>{
-    const fetchedBusiness = await BusinessQuestion.findOne({userId:req.session.user._id});
-    console.log(!!fetchedBusiness);
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const fetchedBusiness = await BusinessQuestion.findOne({userId: user_id});
     if(fetchedBusiness){
         fetchedBusiness.description = req.body.description;
         fetchedBusiness.service_concept = req.body.service_concept;
@@ -98,7 +98,7 @@ router.post('/business',async(req,res)=>{
         fetchedBusiness.save();
     }else{
         const newBusiness = new BusinessQuestion({
-            userId:req.session.user._id,
+            userId:user_id,
             description:req.body.description,
             service_concept:req.body.service_concept,
             market_fit:req.body.market_fit,
@@ -112,13 +112,15 @@ router.post('/business',async(req,res)=>{
     res.redirect('/questionnaire/business')
 });
 router.get('/team',async(req,res)=>{
-    const teamData = await TeamQuestion.findOne({userId:req.session.user._id});
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const teamData = await TeamQuestion.findOne({userId: user_id});
     res.render('./questionnaire/team-question.ejs',{
         teamData
     })
 });
 router.post('/team',async(req,res)=>{
-    const fetchedTeam = await TeamQuestion.findOne({userId:req.session.user._id});
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const fetchedTeam = await TeamQuestion.findOne({userId: user_id});
     if(fetchedTeam){
         fetchedTeam.founder_num = req.body.founder_num;
         fetchedTeam.employee_num = req.body.employee_num;
@@ -141,7 +143,7 @@ router.post('/team',async(req,res)=>{
         fetchedTeam.save();
     }else{
         const newTeam = new TeamQuestion({
-            userId:req.session.user._id,
+            userId:user_id,
             founder_num : req.body.founder_num,
             employee_num : req.body.employee_num,
             entre_exp : req.body.entre_exp,
@@ -166,13 +168,15 @@ router.post('/team',async(req,res)=>{
     res.redirect('/questionnaire/team')
 });
 router.get('/legal',async(req,res)=>{
-    const legalData = await LegalQuestion.findOne({userId:req.session.user._id});
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const legalData = await LegalQuestion.findOne({userId: user_id});
     res.render('./questionnaire/legal-question.ejs',{
         legalData
     })
 });
 router.post('/legal',async(req,res)=>{
-    const fetchedLegal = await LegalQuestion.findOne({userId:req.session.user._id});
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const fetchedLegal = await LegalQuestion.findOne({userId: user_id});
     if(fetchedLegal){
         fetchedLegal.company_start_date = req.body.company_start_date;
         fetchedLegal.legal_entity = req.body.legal_entity;
@@ -183,7 +187,7 @@ router.post('/legal',async(req,res)=>{
         fetchedLegal.save();
     }else{
         const newLegal = new LegalQuestion({
-            userId:req.session.user._id,
+            userId:user_id,
             company_start_date : req.body.company_start_date,
             legal_entity : req.body.legal_entity,
             cin : req.body.cin,
@@ -196,13 +200,15 @@ router.post('/legal',async(req,res)=>{
     res.redirect('/questionnaire/legal')
 });
 router.get('/market',async(req,res)=>{
-    const marketData = await MarketQuestion.findOne({userId:req.session.user._id});
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const marketData = await MarketQuestion.findOne({userId: user_id});
     res.render('./questionnaire/market-question.ejs',{
         marketData
     })
 });
 router.post('/market',async(req,res)=>{
-    const fetchedMarket = await MarketQuestion.findOne({userId:req.session.user._id});
+    const user_id = req.session.passport.user ?? req.session.user._id;
+    const fetchedMarket = await MarketQuestion.findOne({userId: user_id});
     if(fetchedMarket){
         fetchedMarket.tam_size = req.body.tam_size;
         fetchedMarket.growth_rate = req.body.growth_rate;
@@ -217,7 +223,7 @@ router.post('/market',async(req,res)=>{
         fetchedMarket.save()
     }else{
         const newMarket = new MarketQuestion({
-            userId:req.session.user._id,
+            userId:user_id,
             tam_size : req.body.tam_size,
             growth_rate : req.body.growth_rate,
             entry_barrier : req.body.entry_barrier,
