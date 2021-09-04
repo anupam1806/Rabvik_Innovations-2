@@ -17,8 +17,8 @@ router.get('/',async(req,res)=>{
     res.redirect('/questionnaire/generic')
 });
 router.get('/generic',async(req,res)=>{
-    // const user_id = req.session.passport.user ?? req.session.user._id;
-    const genericData = await GenericQuestion.findOne({userId:req.user ? req.user._id : req.session.user._id}); 
+    const user_id = req.user ? req.user._id : req.session.user._id;
+    const genericData = await GenericQuestion.findOne({userId:user_id}); 
     res.render('./questionnaire/generic-question.ejs',{
         genericData,
         sectorOptions,
@@ -29,7 +29,7 @@ router.get('/generic',async(req,res)=>{
     })
 });
 router.post('/generic',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
+    const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedGeneric = await GenericQuestion.findOne({userId: user_id});
     // console.log(fetchedGeneric.sector) ;
     if(fetchedGeneric){
@@ -77,7 +77,7 @@ router.post('/generic',async(req,res)=>{
 });
 
 router.get('/business',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
+    const user_id = req.user ? req.user._id : req.session.user._id;
     const businessData = await BusinessQuestion.findOne({userId: user_id});
     console.log(businessData);
     res.render('./questionnaire/business-question.ejs',{
@@ -85,7 +85,7 @@ router.get('/business',async(req,res)=>{
     });
 });
 router.post('/business',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
+    const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedBusiness = await BusinessQuestion.findOne({userId: user_id});
     if(fetchedBusiness){
         fetchedBusiness.description = req.body.description;
@@ -112,14 +112,14 @@ router.post('/business',async(req,res)=>{
     res.redirect('/questionnaire/business')
 });
 router.get('/team',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
+    const user_id = req.user ? req.user._id : req.session.user._id;
     const teamData = await TeamQuestion.findOne({userId: user_id});
     res.render('./questionnaire/team-question.ejs',{
         teamData
     })
 });
 router.post('/team',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
+    const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedTeam = await TeamQuestion.findOne({userId: user_id});
     if(fetchedTeam){
         fetchedTeam.founder_num = req.body.founder_num;
@@ -168,14 +168,14 @@ router.post('/team',async(req,res)=>{
     res.redirect('/questionnaire/team')
 });
 router.get('/legal',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
+    const user_id = req.user ? req.user._id : req.session.user._id;
     const legalData = await LegalQuestion.findOne({userId: user_id});
     res.render('./questionnaire/legal-question.ejs',{
         legalData
     })
 });
 router.post('/legal',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
+    const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedLegal = await LegalQuestion.findOne({userId: user_id});
     if(fetchedLegal){
         fetchedLegal.company_start_date = req.body.company_start_date;
@@ -200,14 +200,14 @@ router.post('/legal',async(req,res)=>{
     res.redirect('/questionnaire/legal')
 });
 router.get('/market',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
+    const user_id = req.user ? req.user._id : req.session.user._id;
     const marketData = await MarketQuestion.findOne({userId: user_id});
     res.render('./questionnaire/market-question.ejs',{
         marketData
     })
 });
 router.post('/market',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
+    const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedMarket = await MarketQuestion.findOne({userId: user_id});
     if(fetchedMarket){
         fetchedMarket.tam_size = req.body.tam_size;
