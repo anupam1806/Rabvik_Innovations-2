@@ -1,7 +1,8 @@
-const Profile = require('../models/profile');
+const User = require('../models/User');
 const route = require('express').Router();
 route.get("/", async(req,res)=>{
-    const profileDetail = await Profile.findOne({userId:req.user ? req.user._id : req.session.user._id});
+    const profileDetail = await User.findOne({userId:req.user ? req.user._id : req.session.user._id});
+    console.log(profileDetail);
     res.render("user")
   });
   

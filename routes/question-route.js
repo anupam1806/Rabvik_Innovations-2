@@ -17,8 +17,8 @@ router.get('/',async(req,res)=>{
     res.redirect('/questionnaire/generic')
 });
 router.get('/generic',async(req,res)=>{
-    const user_id = req.session.passport.user ?? req.session.user._id;
-    const genericData = await GenericQuestion.findOne({userId: user_id}); 
+    // const user_id = req.session.passport.user ?? req.session.user._id;
+    const genericData = await GenericQuestion.findOne({userId:req.user ? req.user._id : req.session.user._id}); 
     res.render('./questionnaire/generic-question.ejs',{
         genericData,
         sectorOptions,
