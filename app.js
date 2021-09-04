@@ -151,131 +151,22 @@ app.get('/auth/outlook/dashboard',
     res.redirect('/dashboard');
   });
 
+const {isAuthenticated} = require('./config/ensureAuth');
 
-app.get("/user", async(req,res)=>{
-  const profileDetail = await Profile.findOne({userId:req.user ? req.user._id : req.session.user._id});
-  res.render("user")
-});
-
-app.post("/user", async(req,res)=>{
-  const profileDetail = await Profile.findOne({userId:req.session.user._id});
-    if(profileDetail){
-        profileDetail.company = req.body.company;
-        profileDetail.email = req.body.email;
-        profileDetail.fname = req.body.fname;
-        profileDetail.lname = req.body.lname ;
-        profileDetail.address = req.body.address ;
-        profileDetail.city = req.body.city ;
-        profileDetail.country = req.body.country ;
-        profileDetail.pincode = req.body.pincode ;
-        profileDetail.contact = req.body.contact ;
-        profileDetail.img = req.body.img ;
-        profileDetail.about = req.body.about ;
-        await profileDetail.save();
-    }else{
-        const newProfile = new Profile({
-            userId:req.session.user._id,
-            company:req.body.company,
-            email:req.body.email,
-            fname:req.body.fname,
-            lname:req.body.lname,
-            address:req.body.address,
-            city:req.body.city,
-            country:req.body.country,
-            pincode:req.body.pincode,
-            country:req.body.country,
-            contact:req.body.contact,
-            img:req.body.img,
-            about:req.body.about,
-        });
-        await newProfile.save();
-    }
-    res.redirect('/user') ;
-})
-
-app.get("/dashboard", function(req, res){
-    console.log(req.user);
-    console.log(req.session);
+app.get("/dashboard",isAuthenticated,function(req, res){
     res.render("dashboard",{user:req.user});
   });
 
-app.use('/questionnaire', require('./routes/question-route'));
-app.use('/funds' , require('./routes/funds-route')) ;
-app.use('/financial' , require('./routes/financials-route')) ;
+app.use('/questionnaire',isAuthenticated,require('./routes/question-route'));
+app.use('/funds',isAuthenticated ,require('./routes/funds-route')) ;
+app.use('/financial',isAuthenticated,require('./routes/financials-route')) ;
+app.use('/user',isAuthenticated,require('./routes/profile-route')) ;
 
-// const USER = require('./models/User');
-app.post("/register",async function(req, res){
-  let registerErrors = [];
-  const {username,password,conf_password}=req.body;
-  if(!username || !password || !conf_password){
-    registerErrors.push({msg:'Fill the empty field !'})
-  }
-  if(password.length < 8){
-    registerErrors.push({msg:'Password must be 8 character !'})
-  }
-  if(password !== conf_password){
-    registerErrors.push({msg:'Password not matched !'})
-  }
-  if(registerErrors.length > 0){
-    res.render('landing',{registerErrors})
-  }
-  else{
-    const fetchUser = await User.findOne({ username: username });
-    if (fetchUser) {
-      registerErrors.push({msg:`${username} is already exist !`});
-      res.render('landing', { registerErrors, username });
-    }else{
-      const salt = await bcrypt.genSalt(10);
-      const hashedPass = await bcrypt.hash(password,salt);
-      const newUser = await new User({
-        username:username,
-        password:hashedPass
-      });
-      await newUser.save();
-      req.session.user = newUser;
-      console.log(req.session);
-      res.redirect('/dashboard');
-    }
-}
-});
+app.post("/register",require('./routes/auth-route').registerController);
 
-app.post("/login",async function(req, res){
-  let loginErrors = [];
-  const {username,password}=req.body;
-  if(!username || !password){
-    loginErrors.push({msg:'Fill the empty field !'})
-  }
-  if(password.length < 8){
-    loginErrors.push({msg:'Password must be 8 character !'})
-  }
-  if(loginErrors.length > 0){
-    res.render('landing',{loginErrors})
-  }
-  else{
-    const fetchUser = await User.findOne({ username: username });
-        if (!fetchUser) {
-          loginErrors.push({msg:`${username} is not registered yet !`});
-          res.render('landing', { loginErrors, username });
-        }
-        else {
-            const validPass = await bcrypt.compare(password, fetchUser.password);
-            if (!validPass) {
-              loginErrors.push({msg:'Check ur password !'});
-              res.render('landing', { loginErrors, username });
-            }
-            else {
-                req.session.user = fetchUser;
-                console.log(req.session);
-                res.redirect('/dashboard');
-            }
-        }
-  }
-});
+app.post("/login",require('./routes/auth-route').loginController);
 
-app.get("/logout", function(req, res){
-  req.logout();
-  res.redirect("/");
-});
+app.get("/logout", require('./routes/auth-route').logoutController);
 
 
 

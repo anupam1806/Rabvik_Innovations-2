@@ -28,6 +28,20 @@
 <body>
 
   <header id="header" class="header fixed-top">
+    <% if(typeof registerErrors !='undefined' ){ %>
+      <% registerErrors.forEach(function(err){ %>
+          <div class="alert alert-warning container" role="alert">
+              <%= err.msg %><br>
+          </div>
+          <% }) %>
+              <% } %>
+    <% if(typeof loginErrors !='undefined' ){ %>
+      <% loginErrors.forEach(function(err){ %>
+          <div class="alert alert-warning container" role="alert">
+              <%= err.msg %><br>
+          </div>
+          <% }) %>
+              <% } %>
     <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center">
@@ -43,6 +57,7 @@
       </nav>
 
     </div>
+    
   </header>
 
   
@@ -61,13 +76,7 @@
       <!--Body-->
       <div class="modal-body mx-4">
         <!--Body-->
-        <% if(typeof loginErrors !='undefined' ){ %>
-          <% loginErrors.forEach(function(err){ %>
-              <div class="alert alert-warning" role="alert">
-                  <%= err.msg %><br>
-              </div>
-              <% }) %>
-                  <% } %>
+        
         <form class="" action="/login" method="post">
         <div class="md-form mb-3">
           <label data-error="wrong" data-success="right" for="Form-email1">Company ID or Email <span style="color: red;">*</span></label>
@@ -123,13 +132,7 @@
       <!--Body-->
       <div class="modal-body mx-4">
         <!--Body-->
-        <% if(typeof registerErrors !='undefined' ){ %>
-          <% registerErrors.forEach(function(err){ %>
-              <div class="alert alert-warning" role="alert">
-                  <%= err.msg %><br>
-              </div>
-              <% }) %>
-                  <% } %>
+        
         <form class="" action="/register" method="post">
         <div class="md-form mb-3">
           <label data-error="wrong" data-success="right" for="Form-email1">Work email address <span style="color: red;">*</span></label>
