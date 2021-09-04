@@ -11,7 +11,7 @@ const OutlookStrategy = require('passport-outlook').Strategy;
 const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-const Profile = require('./models/profile');
+
 
 
 
@@ -152,6 +152,8 @@ app.get('/auth/outlook/dashboard',
   });
 
 const {isAuthenticated} = require('./config/ensureAuth');
+
+
 
 app.get("/dashboard",isAuthenticated,function(req, res){
     res.render("dashboard",{user:req.user});
