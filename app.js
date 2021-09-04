@@ -153,7 +153,7 @@ app.get('/auth/outlook/dashboard',
 
 
 app.get("/user", async(req,res)=>{
-  const profileDetail = await Profile.findOne({userId:req.session.user._id});
+  const profileDetail = await Profile.findOne({userId:req.user ? req.user._id : req.session.user._id});
   res.render("user")
 });
 
