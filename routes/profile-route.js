@@ -18,13 +18,13 @@ const upload = multer({storage});
 route.get("/", async(req,res)=>{
     // console.log(req.user)
     const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
-    console.log(profileDetail);
+    // console.log(profileDetail);
     res.render("user",{profileDetail})
   });
   
   route.post("/", upload.single('file'),async(req,res)=>{
-    console.log(req.file);
-    console.log(req.body);
+    // console.log(req.file);
+    // console.log(req.body);
     const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
       profileDetail.companyName = req.body.companyName || profileDetail.companyName;
       profileDetail.email = req.body.email || profileDetail.email;

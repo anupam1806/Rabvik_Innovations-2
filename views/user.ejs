@@ -12,7 +12,7 @@
               <div class="card-body">
                 <div class="author">
                   <a href="#">
-                    <img class="avatar border-gray" src="<%= profileDetail?.logo %>" alt="image">
+                    <img class="avatar border-gray" src="<%= profileDetail?.logo %>" alt="image" style="object-fit: cover;">
                     <!-- <p>image</p> -->
                     <h5 class="title">
                       <span class='printName' id='printFirstName'><%= profileDetail?.firstName %></span>
@@ -155,9 +155,9 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Address</label>
-                        <input type="text" name="address" class="form-control" placeholder="Home Address"><br>
-                        <input type="text" name="address" class="form-control" placeholder=""><br>
-                        <input type="text" name="address" class="form-control" placeholder="">
+                        <input type="text" name="address" class="form-control" placeholder="Home Address" value="<%= profileDetail?.address[0] %>"><br>
+                        <input type="text" name="address" class="form-control" placeholder="" value="<%= profileDetail?.address[1] %>"><br>
+                        <input type="text" name="address" class="form-control" placeholder="" value="<%= profileDetail?.address[2] %>">
                       </div>
                     </div>
                   </div>
@@ -165,26 +165,26 @@
                     <div class="col-md-4 pr-1">
                       <div class="form-group">
                         <label>City</label>
-                        <input type="text" name="city" class="form-control" placeholder="City" value="">
+                        <input type="text" name="city" class="form-control" placeholder="City" value="<%= profileDetail?.city %>">
                       </div>
                     </div>
                     <div class="col-md-4 px-1">
                       <div class="form-group">
                         <label>Country</label>
-                        <input type="text" name="country" class="form-control" placeholder="Country" value="">
+                        <input type="text" name="country" class="form-control" placeholder="Country" value="<%= profileDetail?.country %>">
                       </div>
                     </div>
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>Postal Code</label>
-                        <input type="number" name="pincode" class="form-control" placeholder="ZIP Code">
+                        <input type="number" name="pincode" class="form-control" placeholder="ZIP Code" value="<%= profileDetail?.pincode %>">
                       </div>
                     </div>
                   </div>
                   <div class="col-md-4 px-1">
                     <div class="form-group">
                       <label>Contact No.</label>
-                      <input type="number" name="contact" class="form-control" placeholder="">
+                      <input type="number" name="contact" class="form-control" placeholder="" value="<%= profileDetail?.contact %>">
                     </div>
                   </div>
                   
