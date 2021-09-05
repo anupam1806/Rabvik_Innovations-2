@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs');
-const User = require('../models/user')
+const User = require('../models/User')
 const registerController = async function(req, res){
     let registerErrors = [];
     const {username,password,conf_password}=req.body;

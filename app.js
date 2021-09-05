@@ -1,19 +1,11 @@
 require('dotenv').config({path:__dirname+'/.env'})
 const express = require("express");
-const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const passport = require("passport");
-const passportLocalMongoose = require("passport-local-mongoose");
-const findOrCreate = require('mongoose-findorcreate');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const OutlookStrategy = require('passport-outlook').Strategy;
-const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
-
-
-
+require('./config/passportConfig');
 
 const app = express();
 
@@ -33,6 +25,7 @@ const sessionStore = new MongoStore({
 });
 
 app.use(express.static("public"));
+app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true
@@ -53,85 +46,21 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-const userSchema = new mongoose.Schema({
-  email: String,
-  password: String,
-  googleId: String,
-  outlookId: String,
-  name: String,
-  profile: String,
-});
-
-userSchema.plugin(passportLocalMongoose);
-userSchema.plugin(findOrCreate);
-
-const User = new mongoose.model("User", userSchema);
-
-passport.use(User.createStrategy());
-
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-
-passport.deserializeUser(function(id, done) {
-  User.findById(id, function(err, user) {
-    done(err, user);
-  });
-});
-
-passport.use(new GoogleStrategy({
-  clientID: process.env.CLIENT_ID,
-  clientSecret: process.env.CLIENT_SECRET,
-  callbackURL: "http://localhost:3000/auth/google/dashboard",
-  // userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
-  // passReqToCallback: true
-},
-function(accessToken, refreshToken, profile, cb) {
-  User.findOrCreate({ googleId: profile.id }, function (err, user) {
-    return cb(err, user);
-  });
-}
-));
-
-passport.use(new OutlookStrategy({
-  clientID: process.env.OUTLOOK_CLIENT_ID,
-  clientSecret: process.env.OUTLOOK_CLIENT_SECRET,
-  callbackURL: 'http://localhost:3000/auth/outlook/dashboard',
-  passReqToCallback: true
-},
-function(accessToken, refreshToken, profile, done) {
-  var user = {
-    outlookId: profile.id,
-    name: profile.DisplayName,
-    email: profile.EmailAddress,
-    accessToken:  accessToken
-  };
-  if (refreshToken)
-    user.refreshToken = refreshToken;
-  if (profile.MailboxGuid)
-    user.mailboxGuid = profile.MailboxGuid;
-  if (profile.Alias)
-    user.alias = profile.Alias;
-  User.findOrCreate(user, function (err, user) {
-    return done(err, user);
-  });
-}
-));
-
 app.get("/", function(req, res){
     res.render("landing");
   });
 
 app.get('/auth/google',
-  passport.authenticate('google', { scope:
+  passport.authenticate('google',{ scope:
       [ 'email', 'profile' ] }
 ));
-app.get("/auth/google/dashboard",
-  passport.authenticate('google', { failureRedirect: "/" }),
-  function(req, res) {
-    // Successful authentication, redirect to secrets.
-    res.redirect("/dashboard");
-  });
+
+app.get('/auth/google/dashboard',
+  passport.authenticate('google',{
+      successRedirect:'/dashboard',
+      failureRedirect:'/'
+  })
+);
 
 app.get('/auth/outlook',
   passport.authenticate('windowslive', {
@@ -156,8 +85,11 @@ const {isAuthenticated} = require('./config/ensureAuth');
 
 
 app.get("/dashboard",isAuthenticated,function(req, res){
+  console.log(req.user);
     res.render("dashboard",{user:req.user});
   });
+
+  
 
 app.use('/questionnaire',isAuthenticated,require('./routes/question-route'));
 app.use('/funds',isAuthenticated ,require('./routes/funds-route')) ;
