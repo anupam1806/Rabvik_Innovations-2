@@ -21,7 +21,7 @@ passport.use(new GoogleStrategy({
                 email:profile.emails[0].value,
                 firstName:profile.name.givenName,
                 lastName:profile.name.familyName,
-                image:profile.photos[0].value,
+                logo:profile.photos[0].value,
             });
             await newUser.save();
             done(null,newUser);

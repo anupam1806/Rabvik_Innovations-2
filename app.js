@@ -1,6 +1,5 @@
 require('dotenv').config({path:__dirname+'/.env'})
 const express = require("express");
-const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
 const passport = require("passport");
@@ -26,6 +25,7 @@ const sessionStore = new MongoStore({
 });
 
 app.use(express.static("public"));
+app.use('/uploads', express.static('uploads'));
 app.use(express.json());
 app.use(express.urlencoded({
   extended: true

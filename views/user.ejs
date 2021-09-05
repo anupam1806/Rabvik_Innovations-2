@@ -12,13 +12,15 @@
               <div class="card-body">
                 <div class="author">
                   <a href="#">
-                    <img class="avatar border-gray" src="<%= profileDetail?.image %>" alt="image">
+                    <img class="avatar border-gray" src="<%= profileDetail?.logo %>" alt="image">
                     <!-- <p>image</p> -->
-                    <h5 class="title"><div class='title description printName' id='printName'>
-                      <%= profileDetail?.firstName %><%= profileDetail?.lastName %></div></h5>
+                    <h5 class="title">
+                      <span class='printName' id='printFirstName'><%= profileDetail?.firstName %></span>
+                      <span class='printName' id='printLastName'><%= profileDetail?.lastName %></span>
+                    </h5>
                   </a>
-                  <p id="companyName" class="description">
-                    <div class='description printchatbox' id='printchatbox'>@<%= profileDetail?.companyName %></div>
+                  <p class="description">
+                    <div class='description printchatbox' id='printCompanyName'>@<%= profileDetail?.companyName %></div>
                   </p>
                 </div>
                 <!-- <p class="description text-center">
@@ -106,7 +108,7 @@
           </div>
         
           <div class="col-md-8">
-          <form class="" method="POST" action="/user">
+          <form class="" method="POST" action="/user" enctype="multipart/form-data">
             <div class="card card-user">
               <div class="card-header">
                 <h5 class="card-title">Edit Profile</h5>
@@ -118,7 +120,7 @@
                       <div class="form-group">
                         <label>Company Name</label>
                       
-                        <input id="chatinput" name="company" type="text" class="form-control workExperience" placeholder="Company" value="<%= profileDetail?.companyName %>" >
+                        <input id="companyName" name="companyName" type="text" class="form-control workExperience" placeholder="Company" value="<%= profileDetail?.companyName %>" >
                
                       </div>
                     </div>
@@ -139,13 +141,13 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>First Name</label>
-                        <input id="nameInput" name="fname" type="text" class="form-control" placeholder="" value="<%= profileDetail?.firstName %>">
+                        <input id="firstName" name="firstName" type="text" class="form-control" placeholder="" value="<%= profileDetail?.firstName %>">
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Last Name</label>
-                        <input type="text" name="lname" class="form-control" placeholder="" value="<%= profileDetail?.lastName %>">
+                        <input id="lastName" type="text" name="lastName" class="form-control" placeholder="" value="<%= profileDetail?.lastName %>">
                       </div>
                     </div>
                   </div>
@@ -190,7 +192,7 @@
                     <div class="form-group">
                       <label>Company Logo</label>
                     </div>
-                    <input type="file" name="img" class="form-control" value="Browse"><br>
+                    <input type="file" name="file" class="form-control" value="Browse"><br>
                   </div>
                   <!-- <div class="col-md-6 pl-1">
                     <div class="form-group">
@@ -202,7 +204,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                         <label>Company Website (Short answer)</label>
-                        <textarea name="about" class="form-control textarea"></textarea>
+                        <input type="text" name="about" class="form-control" value="<%= profileDetail?.about %>" />
                       </div>
                     </div>
                   </div>
@@ -220,15 +222,17 @@
       </div>
 
       <script>
-          var inputBox = document.getElementById('chatinput');
-          inputBox.onkeyup = function(){
-          document.getElementById('printchatbox').innerHTML = inputBox.value;
+          let companyNameBox = document.getElementById('companyName');
+          companyNameBox.onkeyup = function(){
+            document.getElementById('printCompanyName').innerHTML = companyNameBox.value;
           }
-      </script>
-      <script>
-          var inputNameBox = document.getElementById('nameInput');
-          inputNameBox.onkeyup = function(){
-          document.getElementById('printName').innerHTML = inputNameBox.value;
+          let firstNameBox = document.getElementById('firstName');
+          firstNameBox.onkeyup = function(){
+            document.getElementById('printFirstName').innerHTML = firstNameBox.value;
+          }
+          let lastNameBox = document.getElementById('lastName');
+          lastNameBox.onkeyup = function(){
+            document.getElementById('printLastName').innerHTML = lastNameBox.value;
           }
       </script>
         

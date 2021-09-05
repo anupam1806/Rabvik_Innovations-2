@@ -21,8 +21,26 @@ const UserSchema = new mongoose.Schema({
     lastName:{
         type:String
     },
-    image:{
+    logo:{
         type:String
+    },
+    address: {
+        type: [String],
+    },
+    city: {
+        type: String,
+    },
+    country: {
+        type: String,
+    },
+    pincode: {
+        type: Number,
+    },
+    contact: {
+        type: Number,
+    },
+    about: {
+        type: String
     },
     issuedAt:{
         type:Date,
