@@ -6,7 +6,7 @@
       </div>
     </a>
     <a href="" id="emailid" class="simple-text logo-normal">
-      <%= profileDetail?.firstName %>
+      <%= typeof profileDetail?.firstName != 'undefined' ? profileDetail?.firstName : 'Company'  %>
      
     </a>
   </div>

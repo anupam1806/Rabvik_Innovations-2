@@ -4,6 +4,7 @@ const BusinessQuestion = require('../models/businessQuestion');
 const TeamQuestion = require('../models/teamQuestion');
 const LegalQuestion = require('../models/legalQuestion');
 const MarketQuestion = require('../models/marketQuestion');
+const {isAuthenticated} = require('../config/ensureAuth');
 const {
     sectorOptions,
     businessActivities,
@@ -17,7 +18,7 @@ const router = require('express').Router();
 // router.get('/',async(req,res)=>{
 //     res.redirect('/questionnaire/generic')
 // });
-router.get('/generic_questionnaire',async(req,res)=>{
+router.get('/generic_questionnaire',isAuthenticated,async(req,res)=>{
     const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     // console.log(profileDetail);
     const user_id = req.user ? req.user._id : req.session.user._id;
@@ -32,7 +33,7 @@ router.get('/generic_questionnaire',async(req,res)=>{
         profileDetail 
     })
 });
-router.post('/generic_questionnaire',async(req,res)=>{
+router.post('/generic_questionnaire',isAuthenticated,async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedGeneric = await GenericQuestion.findOne({userId: user_id});
     // console.log(fetchedGeneric.sector) ;
@@ -80,7 +81,7 @@ router.post('/generic_questionnaire',async(req,res)=>{
     res.redirect('/generic_questionnaire')
 });
 
-router.get('/business_questionnaire',async(req,res)=>{
+router.get('/business_questionnaire',isAuthenticated,async(req,res)=>{
     const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     const user_id = req.user ? req.user._id : req.session.user._id;
     const businessData = await BusinessQuestion.findOne({userId: user_id});
@@ -89,7 +90,7 @@ router.get('/business_questionnaire',async(req,res)=>{
         businessData,profileDetail
     });
 });
-router.post('/business_questionnaire',async(req,res)=>{
+router.post('/business_questionnaire',isAuthenticated,async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedBusiness = await BusinessQuestion.findOne({userId: user_id});
     if(fetchedBusiness){
@@ -116,7 +117,7 @@ router.post('/business_questionnaire',async(req,res)=>{
     }
     res.redirect('/business_questionnaire')
 });
-router.get('/team_questionnaire',async(req,res)=>{
+router.get('/team_questionnaire',isAuthenticated,async(req,res)=>{
     const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     const user_id = req.user ? req.user._id : req.session.user._id;
     const teamData = await TeamQuestion.findOne({userId: user_id});
@@ -124,7 +125,7 @@ router.get('/team_questionnaire',async(req,res)=>{
         teamData,profileDetail
     })
 });
-router.post('/team_questionnaire',async(req,res)=>{
+router.post('/team_questionnaire',isAuthenticated,async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedTeam = await TeamQuestion.findOne({userId: user_id});
     if(fetchedTeam){
@@ -173,7 +174,7 @@ router.post('/team_questionnaire',async(req,res)=>{
     }
     res.redirect('/team_questionnaire');
 });
-router.get('/legal_questionnaire',async(req,res)=>{
+router.get('/legal_questionnaire',isAuthenticated,async(req,res)=>{
     const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     const user_id = req.user ? req.user._id : req.session.user._id;
     const legalData = await LegalQuestion.findOne({userId: user_id});
@@ -181,7 +182,7 @@ router.get('/legal_questionnaire',async(req,res)=>{
         legalData,profileDetail
     })
 });
-router.post('/legal_questionnaire',async(req,res)=>{
+router.post('/legal_questionnaire',isAuthenticated,async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedLegal = await LegalQuestion.findOne({userId: user_id});
     if(fetchedLegal){
@@ -206,7 +207,7 @@ router.post('/legal_questionnaire',async(req,res)=>{
     }
     res.redirect('/legal_questionnaire')
 });
-router.get('/market_questionnaire',async(req,res)=>{
+router.get('/market_questionnaire',isAuthenticated,async(req,res)=>{
     const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     const user_id = req.user ? req.user._id : req.session.user._id;
     const marketData = await MarketQuestion.findOne({userId: user_id});
@@ -214,7 +215,7 @@ router.get('/market_questionnaire',async(req,res)=>{
         marketData,profileDetail
     })
 });
-router.post('/market_questionnaire',async(req,res)=>{
+router.post('/market_questionnaire',isAuthenticated,async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedMarket = await MarketQuestion.findOne({userId: user_id});
     if(fetchedMarket){
