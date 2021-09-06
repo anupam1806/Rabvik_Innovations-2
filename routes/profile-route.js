@@ -23,7 +23,7 @@ route.get("/", async(req,res)=>{
   });
   
   route.post("/", upload.single('file'),async(req,res)=>{
-    // console.log(req.file);
+    console.log(req.file);
     // console.log(req.body);
     const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
       profileDetail.companyName = req.body.companyName || profileDetail.companyName;

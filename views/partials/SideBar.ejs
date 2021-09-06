@@ -2,11 +2,11 @@
   <div class="logo">
     <a href="" class="simple-text logo-mini">
       <div class="logo-image-small">
-        <img src="../assets/img/logo-small.png">
+        <img src="<%= profileDetail?.logo %>" style="border-radius: 50px; width: 30px; height: 30px; object-fit: cover;">
       </div>
     </a>
     <a href="" id="emailid" class="simple-text logo-normal">
-      StartUp
+      <%= typeof profileDetail?.firstName != 'undefined' ? profileDetail?.firstName : 'Company'  %>
      
     </a>
   </div>
@@ -19,7 +19,7 @@
         </a>
       </li>
       <li id="questionnaire">
-        <a href="/questionnaire">
+        <a href="/generic_questionnaire">
           <i class="nc-icon nc-bullet-list-67"></i>
           <p>Questionnaire</p>
         </a>

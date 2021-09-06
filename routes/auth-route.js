@@ -36,6 +36,7 @@ const registerController = async function(req, res){
   };
   
 const loginController = async function(req, res){
+    console.log(req.body);
     let loginErrors = [];
     const {username,password}=req.body;
     if(!username || !password){

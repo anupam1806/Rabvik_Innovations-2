@@ -1,9 +1,10 @@
 const router = require('express').Router();
 const FinancialsData = require('../models/FinancialsData') ;
 const tableData = require('../constants') ;
-
+const User = require('../models/User');
 
 router.get('/', async (req,res)=>{
+  const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
   const fetchedData = await  FinancialsData.findOne({userId : req.session._id}) ;
   if(fetchedData){
     const table = [
@@ -141,9 +142,9 @@ router.get('/', async (req,res)=>{
       "Y+2" : fetchedData["Free cash flow"][3]  || "0"
     }
 ];
-res.render("Financials" , {tableData : table}) ;
+res.render("Financials" , {tableData : table,profileDetail}) ;
   }else{
-    res.render("Financials" , {tableData: tableData} ) ;
+    res.render("Financials" , {tableData: tableData,profileDetail} ) ;
   }
 });
 
