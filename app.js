@@ -88,7 +88,6 @@ app.get("/dashboard",isAuthenticated,async function(req, res){
     res.render("dashboard");
 });
 
-app.use('/',isAuthenticated,require('./routes/question-route'));
 app.use('/funds',isAuthenticated ,require('./routes/funds-route')) ;
 app.use('/financial',isAuthenticated,require('./routes/financials-route')) ;
 app.use('/user',isAuthenticated,require('./routes/profile-route')) ;
