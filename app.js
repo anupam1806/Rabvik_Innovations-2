@@ -82,16 +82,15 @@ app.get('/auth/outlook/dashboard',
 
 const {isAuthenticated} = require('./config/ensureAuth');
 
+const User = require('./models/User');
 
-
-app.get("/dashboard",isAuthenticated,function(req, res){
+app.get("/dashboard",isAuthenticated,async function(req, res){
+  const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
   console.log(req.user);
-    res.render("dashboard",{user:req.user});
-  });
+    res.render("dashboard",{user:req.user,profileDetail});
+});
 
-  
-
-app.use('/questionnaire',isAuthenticated,require('./routes/question-route'));
+app.use('/',isAuthenticated,require('./routes/question-route'));
 app.use('/funds',isAuthenticated ,require('./routes/funds-route')) ;
 app.use('/financial',isAuthenticated,require('./routes/financials-route')) ;
 app.use('/user',isAuthenticated,require('./routes/profile-route')) ;

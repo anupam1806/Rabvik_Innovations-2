@@ -1,3 +1,4 @@
+const User = require('../models/User');
 const GenericQuestion = require('../models/genericQuestion');
 const BusinessQuestion = require('../models/businessQuestion');
 const TeamQuestion = require('../models/teamQuestion');
@@ -13,10 +14,12 @@ const {
 const router = require('express').Router();
 
 
-router.get('/',async(req,res)=>{
-    res.redirect('/questionnaire/generic')
-});
-router.get('/generic',async(req,res)=>{
+// router.get('/',async(req,res)=>{
+//     res.redirect('/questionnaire/generic')
+// });
+router.get('/generic_questionnaire',async(req,res)=>{
+    const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
+    // console.log(profileDetail);
     const user_id = req.user ? req.user._id : req.session.user._id;
     const genericData = await GenericQuestion.findOne({userId:user_id}); 
     res.render('./questionnaire/generic-question.ejs',{
@@ -25,10 +28,11 @@ router.get('/generic',async(req,res)=>{
         businessActivities,
         marketCategory,
         devStages,
-        services 
+        services,
+        profileDetail 
     })
 });
-router.post('/generic',async(req,res)=>{
+router.post('/generic_questionnaire',async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedGeneric = await GenericQuestion.findOne({userId: user_id});
     // console.log(fetchedGeneric.sector) ;
@@ -73,18 +77,19 @@ router.post('/generic',async(req,res)=>{
     });
         newGeneric.save();
     }
-    res.redirect('/questionnaire/generic')
+    res.redirect('/generic_questionnaire')
 });
 
-router.get('/business',async(req,res)=>{
+router.get('/business_questionnaire',async(req,res)=>{
+    const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     const user_id = req.user ? req.user._id : req.session.user._id;
     const businessData = await BusinessQuestion.findOne({userId: user_id});
     console.log(businessData);
     res.render('./questionnaire/business-question.ejs',{
-        businessData
+        businessData,profileDetail
     });
 });
-router.post('/business',async(req,res)=>{
+router.post('/business_questionnaire',async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedBusiness = await BusinessQuestion.findOne({userId: user_id});
     if(fetchedBusiness){
@@ -109,16 +114,17 @@ router.post('/business',async(req,res)=>{
         });
         await newBusiness.save();
     }
-    res.redirect('/questionnaire/business')
+    res.redirect('/business_questionnaire')
 });
-router.get('/team',async(req,res)=>{
+router.get('/team_questionnaire',async(req,res)=>{
+    const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     const user_id = req.user ? req.user._id : req.session.user._id;
     const teamData = await TeamQuestion.findOne({userId: user_id});
     res.render('./questionnaire/team-question.ejs',{
-        teamData
+        teamData,profileDetail
     })
 });
-router.post('/team',async(req,res)=>{
+router.post('/team_questionnaire',async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedTeam = await TeamQuestion.findOne({userId: user_id});
     if(fetchedTeam){
@@ -165,16 +171,17 @@ router.post('/team',async(req,res)=>{
         });
         await newTeam.save();
     }
-    res.redirect('/questionnaire/team')
+    res.redirect('/team_questionnaire');
 });
-router.get('/legal',async(req,res)=>{
+router.get('/legal_questionnaire',async(req,res)=>{
+    const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     const user_id = req.user ? req.user._id : req.session.user._id;
     const legalData = await LegalQuestion.findOne({userId: user_id});
     res.render('./questionnaire/legal-question.ejs',{
-        legalData
+        legalData,profileDetail
     })
 });
-router.post('/legal',async(req,res)=>{
+router.post('/legal_questionnaire',async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedLegal = await LegalQuestion.findOne({userId: user_id});
     if(fetchedLegal){
@@ -197,16 +204,17 @@ router.post('/legal',async(req,res)=>{
         });
         await newLegal.save();
     }
-    res.redirect('/questionnaire/legal')
+    res.redirect('/legal_questionnaire')
 });
-router.get('/market',async(req,res)=>{
+router.get('/market_questionnaire',async(req,res)=>{
+    const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
     const user_id = req.user ? req.user._id : req.session.user._id;
     const marketData = await MarketQuestion.findOne({userId: user_id});
     res.render('./questionnaire/market-question.ejs',{
-        marketData
+        marketData,profileDetail
     })
 });
-router.post('/market',async(req,res)=>{
+router.post('/market_questionnaire',async(req,res)=>{
     const user_id = req.user ? req.user._id : req.session.user._id;
     const fetchedMarket = await MarketQuestion.findOne({userId: user_id});
     if(fetchedMarket){
@@ -237,7 +245,7 @@ router.post('/market',async(req,res)=>{
         });
         await newMarket.save();
     }
-    res.redirect('/questionnaire/market')
+    res.redirect('/market_questionnaire')
 });
 
 module.exports = router;

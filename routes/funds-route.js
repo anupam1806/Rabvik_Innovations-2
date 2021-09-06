@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const Funds = require('../models/Funds') ;
-router.get('/' , (req,res)=>{
-    res.render("./Funds/funds.ejs") ;
+const User = require('../models/User');
+router.get('/' , async(req,res)=>{
+    const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
+    res.render("./Funds/funds.ejs",{profileDetail}) ;
 }) ;
 router.post('/' , async(req,res)=>{
     const fetchedData = await Funds.findOne({userId : req.session.user._id}) ;
