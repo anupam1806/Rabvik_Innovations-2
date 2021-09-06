@@ -85,9 +85,7 @@ const {isAuthenticated} = require('./config/ensureAuth');
 const User = require('./models/User');
 
 app.get("/dashboard",isAuthenticated,async function(req, res){
-  const profileDetail = await User.findOne({_id:req.user ? req.user._id : req.session.user._id});
-  console.log(req.user);
-    res.render("dashboard",{user:req.user,profileDetail});
+    res.render("dashboard");
 });
 
 app.use('/',isAuthenticated,require('./routes/question-route'));
