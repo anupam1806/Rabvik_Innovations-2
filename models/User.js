@@ -22,7 +22,8 @@ const UserSchema = new mongoose.Schema({
         type:String
     },
     logo:{
-        type:String
+        type:String,
+        default:'./assets/img/default-avatar.png'
     },
     address: {
         type: [String],
