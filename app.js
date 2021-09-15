@@ -55,7 +55,7 @@ app.get('/auth/google',
       [ 'email', 'profile' ] }
 ));
 
-app.get('/auth/google/dashboard',
+app.get('/google/callback',
   passport.authenticate('google',{
       successRedirect:'/dashboard',
       failureRedirect:'/'
